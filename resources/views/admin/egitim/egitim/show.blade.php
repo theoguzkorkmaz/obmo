@@ -4,7 +4,11 @@
 {{$egitim->baslik}}
 {{$egitim->icerik}}
 {{$egitim->resim_aciklama}}
-{{$egitim->etiket}}      
+{{$egitim->etiket}}
+{{$egitim->kitle}}
+{{$egitim->kazanim}}
+{{$egitim->dokuman}}      
+{{$egitim->sss}}      
 <br>
 <img src="{{$egitim->resim ? asset('storage/'.$egitim->resim) : asset('/images/no-image.png')}}" alt="" style="width: 320px;height: 320px;"/>    
 

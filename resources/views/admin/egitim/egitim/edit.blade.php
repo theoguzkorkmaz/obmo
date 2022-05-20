@@ -53,6 +53,38 @@
     @enderror
   </div>
 
+  <div class="mb-6">
+    <label for="kitle">kitle</label>
+    <input type="text" name="kitle" value="{{$egitim->kitle}}" />
+    @error('kitle')
+      <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+    @enderror
+  </div>
+
+  <div class="mb-6">
+    <label for="kazanim">kazanim</label>
+    <input type="text" name="kazanim" value="{{$egitim->kazanim}}" />
+    @error('kazanim')
+      <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+    @enderror
+  </div>
+  
+  <div class="mb-6">
+    <label for="dokuman">dokuman</label>
+    <input type="text" name="dokuman" value="{{$egitim->dokuman}}" />
+    @error('dokuman')
+      <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+    @enderror
+  </div>
+
+  <div class="mb-6">
+    <label for="sss">sss</label>
+    <input type="text" name="sss" value="{{$egitim->sss}}" />
+    @error('sss')
+      <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+    @enderror
+  </div>
+
   <button type="submit">
       Güncelle
   </button> 

@@ -50,6 +50,38 @@
     @enderror
   </div>
 
+  <div class="mb-6">
+    <label for="kitle">kitle</label>
+    <input type="text" name="kitle" value="{{old('kitle')}}" />
+    @error('kitle')
+      <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+    @enderror
+  </div>
+
+  <div class="mb-6">
+    <label for="kazanim">kazanim</label>
+    <input type="text" name="kazanim" value="{{old('kazanim')}}" />
+    @error('kazanim')
+      <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+    @enderror
+  </div>
+  
+  <div class="mb-6">
+    <label for="dokuman">dokuman</label>
+    <input type="text" name="dokuman" value="{{old('dokuman')}}" />
+    @error('dokuman')
+      <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+    @enderror
+  </div>
+
+  <div class="mb-6">
+    <label for="sss">sss</label>
+    <input type="text" name="sss" value="{{old('sss')}}" />
+    @error('sss')
+      <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+    @enderror
+  </div>
+
   <button type="submit">
       Oluştur
   </button> 

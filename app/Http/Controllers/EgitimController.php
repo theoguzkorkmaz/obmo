@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\EgitimEgitim;
+use App\Models\EgitimIcerik;
 use App\Models\EgitimNavbar;
 use Illuminate\Http\Request;
 
@@ -20,6 +21,7 @@ class EgitimController extends Controller
         return view('egitim.egitim_detay')
             ->with('onerilers', EgitimEgitim::inRandomOrder()->limit(8)->get())
             ->with('navbars', EgitimNavbar::all())                        
-            ->with('egitim', EgitimEgitim::where('egitim_egitims.id', '=', $id)->first());
+            ->with('egitim', EgitimEgitim::where('egitim_egitims.id', '=', $id)->first())
+            ->with('iceriks', EgitimEgitim::leftJoin('egitim_iceriks', 'egitim_egitims.id', '=', 'egitim_iceriks.egitim_id')->where('egitim_egitims.id', '=', $id)->orderBy('egitim_iceriks.icerik_no', 'asc')->get());            
     }
 }

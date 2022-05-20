@@ -21,6 +21,10 @@ return new class extends Migration
             $table->string('resim')->nullable();
             $table->string('resim_aciklama')->nullable();
             $table->string('etiket')->nullable();
+            $table->text('kitle');
+            $table->text('kazanim');
+            $table->text('dokuman');
+            $table->text('sss');
             $table->timestamps();
         }); 
     }

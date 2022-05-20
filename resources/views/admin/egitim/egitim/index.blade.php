@@ -9,7 +9,11 @@
       {{$egitim->baslik}}
       {{$egitim->icerik}}
       {{$egitim->resim_aciklama}}
-      {{$egitim->etiket}}      
+      {{$egitim->etiket}}  
+      {{$egitim->kitle}}
+      {{$egitim->kazanim}}
+      {{$egitim->dokuman}}      
+      {{$egitim->sss}}       
       <br>
       <a href="/admin/egitim/egitims/olustur">
         Ekle
