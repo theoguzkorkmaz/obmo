@@ -44,6 +44,9 @@
     <a href="/admin/egitim/egitim_puans">Eğitim - Puan</a>
   </li>
   <li>
+    <a href="/admin/egitim/egitim_navbars">Eğitim - Navbar</a>
+  </li>
+  <li>
     <hr>
   </li>
   <li>

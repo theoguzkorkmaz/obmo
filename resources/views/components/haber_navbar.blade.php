@@ -13,11 +13,11 @@
     <div class="collapse navbar-collapse" id="nav_opener">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link" aria-current="page" href="/haber"><i class="fas fa-home    "></i></a>
         </li>
-        <li class="nav-item">
+        {{-- <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
-        </li>
+        </li> --}}
         <li class="nav-item dropdown has-megamenu">
           <a class="nav-link" href="#" data-bs-toggle="dropdown">Kategoriler</a>
           <div class="dropdown-menu megamenu container mx-auto" role="menu">

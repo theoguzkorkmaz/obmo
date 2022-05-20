@@ -1,22 +1,24 @@
 <?php
 
-use App\Http\Controllers\egitim\EgitimCevapController;
 use App\Models\EgitimSinav;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HaberController;
+use App\Http\Controllers\EgitimController;
 use App\Http\Controllers\SosyalController;
 use App\Http\Controllers\haber\HaberHaberController;
 use App\Http\Controllers\haber\HaberSayfaController;
 use App\Http\Controllers\haber\HaberYorumController;
+use App\Http\Controllers\egitim\EgitimPuanController;
+use App\Http\Controllers\egitim\EgitimSoruController;
 use App\Http\Controllers\haber\HaberTopbarController;
+use App\Http\Controllers\egitim\EgitimCevapController;
 use App\Http\Controllers\egitim\EgitimSinavController;
+use App\Http\Controllers\egitim\EgitimYorumController;
 use App\Http\Controllers\egitim\EgitimEgitimController;
 use App\Http\Controllers\egitim\EgitimIcerikController;
 use App\Http\Controllers\haber\HaberKategoriController;
 use App\Http\Controllers\egitim\EgitimKategoriController;
-use App\Http\Controllers\egitim\EgitimPuanController;
-use App\Http\Controllers\egitim\EgitimSoruController;
-use App\Http\Controllers\egitim\EgitimYorumController;
-use App\Http\Controllers\HaberController;
+use App\Http\Controllers\egitim\EgitimNavbarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +45,9 @@ Route::get('/haber/kategori_detay/{kategori}', [HaberController::class, 'kategor
 Route::get('/haber/sayfa_detay/{sayfa}', [HaberController::class, 'sayfa_show']);
 Route::get('/haber/ara', [HaberController::class, 'ara_show']);
 Route::get('/haber/kategoriler', [HaberController::class, 'kategoriler_show']);
+
+Route::get('/egitim', [EgitimController::class, 'egitim_index']);
+Route::get('/egitim/egitim_detay/{egitim}', [EgitimController::class, 'egitim_detay']);
 
 Route::controller(HaberTopbarController::class)->group(function() {
     //Topbar kısmı - public
@@ -362,6 +367,29 @@ Route::controller(EgitimCevapController::class)->group(function() {
     Route::put('/admin/egitim/egitim_cevaps/{egitim_cevap}', 'update');
     //--topbars delete işlemi:
     Route::delete('/admin/egitim/egitim_cevaps/{egitim_cevap}', 'destroy');
+});
+
+Route::controller(EgitimNavbarController::class)->group(function() {
+    //Topbar kısmı - public
+    //--topbars veri gönderimi:
+    Route::get('/egitim_navbars', 'index');
+    //Topbar kısmı - private
+    //--admin sayfası için topbars veri gönderimi:
+    Route::get('/admin/egitim/egitim_navbars', 'admin_index');
+    //--topbars create sayfası:
+    Route::get('/admin/egitim/egitim_navbars/olustur', 'create');
+    //--topbars create işlemi:
+    Route::post('/admin/egitim/egitim_navbars', 'store');
+    //--topbars admin show sayfası:
+    Route::get('/egitim_navbars/{egitim_navbar}', 'show');
+    //--topbars admin show sayfası:
+    Route::get('/admin/egitim/egitim_navbars/{egitim_navbar}', 'admin_show');
+    //--topbars edit sayfası:
+    Route::get('/admin/egitim/egitim_navbars/{egitim_navbar}/guncelle', 'edit');
+    //--topbars edit işlemi:
+    Route::put('/admin/egitim/egitim_navbars/{egitim_navbar}', 'update');
+    //--topbars delete işlemi:
+    Route::delete('/admin/egitim/egitim_navbars/{egitim_navbar}', 'destroy');
 });
 
 // Auth::routes();
