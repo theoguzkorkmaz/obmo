@@ -1,0 +1,32 @@
+{{-- {{$kategori->id}}
+{{$kategori->baslik}}
+{{$kategori->ad}} --}}
+
+<x-haber_layout :topbars="$topbars" :kategoris="$kategoris" :sayfas="$sayfas" :fhabers="$fhabers">
+  <div class="container p-md-0" id="kategori_baslik">    
+    <h2 class="baslik"><i class="{{$kategori->icon}}"></i> {{$kategori->ad}}</h2>
+  </div><!-- /kategori_nav -->
+
+  <x-haber_carousel :gundem="$gundem" :gundems="$gundems" :basliks="$basliks"></x-haber_carousel>
+
+  <div class="container p-md-0 haberler">
+    <h2 class="baslik">
+      {{$kategori->ad}} haberleri
+    </h2>
+
+    <x-haber_index_haberler :habers="$habers"></x-haber_index_haberler>
+
+    <x-haber_bunlari_kacirma_yatay :kacirmas="$kacirmas"></x-haber_bunlari_kacirma_yatay>
+
+    <x-haber_kategori_haber></x-haber_kategori_haber>
+
+    <div class="container p-md-0" id="kategori_aciklama">
+      <h3 class="baslik">
+        {{$kategori->ad}}
+      </h3>
+      <p>
+        {{$kategori->aciklama}}
+      </p>
+    </div> <!-- /kategori_aciklama -->
+  </div>
+</x-haber_layout>
