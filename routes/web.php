@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\EgitimSinav;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HaberController;
 use App\Http\Controllers\EgitimController;
@@ -16,9 +17,9 @@ use App\Http\Controllers\egitim\EgitimSinavController;
 use App\Http\Controllers\egitim\EgitimYorumController;
 use App\Http\Controllers\egitim\EgitimEgitimController;
 use App\Http\Controllers\egitim\EgitimIcerikController;
+use App\Http\Controllers\egitim\EgitimNavbarController;
 use App\Http\Controllers\haber\HaberKategoriController;
 use App\Http\Controllers\egitim\EgitimKategoriController;
-use App\Http\Controllers\egitim\EgitimNavbarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +33,11 @@ use App\Http\Controllers\egitim\EgitimNavbarController;
 */
 
 Route::get('/', function () {
-    return view('welcome'); 
+    return view('home'); 
+});
+
+Route::get('/home', function () {
+    return view('home'); 
 });
 
 Route::get('/admin', function() {
@@ -392,5 +397,9 @@ Route::controller(EgitimNavbarController::class)->group(function() {
     Route::delete('/admin/egitim/egitim_navbars/{egitim_navbar}', 'destroy');
 });
 
-// Auth::routes();
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Auth::routes();
+Route::middleware(['auth', 'isAdmin'])->group(function () {
+    Route::get('/admin', function() {
+        return view('admin.index');
+    })->name('dashboard');
+});

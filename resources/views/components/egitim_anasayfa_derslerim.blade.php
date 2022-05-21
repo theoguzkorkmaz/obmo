@@ -41,7 +41,7 @@
                   </li>
               @endforeach            
             @else
-              <p>Bir hata oluştu, lütfen tekrar deneyin!</p>
+              <p>Eğitimler yüklenemedi, lütfen daha sonra tekrar deneyin!</p>
             @endif                                                       
           </ul>
         </div><!-- /content-->
