@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('resim')->nullable();
             $table->string('resim_aciklama')->nullable();
             $table->string('icon')->nullable();
+            $table->foreignId('admin');
             $table->timestamps();
         });
     }

@@ -42,7 +42,8 @@ class EgitimYorumController extends Controller
 				'egitim_id' => 'required',
 				'kullanici_id' => 'required',
         'baslik' => 'required',
-        'icerik' => 'required'
+        'icerik' => 'required',
+        'admin' => 'required'
 				]);
 
 				EgitimYorum::create($formFields);
@@ -89,7 +90,8 @@ class EgitimYorumController extends Controller
 				'egitim_id' => 'required',
 				'kullanici_id' => 'required',
         'baslik' => 'required',
-        'icerik' => 'required'
+        'icerik' => 'required',
+        'admin' => 'required'
 			]);
 
       $egitim_yorum->update($formFields);

@@ -9,5 +9,5 @@ class EgitimSinav extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['icerik_id', 'baslik', 'aciklama'];
+    protected $fillable = ['icerik_id', 'baslik', 'aciklama', 'admin'];
 } 

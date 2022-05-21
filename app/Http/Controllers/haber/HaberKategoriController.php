@@ -44,16 +44,17 @@ class HaberKategoriController extends Controller
         'resim_aciklama' => 'required',
         'icon' => 'required',
         'navbar_gorunme' => 'required',
-        'footer_gorunme' => 'required'
-				]);
+        'footer_gorunme' => 'required',
+        'admin' => 'required'
+      ]);
 
-        if($request->hasFile('resim')) {
-          $formFields['resim'] = $request->file('resim')->store('images', 'public');
-        }
+      if($request->hasFile('resim')) {
+        $formFields['resim'] = $request->file('resim')->store('images', 'public');
+      }
 
-				HaberKategori::create($formFields);
+      HaberKategori::create($formFields);
 
-				return redirect('/admin/haber/haber_kategoris');
+      return redirect('/admin/haber/haber_kategoris');
 		}
 
     /**
@@ -97,7 +98,8 @@ class HaberKategoriController extends Controller
         'resim_aciklama' => 'required',
         'icon' => 'required',
         'navbar_gorunme' => 'required',
-        'footer_gorunme' => 'required'
+        'footer_gorunme' => 'required',
+        'admin' => 'required'
       ]);
 
       if($request->hasFile('resim')) {

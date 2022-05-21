@@ -25,6 +25,7 @@ return new class extends Migration
             $table->text('kazanim');
             $table->text('dokuman');
             $table->text('sss');
+            $table->foreignId('admin');
             $table->timestamps();
         }); 
     }

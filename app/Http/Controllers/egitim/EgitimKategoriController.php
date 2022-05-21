@@ -42,7 +42,8 @@ class EgitimKategoriController extends Controller
 				'baslik' => 'required',
 				'aciklama' => 'required',
         'resim_aciklama' => 'required',
-        'icon' => 'required'
+        'icon' => 'required',
+        'admin' => 'required'
 				]);
 
         if($request->hasFile('resim')) {
@@ -93,7 +94,8 @@ class EgitimKategoriController extends Controller
         'baslik' => 'required',
 				'aciklama' => 'required',
         'resim_aciklama' => 'required',
-        'icon' => 'required'
+        'icon' => 'required',
+        'admin' => 'required'
       ]);
 
       if($request->hasFile('resim')) {

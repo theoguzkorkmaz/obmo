@@ -43,7 +43,8 @@ class HaberHaberController extends Controller
 				'baslik' => 'required',
 				'icerik' => 'required',
         'resim_aciklama' => 'required',
-        'etiket' => 'required'
+        'etiket' => 'required',
+        'admin' => 'required'
 			]);
 
 			if($request->hasFile('resim')) {
@@ -95,7 +96,8 @@ class HaberHaberController extends Controller
 				'baslik' => 'required',
 				'icerik' => 'required',
         'resim_aciklama' => 'required',
-        'etiket' => 'required'
+        'etiket' => 'required',
+        'admin' => 'required'
       ]);
 
       if($request->hasFile('resim')) {

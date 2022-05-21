@@ -42,7 +42,8 @@ class HaberSayfaController extends Controller
 				'ad' => 'required',
 				'icerik' => 'required',
         'navbar_gorunme' => 'required',
-        'footer_gorunme' => 'required'
+        'footer_gorunme' => 'required',
+        'admin' => 'required'
 			]);
 
 			if($request->hasFile('resim')) {
@@ -93,7 +94,8 @@ class HaberSayfaController extends Controller
         'ad' => 'required',
 				'icerik' => 'required',
         'navbar_gorunme' => 'required',
-        'footer_gorunme' => 'required'
+        'footer_gorunme' => 'required',
+        'admin' => 'required'
       ]);
 
       if($request->hasFile('resim')) {

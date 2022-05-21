@@ -35,7 +35,7 @@ class HaberController extends Controller
             ->with('topbars', HaberTopbar::all())
             ->with('kategoris', HaberKategori::all())
             ->with('sayfas', HaberSayfa::all())
-            ->with('haber', HaberHaber::leftJoin('haber_kategoris', 'haber_habers.kategori_id', '=', 'haber_kategoris.id')->where('haber_habers.id', '=', $id)->first())
+            ->with('haber', HaberHaber::select('*', 'haber_habers.created_at as tarih')->leftJoin('haber_kategoris', 'haber_habers.kategori_id', '=', 'haber_kategoris.id')->where('haber_habers.id', '=', $id)->first())
             ->with('yorums', HaberHaber::leftJoin('haber_yorums', 'haber_habers.id', '=', 'haber_yorums.haber_id')->where('haber_habers.id', '=', $id)->orderBy('haber_yorums.created_at', 'desc')->get())
             ->with('kacirmas', HaberHaber::inRandomOrder()->limit(10)->get())
             ->with('fhabers', HaberHaber::inRandomOrder()->limit(4)->get());
@@ -86,6 +86,6 @@ class HaberController extends Controller
             ->with('kategoris', HaberKategori::latest()->paginate())
             ->with('sayfas', HaberSayfa::all())            
             ->with('kacirmas', HaberHaber::inRandomOrder()->limit(12)->get())
-            ->with('fhabers', HaberHaber::inRandomOrder()->limit(4)->get());
+            ->with('fhabers', HaberHaber::inRandomOrder()->limit(4)->get()); 
     }
 }

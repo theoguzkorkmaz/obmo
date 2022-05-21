@@ -43,7 +43,8 @@ class EgitimNavbarController extends Controller
         'icon' => 'required',
         'link' => 'required',
 				'icerik' => 'required',
-				'ismenu' => 'required'
+				'ismenu' => 'required',
+        'admin' => 'required'
 			]);
 
 			EgitimNavbar::create($formFields);
@@ -91,7 +92,8 @@ class EgitimNavbarController extends Controller
         'icon' => 'required',
         'link' => 'required',
 				'icerik' => 'required',
-				'ismenu' => 'required'
+				'ismenu' => 'required',
+        'admin' => 'required'
 			]);
 
       $egitim_navbar->update($formFields);

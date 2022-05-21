@@ -42,6 +42,15 @@
     @enderror
   </div>
 
+  <div class="mb-6">
+    <label for="admin">admin</label>
+    <input type="text" name="admin" value="{{auth()->user()->id}}" readonly />
+    <small>Bu veri <b>{{auth()->user()->name}}</b> tarafından oluşturulacak</small>
+    @error('admin')
+      <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+    @enderror
+  </div>
+
   <button type="submit">
       Oluştur
   </button> 

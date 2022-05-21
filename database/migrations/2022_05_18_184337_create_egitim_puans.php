@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('dogru_sayisi');
             $table->string('yanlis_sayisi');            
             $table->string('puan')->nullable();
+            $table->foreignId('admin');
             $table->timestamps(); 
         });
     }

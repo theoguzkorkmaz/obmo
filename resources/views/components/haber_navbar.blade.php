@@ -3,7 +3,7 @@
 
 <nav class="navbar navbar-expand-lg" id="navbar">
   <div class="container p-md-0">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="/haber">
       <span>O B M O</span>
       <span><i class="fas fa-dove"></i> Güvercin</span>      
     </a>

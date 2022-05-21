@@ -43,7 +43,8 @@ class HaberYorumController extends Controller
 				'user_id' => 'required',
 				'baslik' => 'required',
 				'icerik' => 'required',
-        'onay' => 'required'        
+        'onay' => 'required'    ,
+        'admin' => 'required'    
 			]);
 
 			HaberYorum::create($formFields);
@@ -91,7 +92,8 @@ class HaberYorumController extends Controller
 				'user_id' => 'required',
 				'baslik' => 'required',
 				'icerik' => 'required',
-        'onay' => 'required'        
+        'onay' => 'required',
+        'admin' => 'required'        
       ]);
 
       $haber_yorum->update($formFields);

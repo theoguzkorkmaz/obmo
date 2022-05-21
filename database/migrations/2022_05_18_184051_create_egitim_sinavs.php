@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('icerik_id');
             $table->string('baslik');
             $table->text('aciklama');
+            $table->foreignId('admin');
             $table->timestamps(); 
         });
     }

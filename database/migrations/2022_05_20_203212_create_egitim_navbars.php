@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('link');
             $table->string('icerik');
             $table->boolean('ismenu')->default('0');
+            $table->foreignId('admin');
             $table->timestamps();
         });
     }

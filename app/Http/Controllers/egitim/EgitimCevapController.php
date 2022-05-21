@@ -42,7 +42,8 @@ class EgitimCevapController extends Controller
 				'soru_id' => 'required',
         'cevap_no' => 'required',
         'icerik' => 'required',
-				'dogru' => 'required'
+				'dogru' => 'required',
+        'admin' => 'required'
 			]);
 
 			EgitimCevap::create($formFields);
@@ -89,7 +90,8 @@ class EgitimCevapController extends Controller
 				'soru_id' => 'required',
         'cevap_no' => 'required',
         'icerik' => 'required',
-				'dogru' => 'required'
+				'dogru' => 'required',
+        'admin' => 'required'
 			]);
 
       $egitim_cevap->update($formFields);

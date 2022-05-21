@@ -39,16 +39,17 @@ class EgitimIcerikController extends Controller
     public function store(Request $request)
     {
 			$formFields = $request->validate([
-				'egitim_id' => 'required',
-				'icerik_no' => 'required',
+        'egitim_id' => 'required',
+        'icerik_no' => 'required',
         'baslik' => 'required',
         'aciklama' => 'required',
-				'puan' => 'required'
-				]);
+        'puan' => 'required',
+        'admin' => 'required'
+      ]);
 
-				EgitimIcerik::create($formFields);
+      EgitimIcerik::create($formFields);
 
-				return redirect('/admin/egitim/egitim_iceriks');
+      return redirect('/admin/egitim/egitim_iceriks');
     }
 
     /**
@@ -91,7 +92,8 @@ class EgitimIcerikController extends Controller
 				'icerik_no' => 'required',
         'baslik' => 'required',
         'aciklama' => 'required',
-				'puan' => 'required'
+				'puan' => 'required',
+        'admin' => 'required'
 			]);
 
       $egitim_icerik->update($formFields);

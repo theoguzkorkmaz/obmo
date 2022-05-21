@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('soru_no');
             $table->string('soru');
             $table->string('resim')->nullable();
-            $table->string('resim_aciklama')->nullable();             
+            $table->string('resim_aciklama')->nullable();  
+            $table->foreignId('admin');           
             $table->timestamps();
         });
     }

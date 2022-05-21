@@ -9,5 +9,5 @@ class HaberYorum extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['haber_id', 'user_id', 'baslik', 'icerik', 'onay'];
+    protected $fillable = ['haber_id', 'user_id', 'baslik', 'icerik', 'onay', 'admin'];
 }

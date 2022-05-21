@@ -9,7 +9,7 @@ class HaberHaber extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['kategori_id', 'baslik', 'icerik', 'resim', 'resim_aciklama', 'etiket']; 
+    protected $fillable = ['kategori_id', 'baslik', 'icerik', 'resim', 'resim_aciklama', 'etiket', 'admin']; 
 
     public function scopeFilter($query, array $filters) {
         if($filters['ara'] ?? false) {

@@ -118,7 +118,11 @@
     </div><!-- /content -->
     <div class="" id="aside">
       <div class="w-full d-flex flex-column gap-2 btn-group is-abone-degil">
-        <button type="button" name="" id="" class="btn">eğitime katıl</button>              
+        <form action="/egitim/egitim_detay/{{$egitim->id}}" method="post">
+          @csrf
+          <button type="submit" name="" id="" class="btn">eğitime katıl</button>
+        </form>
+                      
         <button type="button" name="" id="" class="btn btn1"><i class="fas fa-bookmark"></i>Daha sonra izleye ekle</button>              
         <button type="button" name="" id="" class="btn btn2"><i class="fas fa-heart"></i>Beğenilere ekle</button>              
       </div><!-- /abone-değil -->

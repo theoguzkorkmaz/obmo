@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('baslik');
             $table->string('icerik');
             $table->boolean('onay')->default(0);
+            $table->foreignId('admin');
             $table->timestamps();
         });
     }

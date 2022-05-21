@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('link');
             $table->string('aciklama');
             $table->boolean('aktiflik')->default(1);
+            $table->foreignId('admin');
             $table->timestamps();
         });
     }

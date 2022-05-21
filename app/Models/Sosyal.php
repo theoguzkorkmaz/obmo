@@ -9,5 +9,5 @@ class Sosyal extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['ad', 'icon', 'link', 'aciklama', 'aktiflik'];
+    protected $fillable = ['ad', 'icon', 'link', 'aciklama', 'aktiflik', 'admin'];
 }

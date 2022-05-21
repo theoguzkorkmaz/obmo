@@ -42,7 +42,8 @@ class EgitimPuanController extends Controller
 				'sinav_id' => 'required',
         'dogru_sayisi' => 'required',
         'yanlis_sayisi' => 'required',
-				'puan' => 'required'
+				'puan' => 'required',
+        'admin' => 'required'
 			]);
 
 			EgitimPuan::create($formFields);
@@ -89,7 +90,8 @@ class EgitimPuanController extends Controller
 				'sinav_id' => 'required',
         'dogru_sayisi' => 'required',
         'yanlis_sayisi' => 'required',
-				'puan' => 'required'
+				'puan' => 'required',
+        'admin' => 'required'
 			]);
 
       $egitim_puan->update($formFields);

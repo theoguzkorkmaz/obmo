@@ -9,5 +9,5 @@ class EgitimYorum extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['egitim_id', 'kullanici_id', 'baslik', 'icerik'];
+    protected $fillable = ['egitim_id', 'kullanici_id', 'baslik', 'icerik', 'admin'];
 }

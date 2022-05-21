@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('baslik');
             $table->text('aciklama');
             $table->string('puan')->nullable();
+            $table->foreignId('admin');
             $table->timestamps(); 
         });
     }

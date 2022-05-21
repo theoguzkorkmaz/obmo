@@ -19,7 +19,8 @@ return new class extends Migration
             $table->text('icerik');
             $table->string('resim')->nullable();
             $table->boolean('navbar_gorunme')->default(1)->nullable();
-            $table->boolean('footer_gorunme')->default(1)->nullable();
+            $table->boolean('footer_gorunme')->default(1)->nullable(); 
+            $table->foreignId('admin');
             $table->timestamps(); 
         });
     }

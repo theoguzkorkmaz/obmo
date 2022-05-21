@@ -42,7 +42,8 @@ class SosyalController extends Controller
 				'icon' => 'required',
 				'link' => 'required',
 				'aciklama' => 'required',
-        'aktiflik' => 'required'        
+        'aktiflik' => 'required',
+        'admin' => 'required'        
 			]);
 
 			Sosyal::create($formFields);
@@ -90,7 +91,8 @@ class SosyalController extends Controller
 				'icon' => 'required',
 				'link' => 'required',
 				'aciklama' => 'required',
-        'aktiflik' => 'required'        
+        'aktiflik' => 'required',
+        'admin' => 'required'        
 			]);
 
 			$sosyal->update($formFields);

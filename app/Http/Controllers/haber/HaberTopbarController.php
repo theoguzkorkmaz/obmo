@@ -44,7 +44,8 @@ class HaberTopbarController extends Controller
 				'link' => 'required',
 				'aciklama' => 'required',
         'yer' => 'required',
-        'icon' => 'required'
+        'icon' => 'required',
+        'admin' => 'required'
       ]);
 
       HaberTopbar::create($formFields);
@@ -92,7 +93,8 @@ class HaberTopbarController extends Controller
 				'link' => 'required',
 				'aciklama' => 'required',
         'yer' => 'required',
-        'icon' => 'required'
+        'icon' => 'required',
+        'admin' => 'required'
       ]);      
 
       $haber_topbar->update($formFields);

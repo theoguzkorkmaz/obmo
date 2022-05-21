@@ -9,5 +9,5 @@ class EgitimKategori extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['baslik', 'aciklama', 'resim', 'resim_aciklama', 'icon'];
+    protected $fillable = ['baslik', 'aciklama', 'resim', 'resim_aciklama', 'icon', 'admin'];
 }

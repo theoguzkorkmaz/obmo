@@ -47,7 +47,8 @@ class EgitimEgitimController extends Controller
         'kitle' => 'required',
         'kazanim' => 'required',
         'dokuman' => 'required',
-        'sss' => 'required'
+        'sss' => 'required',
+        'admin' => 'required'
 			]);
 
 			if($request->hasFile('resim')) {
@@ -103,7 +104,8 @@ class EgitimEgitimController extends Controller
         'kitle' => 'required',
         'kazanim' => 'required',
         'dokuman' => 'required',
-        'sss' => 'required'
+        'sss' => 'required',
+        'admin' => 'required'
       ]);
 
       if($request->hasFile('resim')) {

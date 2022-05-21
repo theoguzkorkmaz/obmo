@@ -42,7 +42,8 @@ class EgitimSoruController extends Controller
 				'sinav_id' => 'required',
 				'soru_no' => 'required',
         'soru' => 'required',
-				'resim_aciklama' => 'required'
+				'resim_aciklama' => 'required',
+        'admin' => 'required'
 			]);
 
 			if($request->hasFile('resim')) {
@@ -93,7 +94,8 @@ class EgitimSoruController extends Controller
         'sinav_id' => 'required',
 				'soru_no' => 'required',
         'soru' => 'required',
-				'resim_aciklama' => 'required'
+				'resim_aciklama' => 'required',
+        'admin' => 'required'
       ]);
 
       if($request->hasFile('resim')) {
@@ -123,8 +125,8 @@ class EgitimSoruController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function admin_index()
-    {			
-			return view('admin.egitim.soru.index', [
+    {
+      return view('admin.egitim.soru.index', [
 				'sorus' => EgitimSoru::latest()->get()
 			]);
     }

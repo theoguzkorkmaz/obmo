@@ -9,5 +9,5 @@ class EgitimSoru extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['sinav_id', 'soru_no', 'soru', 'resim', 'resim_aciklama'];
+    protected $fillable = ['sinav_id', 'soru_no', 'soru', 'resim', 'resim_aciklama', 'admin'];
 }

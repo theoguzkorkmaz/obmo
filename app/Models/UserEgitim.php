@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class HaberSayfa extends Model
+class UserEgitim extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['ad', 'icerik', 'resim', 'navbar_gorunme', 'footer_gorunme', 'admin'];
+    protected $fillable = ['user_id', 'ders_id'];
 }

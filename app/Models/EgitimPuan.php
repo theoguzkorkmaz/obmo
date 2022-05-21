@@ -9,5 +9,5 @@ class EgitimPuan extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['sinav_id', 'dogru_sayisi', 'yanlis_sayisi', 'puan'];
+    protected $fillable = ['sinav_id', 'dogru_sayisi', 'yanlis_sayisi', 'puan', 'admin'];
 } 

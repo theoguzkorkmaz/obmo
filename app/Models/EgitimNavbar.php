@@ -9,5 +9,5 @@ class EgitimNavbar extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['ad', 'icon', 'link', 'icerik', 'ismenu'];
+    protected $fillable = ['ad', 'icon', 'link', 'icerik', 'ismenu', 'admin'];
 }

@@ -17,7 +17,7 @@
     <p class="mini-icerik">{{Str::limit($haber->icerik, 120)}}</p>
 
     <p class="yazar-tarih">
-      <a class="ad" href="$">Y A Z A R</a> tarafından | <span class="tarih">{{$haber->created_at->diffForHumans()}}</span> paylaşıldı.
+      <a class="ad" href="#">Y A Z A R</a> tarafından | <span class="tarih">{{$haber->tarih}}</span> tarihinde paylaşıldı.
     </p>
 
     <x-haber_paylas></x-haber_paylas>

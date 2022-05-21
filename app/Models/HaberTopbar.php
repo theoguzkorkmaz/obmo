@@ -9,5 +9,5 @@ class HaberTopbar extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['ad', 'link', 'aciklama', 'yer', 'icon'];
+    protected $fillable = ['ad', 'link', 'aciklama', 'yer', 'icon', 'admin'];
 }

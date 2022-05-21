@@ -9,5 +9,5 @@ class HaberKategori extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['ad', 'aciklama', 'resim', 'resim_aciklama', 'icon', 'navbar_gorunme', 'footer_gorunme'];
+    protected $fillable = ['ad', 'aciklama', 'resim', 'resim_aciklama', 'icon', 'navbar_gorunme', 'footer_gorunme', 'admin'];
 }

@@ -41,7 +41,8 @@ class EgitimSinavController extends Controller
 			$formFields = $request->validate([
 				'icerik_id' => 'required',
         'baslik' => 'required',
-        'aciklama' => 'required'
+        'aciklama' => 'required',
+        'admin' => 'required'
       ]);
 
       EgitimSinav::create($formFields);
@@ -87,7 +88,8 @@ class EgitimSinavController extends Controller
 			$formFields = $request->validate([
 				'icerik_id' => 'required',
         'baslik' => 'required',
-        'aciklama' => 'required'
+        'aciklama' => 'required',
+        'admin' => 'required'
 			]);
 
       $egitim_sinav->update($formFields);

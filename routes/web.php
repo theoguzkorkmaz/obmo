@@ -53,6 +53,7 @@ Route::get('/haber/kategoriler', [HaberController::class, 'kategoriler_show']);
 
 Route::get('/egitim', [EgitimController::class, 'egitim_index']);
 Route::get('/egitim/egitim_detay/{egitim}', [EgitimController::class, 'egitim_detay']);
+Route::post('/egitim/egitim_detay/{egitim}', [EgitimController::class,'store']);
 
 Route::controller(HaberTopbarController::class)->group(function() {
     //Topbar kısmı - public
@@ -167,7 +168,7 @@ Route::controller(SosyalController::class)->group(function() {
     Route::delete('/admin/sosyals/{sosyal}', 'destroy');
 });
 
-Route::controller(HaberSayfaController::class)->group(function() {
+Route::controller(HaberSayfaController::class)->group(function() { 
     //Topbar kısmı - public
     //--topbars veri gönderimi:
     Route::get('/haber_sayfas', 'index');
@@ -308,24 +309,24 @@ Route::controller(EgitimYorumController::class)->group(function() {
 Route::controller(EgitimSoruController::class)->group(function() {
     //Topbar kısmı - public
     //--topbars veri gönderimi:
-    Route::get('/egitim_puans', 'index');
+    Route::get('/egitim_sorus', 'index');
     //Topbar kısmı - private
     //--admin sayfası için topbars veri gönderimi:
-    Route::get('/admin/egitim/egitim_puans', 'admin_index');
+    Route::get('/admin/egitim/egitim_sorus', 'admin_index');
     //--topbars create sayfası:
-    Route::get('/admin/egitim/egitim_puans/olustur', 'create');
+    Route::get('/admin/egitim/egitim_sorus/olustur', 'create');
     //--topbars create işlemi:
-    Route::post('/admin/egitim/egitim_puans', 'store');
+    Route::post('/admin/egitim/egitim_sorus', 'store');
     //--topbars admin show sayfası:
-    Route::get('/egitim_puans/{egitim_puan}', 'show');
+    Route::get('/egitim_sorus/{egitim_soru}', 'show');
     //--topbars admin show sayfası:
-    Route::get('/admin/egitim/egitim_puans/{egitim_puan}', 'admin_show');
+    Route::get('/admin/egitim/egitim_sorus/{egitim_soru}', 'admin_show');
     //--topbars edit sayfası:
-    Route::get('/admin/egitim/egitim_puans/{egitim_puan}/guncelle', 'edit');
+    Route::get('/admin/egitim/egitim_sorus/{egitim_soru}/guncelle', 'edit');
     //--topbars edit işlemi:
-    Route::put('/admin/egitim/egitim_puans/{egitim_puan}', 'update');
+    Route::put('/admin/egitim/egitim_sorus/{egitim_soru}', 'update');
     //--topbars delete işlemi:
-    Route::delete('/admin/egitim/egitim_puans/{egitim_puan}', 'destroy');
+    Route::delete('/admin/egitim/egitim_sorus/{egitim_soru}', 'destroy');
 });
 
 Route::controller(EgitimPuanController::class)->group(function() {

@@ -18,7 +18,8 @@ return new class extends Migration
             $table->foreignId('soru_id'); 
             $table->string('cevap_no');
             $table->string('icerik');
-            $table->boolean('dogru')->default('0');            
+            $table->boolean('dogru')->default('0');       
+            $table->foreignId('admin');     
             $table->timestamps();
         });
     }
