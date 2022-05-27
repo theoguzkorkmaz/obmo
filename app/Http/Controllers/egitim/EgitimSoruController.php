@@ -3,23 +3,12 @@
 namespace App\Http\Controllers\egitim;
 
 use App\Models\EgitimSoru;
+use App\Models\EgitimNavbar;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class EgitimSoruController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-      return view('egitim.soru.index', [
-				'sorus' => EgitimSoru::latest()->get()
-			]);
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -27,7 +16,7 @@ class EgitimSoruController extends Controller
      */
     public function create()
     {
-			return view('admin.egitim.soru.create');
+			return view('admin.egitim.soru.create')->with('navbars', EgitimNavbar::all());
     }
 
     /**
@@ -56,19 +45,6 @@ class EgitimSoruController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(EgitimSoru $egitim_soru)
-    {
-			return view('egitim.soru.show', [
-        'soru' =>  $egitim_soru
-      ]);
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -77,7 +53,8 @@ class EgitimSoruController extends Controller
     public function edit(EgitimSoru $egitim_soru)
     {
 			return view('admin.egitim.soru.edit', [
-        'soru' => $egitim_soru 
+        'soru' => $egitim_soru,
+        'navbars' => EgitimNavbar::all()
       ]);
     }
 
@@ -104,7 +81,7 @@ class EgitimSoruController extends Controller
 
       $egitim_soru->update($formFields);
 
-      return redirect('/admin/egitim/egitim_kategoris');
+      return redirect('/admin/egitim/egitim_sorus');
     }
 
     /**
@@ -127,7 +104,8 @@ class EgitimSoruController extends Controller
     public function admin_index()
     {
       return view('admin.egitim.soru.index', [
-				'sorus' => EgitimSoru::latest()->get()
+				'sorus' => EgitimSoru::latest()->paginate(12),
+        'navbars' => EgitimNavbar::all()
 			]);
     }
 
@@ -140,7 +118,8 @@ class EgitimSoruController extends Controller
     public function admin_show(EgitimSoru $egitim_soru)
     {
 			return view('admin.egitim.soru.show', [
-        'soru' =>  $egitim_soru
+        'soru' =>  $egitim_soru,
+        'navbars' => EgitimNavbar::all()
       ]);
     }
 }

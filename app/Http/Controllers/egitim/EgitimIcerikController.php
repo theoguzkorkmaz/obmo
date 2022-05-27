@@ -2,24 +2,13 @@
 
 namespace App\Http\Controllers\egitim;
 
-use App\Http\Controllers\Controller;
 use App\Models\EgitimIcerik;
+use App\Models\EgitimNavbar;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class EgitimIcerikController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-			return view('egitim.icerik.index', [
-				'iceriks' => EgitimIcerik::latest()->get()
-			]); 
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -27,7 +16,7 @@ class EgitimIcerikController extends Controller
      */
     public function create()
     {
-			return view('admin.egitim.icerik.create');
+			return view('admin.egitim.icerik.create')->with('navbars', EgitimNavbar::all());
     }
 
     /**
@@ -53,19 +42,6 @@ class EgitimIcerikController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(EgitimIcerik $egitim_icerik)
-    {
-			return view('egitim.icerik.show', [
-        'icerik' =>  $egitim_icerik
-      ]);
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -74,7 +50,8 @@ class EgitimIcerikController extends Controller
     public function edit(EgitimIcerik $egitim_icerik)
     {
 			return view('admin.egitim.icerik.edit', [
-        'icerik' => $egitim_icerik 
+        'icerik' => $egitim_icerik,
+        'navbars' => EgitimNavbar::all() 
       ]);
     }
 
@@ -121,7 +98,8 @@ class EgitimIcerikController extends Controller
     public function admin_index()
     {			
 			return view('admin.egitim.icerik.index', [
-				'iceriks' => EgitimIcerik::latest()->get()
+				'iceriks' => EgitimIcerik::latest()->paginate(12),
+        'navbars' => EgitimNavbar::all()
 			]);
     }
 
@@ -134,7 +112,8 @@ class EgitimIcerikController extends Controller
     public function admin_show(EgitimIcerik $egitim_icerik)
     {
 			return view('admin.egitim.icerik.show', [
-        'icerik' =>  $egitim_icerik
+        'icerik' =>  $egitim_icerik,
+        'navbars' => EgitimNavbar::all()
       ]);
     }
 }

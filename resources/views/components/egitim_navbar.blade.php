@@ -42,12 +42,25 @@
         @endif
       </ul>
     </div><!-- /menu -->
+    @auth
     <div class="w-full" id="nav-kimlik">
-      <a href="#">
-        <span>Oğuz Korkmaz</span>
-        <span><i class="fas fa-map-marker"></i> Zonguldak</span>
+      <form action="{{ route('logout') }}" method="post">
+        @csrf
+        <button type="submit">
+          <span>{{auth()->user()->name}}</span>
+          <span><i class="fas fa-sign-out-alt    "></i> Çıkış yap</span>
+        </button>
+      </form>            
+    </div><!-- /nav-kimlik -->    
+    @endauth    
+    @guest
+    <div class="w-full" id="nav-kimlik">
+      <a href="/login">
+        <span><i class="fas fa-sign-in-alt    "></i> Giriş Yap</span>
+        <span class="d-none">1</span>        
       </a>
     </div><!-- /nav-kimlik -->
+    @endguest
   </div><!-- /in -->
 </nav><!-- /md-nav -->
 <div class="offcanvas offcanvas-start d-flex d-sm-none" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">

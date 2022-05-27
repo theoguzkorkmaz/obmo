@@ -124,7 +124,7 @@ h1, h2, h3, h4, h5, h6, p, span {
   padding-left: 1rem;
 }
 
-#main_nav #nav-kimlik a {
+#main_nav #nav-kimlik a, #main_nav #nav-kimlik button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -144,22 +144,22 @@ h1, h2, h3, h4, h5, h6, p, span {
   width: fit-content;
 }
 
-#main_nav #nav-kimlik a span {
+#main_nav #nav-kimlik a span, #main_nav #nav-kimlik button span {
   font-size: 0.9rem;
   font-weight: bold;
 }
 
-#main_nav #nav-kimlik a span:last-child {
+#main_nav #nav-kimlik a span:last-child, #main_nav #nav-kimlik button span:last-child {
   font-size: 0.76rem;
   margin-top: 0.2rem;
   font-weight: normal;
 }
 
-#main_nav #nav-kimlik a span:last-child i {
+#main_nav #nav-kimlik a span:last-child i, #main_nav #nav-kimlik button span:last-child i {
   margin-right: 0.3rem;
 }
 
-#main_nav #nav-kimlik a:hover {
+#main_nav #nav-kimlik a:hover, #main_nav #nav-kimlik button:hover {
   background: #467bca;
   color: #f2f7fc !important;
 }
@@ -1075,4 +1075,29 @@ h1, h2, h3, h4, h5, h6, p, span {
     display: none !important;
   }
 }
+
+#header-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#header-list > .list-group-item {    
+  border-radius: 0.3rem;
+  margin-right: 0.5rem;
+}
+
+#header-list > .list-group-item > a {    
+  border: dashed 1px #467bca;
+  border-bottom: solid 3px #3c69b9;
+  font-size: 1.1rem;
+  border-radius: 0.3rem;
+  padding: 0.2rem 0.4rem;
+}
+
+#header-list > .list-group-item > a:hover {    
+  background: #467bca;
+  color: #fff !important;
+}
+
 /*# sourceMappingURL=main.css.map */

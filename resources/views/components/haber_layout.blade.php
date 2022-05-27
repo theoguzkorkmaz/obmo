@@ -16,6 +16,6 @@
   <x-haber_topbar :topbars="$topbars"></x-haber_topbar>
   <x-haber_navbar :kategoris="$kategoris" :sayfas="$sayfas"></x-haber_navbar>   
   {{$slot}}  
-  <x-haber_footer :kategoris="$kategoris" :sayfas="$sayfas" :topbars="$topbars" :fhabers="$fhabers"></x-haber_footer>
+  <x-haber_footer :kategoris="$kategoris" :sayfas="$sayfas" :topbars="$topbars" :fhabers="$fhabers" :sosyals="$sosyals"></x-haber_footer>
 </body>
 </html>

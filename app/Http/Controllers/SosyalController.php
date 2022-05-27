@@ -3,22 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Sosyal;
+use App\Models\EgitimNavbar;
 use Illuminate\Http\Request;
 
 class SosyalController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-			return view('sosyal.index', [
-        'sosyals' => Sosyal::latest()->get()
-      ]);
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -26,7 +15,7 @@ class SosyalController extends Controller
      */
     public function create()
     {
-      return view('admin.sosyal.create');
+      return view('admin.sosyal.create')->with('navbars', EgitimNavbar::all());
     }
 
     /**
@@ -52,19 +41,6 @@ class SosyalController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Sosyal $sosyal)
-    {
-			return view('sosyal.show', [
-        'sosyal' =>  $sosyal
-      ]);
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -73,7 +49,8 @@ class SosyalController extends Controller
     public function edit(Sosyal $sosyal)
     {
 			return view('admin.sosyal.edit', [
-        'sosyal' => $sosyal 
+        'sosyal' => $sosyal,
+        'navbars' => EgitimNavbar::all()
       ]);
     }
 
@@ -120,7 +97,8 @@ class SosyalController extends Controller
     public function admin_index()
     {			
 			return view('admin.sosyal.index', [
-				'sosyals' => Sosyal::latest()->get()
+				'sosyals' => Sosyal::latest()->paginate(12),
+        'navbars' => EgitimNavbar::all()
 			]);
     }
 
@@ -133,7 +111,8 @@ class SosyalController extends Controller
     public function admin_show(Sosyal $sosyal)
     {
 			return view('admin.sosyal.show', [
-        'sosyal' =>  $sosyal
+        'sosyal' =>  $sosyal,
+        'navbars' => EgitimNavbar::all()
       ]);
     }
 }

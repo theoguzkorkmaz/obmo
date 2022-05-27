@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Models\EgitimSinav;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -40,25 +41,23 @@ Route::get('/home', function () {
     return view('home'); 
 });
 
-Route::get('/admin', function() {
-    return view('admin.index');
-});
-
 Route::get('/haber', [HaberController::class, 'haber_index']);
 Route::get('/haber/haber_detay/{haber}', [HaberController::class, 'haber_show']);
 Route::get('/haber/kategori_detay/{kategori}', [HaberController::class, 'kategori_show']);
 Route::get('/haber/sayfa_detay/{sayfa}', [HaberController::class, 'sayfa_show']);
 Route::get('/haber/ara', [HaberController::class, 'ara_show']);
 Route::get('/haber/kategoriler', [HaberController::class, 'kategoriler_show']);
+Route::post('/haber', [HaberController::class, 'bulten']);
 
 Route::get('/egitim', [EgitimController::class, 'egitim_index']);
 Route::get('/egitim/egitim_detay/{egitim}', [EgitimController::class, 'egitim_detay']);
-Route::post('/egitim/egitim_detay/{egitim}', [EgitimController::class,'store']);
+Route::post('/egitim/egitim_detay/{egitim}', [EgitimController::class,'ders_kayit']);
+Route::get('/egitim/kategoriler', [EgitimController::class, 'kategoriler_show']);
+Route::get('/egitim/kategori_detay/{kategori}', [EgitimController::class,'kategori_detay']);
+Route::get('/egitim/derslerim', [EgitimController::class, 'derslerim']);
+Route::get('/egitim/egitim_icerik/{icerik}', [EgitimController::class, 'egitim_icerik']);
 
-Route::controller(HaberTopbarController::class)->group(function() {
-    //Topbar kısmı - public
-    //--topbars veri gönderimi:
-    Route::get('/haber_topbars', 'index');
+Route::controller(HaberTopbarController::class)->group(function() {    
     //Topbar kısmı - private
     //--admin sayfası için topbars veri gönderimi:
     Route::get('/admin/haber/haber_topbars', 'admin_index');
@@ -77,9 +76,6 @@ Route::controller(HaberTopbarController::class)->group(function() {
 });
 
 Route::controller(HaberKategoriController::class)->group(function() {
-    //Topbar kısmı - public
-    //--topbars veri gönderimi:
-    Route::get('/haber_kategoris', 'index');
     //Topbar kısmı - private
     //--admin sayfası için topbars veri gönderimi:
     Route::get('/admin/haber/haber_kategoris', 'admin_index');
@@ -87,8 +83,6 @@ Route::controller(HaberKategoriController::class)->group(function() {
     Route::get('/admin/haber/haber_kategoris/olustur', 'create');
     //--topbars create işlemi:
     Route::post('/admin/haber/haber_kategoris', 'store');
-    //--topbars admin show sayfası:
-    Route::get('/haber_kategoris/{haber_kategori}', 'show');
     //--topbars admin show sayfası:
     Route::get('/admin/haber/haber_kategoris/{haber_kategori}', 'admin_show');
     //--topbars edit sayfası:
@@ -99,10 +93,7 @@ Route::controller(HaberKategoriController::class)->group(function() {
     Route::delete('/admin/haber/haber_kategoris/{haber_kategori}', 'destroy');
 });
 
-Route::controller(HaberHaberController::class)->group(function() {
-    //Topbar kısmı - public
-    //--topbars veri gönderimi:
-    Route::get('/habers', 'index');
+Route::controller(HaberHaberController::class)->group(function() {    
     //Topbar kısmı - private
     //--admin sayfası için topbars veri gönderimi:
     Route::get('/admin/haber/habers', 'admin_index');
@@ -110,8 +101,6 @@ Route::controller(HaberHaberController::class)->group(function() {
     Route::get('/admin/haber/habers/olustur', 'create');
     //--topbars create işlemi:
     Route::post('/admin/haber/habers', 'store');
-    //--topbars admin show sayfası:
-    Route::get('/habers/{haber_haber}', 'show');
     //--topbars admin show sayfası:
     Route::get('/admin/haber/habers/{haber_haber}', 'admin_show');
     //--topbars edit sayfası:
@@ -122,10 +111,7 @@ Route::controller(HaberHaberController::class)->group(function() {
     Route::delete('/admin/haber/habers/{haber_haber}', 'destroy');
 });
 
-Route::controller(HaberYorumController::class)->group(function() {
-    //Topbar kısmı - public
-    //--topbars veri gönderimi:
-    Route::get('/haber_yorums', 'index');
+Route::controller(HaberYorumController::class)->group(function() {    
     //Topbar kısmı - private
     //--admin sayfası için topbars veri gönderimi:
     Route::get('/admin/haber/haber_yorums', 'admin_index');
@@ -133,8 +119,6 @@ Route::controller(HaberYorumController::class)->group(function() {
     Route::get('/admin/haber/haber_yorums/olustur', 'create');
     //--topbars create işlemi:
     Route::post('/admin/haber/haber_yorums', 'store');
-    //--topbars admin show sayfası:
-    Route::get('/haber_yorums/{haber_yorum}', 'show');
     //--topbars admin show sayfası:
     Route::get('/admin/haber/haber_yorums/{haber_yorum}', 'admin_show');
     //--topbars edit sayfası:
@@ -146,9 +130,6 @@ Route::controller(HaberYorumController::class)->group(function() {
 });
 
 Route::controller(SosyalController::class)->group(function() {
-    //Topbar kısmı - public
-    //--topbars veri gönderimi:
-    Route::get('/sosyals', 'index');
     //Topbar kısmı - private
     //--admin sayfası için topbars veri gönderimi:
     Route::get('/admin/sosyals', 'admin_index');
@@ -156,8 +137,6 @@ Route::controller(SosyalController::class)->group(function() {
     Route::get('/admin/sosyals/olustur', 'create');
     //--topbars create işlemi:
     Route::post('/admin/sosyals', 'store');
-    //--topbars admin show sayfası:
-    Route::get('/sosyals/{sosyal}', 'show');
     //--topbars admin show sayfası:
     Route::get('/admin/sosyals/{sosyal}', 'admin_show');
     //--topbars edit sayfası:
@@ -169,9 +148,6 @@ Route::controller(SosyalController::class)->group(function() {
 });
 
 Route::controller(HaberSayfaController::class)->group(function() { 
-    //Topbar kısmı - public
-    //--topbars veri gönderimi:
-    Route::get('/haber_sayfas', 'index');
     //Topbar kısmı - private
     //--admin sayfası için topbars veri gönderimi:
     Route::get('/admin/haber/haber_sayfas', 'admin_index');
@@ -179,8 +155,6 @@ Route::controller(HaberSayfaController::class)->group(function() {
     Route::get('/admin/haber/haber_sayfas/olustur', 'create');
     //--topbars create işlemi:
     Route::post('/admin/haber/haber_sayfas', 'store');
-    //--topbars admin show sayfası:
-    Route::get('/haber_sayfas/{haber_sayfa}', 'show');
     //--topbars admin show sayfası:
     Route::get('/admin/haber/haber_sayfas/{haber_sayfa}', 'admin_show');
     //--topbars edit sayfası:
@@ -192,9 +166,6 @@ Route::controller(HaberSayfaController::class)->group(function() {
 });
 
 Route::controller(EgitimKategoriController::class)->group(function() {
-    //Topbar kısmı - public
-    //--topbars veri gönderimi:
-    Route::get('/egitim_kategoris', 'index');
     //Topbar kısmı - private
     //--admin sayfası için topbars veri gönderimi:
     Route::get('/admin/egitim/egitim_kategoris', 'admin_index');
@@ -202,8 +173,6 @@ Route::controller(EgitimKategoriController::class)->group(function() {
     Route::get('/admin/egitim/egitim_kategoris/olustur', 'create');
     //--topbars create işlemi:
     Route::post('/admin/egitim/egitim_kategoris', 'store');
-    //--topbars admin show sayfası:
-    Route::get('/egitim_kategoris/{egitim_kategori}', 'show');
     //--topbars admin show sayfası:
     Route::get('/admin/egitim/egitim_kategoris/{egitim_kategori}', 'admin_show');
     //--topbars edit sayfası:
@@ -215,9 +184,6 @@ Route::controller(EgitimKategoriController::class)->group(function() {
 });
 
 Route::controller(EgitimEgitimController::class)->group(function() {
-    //Topbar kısmı - public
-    //--topbars veri gönderimi:
-    Route::get('/egitims', 'index');
     //Topbar kısmı - private
     //--admin sayfası için topbars veri gönderimi:
     Route::get('/admin/egitim/egitims', 'admin_index');
@@ -225,8 +191,6 @@ Route::controller(EgitimEgitimController::class)->group(function() {
     Route::get('/admin/egitim/egitims/olustur', 'create');
     //--topbars create işlemi:
     Route::post('/admin/egitim/egitims', 'store');
-    //--topbars admin show sayfası:
-    Route::get('/egitims/{egitim_egitim}', 'show');
     //--topbars admin show sayfası:
     Route::get('/admin/egitim/egitims/{egitim_egitim}', 'admin_show');
     //--topbars edit sayfası:
@@ -238,9 +202,6 @@ Route::controller(EgitimEgitimController::class)->group(function() {
 });
 
 Route::controller(EgitimIcerikController::class)->group(function() {
-    //Topbar kısmı - public
-    //--topbars veri gönderimi:
-    Route::get('/egitim_iceriks', 'index');
     //Topbar kısmı - private
     //--admin sayfası için topbars veri gönderimi:
     Route::get('/admin/egitim/egitim_iceriks', 'admin_index');
@@ -248,8 +209,6 @@ Route::controller(EgitimIcerikController::class)->group(function() {
     Route::get('/admin/egitim/egitim_iceriks/olustur', 'create');
     //--topbars create işlemi:
     Route::post('/admin/egitim/egitim_iceriks', 'store');
-    //--topbars admin show sayfası:
-    Route::get('/egitim_iceriks/{egitim_icerik}', 'show');
     //--topbars admin show sayfası:
     Route::get('/admin/egitim/egitim_iceriks/{egitim_icerik}', 'admin_show');
     //--topbars edit sayfası:
@@ -261,9 +220,6 @@ Route::controller(EgitimIcerikController::class)->group(function() {
 });
 
 Route::controller(EgitimSinavController::class)->group(function() {
-    //Topbar kısmı - public
-    //--topbars veri gönderimi:
-    Route::get('/egitim_sinavs', 'index');
     //Topbar kısmı - private
     //--admin sayfası için topbars veri gönderimi:
     Route::get('/admin/egitim/egitim_sinavs', 'admin_index');
@@ -271,8 +227,6 @@ Route::controller(EgitimSinavController::class)->group(function() {
     Route::get('/admin/egitim/egitim_sinavs/olustur', 'create');
     //--topbars create işlemi:
     Route::post('/admin/egitim/egitim_sinavs', 'store');
-    //--topbars admin show sayfası:
-    Route::get('/egitim_sinavs/{egitim_sinav}', 'show');
     //--topbars admin show sayfası:
     Route::get('/admin/egitim/egitim_sinavs/{egitim_sinav}', 'admin_show');
     //--topbars edit sayfası:
@@ -284,9 +238,6 @@ Route::controller(EgitimSinavController::class)->group(function() {
 });
 
 Route::controller(EgitimYorumController::class)->group(function() {
-    //Topbar kısmı - public
-    //--topbars veri gönderimi:
-    Route::get('/egitim_yorums', 'index');
     //Topbar kısmı - private
     //--admin sayfası için topbars veri gönderimi:
     Route::get('/admin/egitim/egitim_yorums', 'admin_index');
@@ -294,8 +245,6 @@ Route::controller(EgitimYorumController::class)->group(function() {
     Route::get('/admin/egitim/egitim_yorums/olustur', 'create');
     //--topbars create işlemi:
     Route::post('/admin/egitim/egitim_yorums', 'store');
-    //--topbars admin show sayfası:
-    Route::get('/egitim_yorums/{egitim_yorum}', 'show');
     //--topbars admin show sayfası:
     Route::get('/admin/egitim/egitim_yorums/{egitim_yorum}', 'admin_show');
     //--topbars edit sayfası:
@@ -307,9 +256,6 @@ Route::controller(EgitimYorumController::class)->group(function() {
 });
 
 Route::controller(EgitimSoruController::class)->group(function() {
-    //Topbar kısmı - public
-    //--topbars veri gönderimi:
-    Route::get('/egitim_sorus', 'index');
     //Topbar kısmı - private
     //--admin sayfası için topbars veri gönderimi:
     Route::get('/admin/egitim/egitim_sorus', 'admin_index');
@@ -317,8 +263,6 @@ Route::controller(EgitimSoruController::class)->group(function() {
     Route::get('/admin/egitim/egitim_sorus/olustur', 'create');
     //--topbars create işlemi:
     Route::post('/admin/egitim/egitim_sorus', 'store');
-    //--topbars admin show sayfası:
-    Route::get('/egitim_sorus/{egitim_soru}', 'show');
     //--topbars admin show sayfası:
     Route::get('/admin/egitim/egitim_sorus/{egitim_soru}', 'admin_show');
     //--topbars edit sayfası:
@@ -330,9 +274,6 @@ Route::controller(EgitimSoruController::class)->group(function() {
 });
 
 Route::controller(EgitimPuanController::class)->group(function() {
-    //Topbar kısmı - public
-    //--topbars veri gönderimi:
-    Route::get('/egitim_puans', 'index');
     //Topbar kısmı - private
     //--admin sayfası için topbars veri gönderimi:
     Route::get('/admin/egitim/egitim_puans', 'admin_index');
@@ -340,8 +281,6 @@ Route::controller(EgitimPuanController::class)->group(function() {
     Route::get('/admin/egitim/egitim_puans/olustur', 'create');
     //--topbars create işlemi:
     Route::post('/admin/egitim/egitim_puans', 'store');
-    //--topbars admin show sayfası:
-    Route::get('/egitim_puans/{egitim_puan}', 'show');
     //--topbars admin show sayfası:
     Route::get('/admin/egitim/egitim_puans/{egitim_puan}', 'admin_show');
     //--topbars edit sayfası:
@@ -353,9 +292,6 @@ Route::controller(EgitimPuanController::class)->group(function() {
 });
 
 Route::controller(EgitimCevapController::class)->group(function() {
-    //Topbar kısmı - public
-    //--topbars veri gönderimi:
-    Route::get('/egitim_cevaps', 'index');
     //Topbar kısmı - private
     //--admin sayfası için topbars veri gönderimi:
     Route::get('/admin/egitim/egitim_cevaps', 'admin_index');
@@ -363,8 +299,6 @@ Route::controller(EgitimCevapController::class)->group(function() {
     Route::get('/admin/egitim/egitim_cevaps/olustur', 'create');
     //--topbars create işlemi:
     Route::post('/admin/egitim/egitim_cevaps', 'store');
-    //--topbars admin show sayfası:
-    Route::get('/egitim_cevaps/{egitim_cevap}', 'show');
     //--topbars admin show sayfası:
     Route::get('/admin/egitim/egitim_cevaps/{egitim_cevap}', 'admin_show');
     //--topbars edit sayfası:
@@ -376,9 +310,6 @@ Route::controller(EgitimCevapController::class)->group(function() {
 });
 
 Route::controller(EgitimNavbarController::class)->group(function() {
-    //Topbar kısmı - public
-    //--topbars veri gönderimi:
-    Route::get('/egitim_navbars', 'index');
     //Topbar kısmı - private
     //--admin sayfası için topbars veri gönderimi:
     Route::get('/admin/egitim/egitim_navbars', 'admin_index');
@@ -386,8 +317,6 @@ Route::controller(EgitimNavbarController::class)->group(function() {
     Route::get('/admin/egitim/egitim_navbars/olustur', 'create');
     //--topbars create işlemi:
     Route::post('/admin/egitim/egitim_navbars', 'store');
-    //--topbars admin show sayfası:
-    Route::get('/egitim_navbars/{egitim_navbar}', 'show');
     //--topbars admin show sayfası:
     Route::get('/admin/egitim/egitim_navbars/{egitim_navbar}', 'admin_show');
     //--topbars edit sayfası:
@@ -400,7 +329,8 @@ Route::controller(EgitimNavbarController::class)->group(function() {
 
 Auth::routes();
 Route::middleware(['auth', 'isAdmin'])->group(function () {
-    Route::get('/admin', function() {
-        return view('admin.index');
-    })->name('dashboard');
+    // Route::get('/admin', function() {
+    //     return view('admin.index');
+    // })->name('dashboard');
+    Route::get('/admin', [AdminController::class, 'admin_index']);
 });

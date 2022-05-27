@@ -9,25 +9,13 @@ use Illuminate\Http\Request;
 class EgitimNavbarController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-      return view('egitim.navbar.index', [
-				'navbars' => EgitimNavbar::latest()->get()
-			]);
-    }
-
-    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-			return view('admin.egitim.navbar.create');
+			return view('admin.egitim.navbar.create')->with('navbars', EgitimNavbar::all());
     }
 
     /**
@@ -53,19 +41,6 @@ class EgitimNavbarController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(EgitimNavbar $egitim_navbar)
-    {
-      return view('egitim.navbar.show', [
-        'navbar' =>  $egitim_navbar
-      ]);
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -74,7 +49,8 @@ class EgitimNavbarController extends Controller
     public function edit(EgitimNavbar $egitim_navbar)
     {
       return view('admin.egitim.navbar.edit', [
-        'navbar' => $egitim_navbar 
+        'navbar' => $egitim_navbar,
+        'navbars' => EgitimNavbar::all()
       ]);
     }
 
@@ -121,7 +97,8 @@ class EgitimNavbarController extends Controller
     public function admin_index()
     {			
 			return view('admin.egitim.navbar.index', [
-				'navbars' => EgitimNavbar::latest()->get()
+				'navbars2' => EgitimNavbar::latest()->paginate(12),
+        'navbars' => EgitimNavbar::all()
 			]);
     }
 
@@ -134,7 +111,8 @@ class EgitimNavbarController extends Controller
     public function admin_show(EgitimNavbar $egitim_navbar)
     {
 			return view('admin.egitim.navbar.show', [
-        'navbar' =>  $egitim_navbar
+        'navbar' =>  $egitim_navbar,
+        'navbars' => EgitimNavbar::all()
       ]);
     }
 }

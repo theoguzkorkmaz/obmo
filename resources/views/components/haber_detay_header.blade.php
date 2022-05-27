@@ -1,4 +1,5 @@
 @props(['haber'])
+@props(['yazar'])
 
 @if ($haber)
   <div class="container p-md-0" id="haber_header">
@@ -7,7 +8,7 @@
         <li class="breadcrumb-item"><a href="/" title="Anasayfa">Anasayfa</a></li>
         <li class="breadcrumb-item"><a href="/haber/kategori_detay/{{$haber->id}}">{{$haber->ad}}</a></li>
         <li class="breadcrumb-item">
-          {{$haber->baslik}}
+          {{Str::limit($haber->baslik, 70)}}
         </li>
       </ol>
     </nav>
@@ -17,10 +18,13 @@
     <p class="mini-icerik">{{Str::limit($haber->icerik, 120)}}</p>
 
     <p class="yazar-tarih">
-      <a class="ad" href="#">Y A Z A R</a> tarafından | <span class="tarih">{{$haber->tarih}}</span> tarihinde paylaşıldı.
+      <a class="ad">
+        {{$yazar->name}}
+      </a> 
+      tarafından | <span class="tarih">{{$haber->tarih}}</span> tarihinde paylaşıldı.
     </p>
 
-    <x-haber_paylas></x-haber_paylas>
+    <x-haber_paylas :haber="$haber"></x-haber_paylas>
   </div><!-- /haber_header --> 
 @else
   <div class="container p-md-0" id="haber_header">

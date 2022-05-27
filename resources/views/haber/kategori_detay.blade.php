@@ -2,7 +2,7 @@
 {{$kategori->baslik}}
 {{$kategori->ad}} --}}
 
-<x-haber_layout :topbars="$topbars" :kategoris="$kategoris" :sayfas="$sayfas" :fhabers="$fhabers">
+<x-haber_layout :topbars="$topbars" :kategoris="$kategoris" :sayfas="$sayfas" :fhabers="$fhabers" :sosyals="$sosyals">
   <div class="container p-md-0" id="kategori_baslik">    
     <h2 class="baslik"><i class="{{$kategori->icon}}"></i> {{$kategori->ad}}</h2>
   </div><!-- /kategori_nav -->
@@ -18,7 +18,7 @@
 
     <x-haber_bunlari_kacirma_yatay :kacirmas="$kacirmas"></x-haber_bunlari_kacirma_yatay>
 
-    <x-haber_kategori_haber></x-haber_kategori_haber>
+    <x-haber_kategori_haber :kategori1="$kategori1" :kategori2="$kategori2"></x-haber_kategori_haber>
 
     <div class="container p-md-0" id="kategori_aciklama">
       <h3 class="baslik">

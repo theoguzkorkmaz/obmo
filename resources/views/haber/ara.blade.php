@@ -1,4 +1,4 @@
-<x-haber_layout :topbars="$topbars" :kategoris="$kategoris" :sayfas="$sayfas" :fhabers="$fhabers">
+<x-haber_layout :topbars="$topbars" :kategoris="$kategoris" :sayfas="$sayfas" :fhabers="$fhabers" :sosyals="$sosyals">
   <x-haber_kategori_nav :kategoris="$kategoris"></x-haber_kategori_nav>
   <div class="container p-md-0" id="ara">
     <div class="ara-brand">

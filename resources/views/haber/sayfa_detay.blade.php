@@ -2,7 +2,7 @@
 {{$sayfa->baslik}}
 {{$sayfa->ad}} --}}
 
-<x-haber_layout :topbars="$topbars" :kategoris="$kategoris" :sayfas="$sayfas" :fhabers="$fhabers">
+<x-haber_layout :topbars="$topbars" :kategoris="$kategoris" :sayfas="$sayfas" :fhabers="$fhabers" :sosyals="$sosyals">
   <div class="container p-md-0">    
     <div class="row">      
       <main class="col-md-8 col-12">

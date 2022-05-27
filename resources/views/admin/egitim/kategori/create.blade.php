@@ -1,57 +1,82 @@
-<h1>Kategori - Create</h1>
+@extends('admin.layout', ['navbars' => $navbars, 'title' => "Kategori", 'title2' => 'create', 'title_link' => '/admin/egitim/egitim_kategoris', 'header' => "Kategori oluştur"])
+@section('content')
+  <div class="row">
+    <!-- left column -->
+    <div class="col-md-7 col-12">
+      <!-- general form elements -->
+      <div class="card card-primary">
+        <div class="card-header">
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form method="POST" action="/admin/egitim/egitim_kategoris" class="w-100" enctype="multipart/form-data">
+          @csrf
+          <div class="card-body">
+            
+            <div class="mb-3">
+              <label class="form-label" for="baslik">baslik</label>
+              <input class="form-control" type="text" name="baslik" value="{{old('baslik')}}" />
+              @error('baslik')
+                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+              @enderror 
+            </div>
+          
+            <div class="mb-3">
+              <label class="form-label" for="aciklama">Açıklama</label>
+              <input class="form-control" type="text" name="aciklama" value="{{old('aciklama')}}" />
+              @error('aciklama')
+                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+              @enderror
+            </div>
+          
+            <div class="mb-3">
+              <label class="form-label" for="yer">resim</label>
+              <input class="form-control" type="file" name="resim"/>
+              @error('resim')
+                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+              @enderror
+            </div>
+          
+            <div class="mb-3">
+              <label class="form-label" for="resim_aciklama">resim_aciklama</label>
+              <input class="form-control" type="text" name="resim_aciklama" value="{{old('resim_aciklama')}}" />
+              @error('resim_aciklama')
+                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+              @enderror
+            </div>
+          
+            <div class="mb-3">
+              <label class="form-label" for="icon">icon</label>
+              <input class="form-control" type="text" name="icon" value="{{old('icon')}}" />
+              @error('icon')
+                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+              @enderror
+            </div>
+          
+            <div class="mb-3">
+              <label class="form-label" for="admin">admin</label>
+              <input class="form-control" type="text" name="admin" value="{{auth()->user()->id}}" readonly />
+              <small>Bu veri <b>{{auth()->user()->name}}</b> tarafından oluşturulacak</small>
+              @error('admin')
+                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+              @enderror
+            </div>
 
-<form method="POST" action="/admin/egitim/egitim_kategoris" enctype="multipart/form-data">
-  @csrf
-  <div class="mb-6">
-      <label for="baslik">baslik</label>
-      <input type="text" name="baslik" value="{{old('baslik')}}" />
-      @error('baslik')
-        <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
-      @enderror 
+          </div>
+          <!-- /.card-body -->
+  
+          <div class="card-footer w-100">
+            <button type="submit" class="btn btn-primary">
+              Oluştur
+            </button> 
+            <button type="reset" class="btn btn-danger">
+              Formu temizle
+            </button> 
+          </div>
+        </form>
+      </div>
+      <!-- /.card -->
+    </div>
   </div>
 
-  <div class="mb-6">
-    <label for="aciklama">Açıklama</label>
-    <input type="text" name="aciklama" value="{{old('aciklama')}}" />
-    @error('aciklama')
-      <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
-    @enderror
-  </div>
-
-  <div class="mb-6">
-    <label for="yer">resim</label>
-    <input type="file" name="resim"/>
-    @error('resim')
-      <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
-    @enderror
-  </div>
-
-  <div class="mb-6">
-    <label for="resim_aciklama">resim_aciklama</label>
-    <input type="text" name="resim_aciklama" value="{{old('resim_aciklama')}}" />
-    @error('resim_aciklama')
-      <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
-    @enderror
-  </div>
-
-  <div class="mb-6">
-    <label for="icon">icon</label>
-    <input type="text" name="icon" value="{{old('icon')}}" />
-    @error('icon')
-      <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
-    @enderror
-  </div>
-
-  <div class="mb-6">
-    <label for="admin">admin</label>
-    <input type="text" name="admin" value="{{auth()->user()->id}}" readonly />
-    <small>Bu veri <b>{{auth()->user()->name}}</b> tarafından oluşturulacak</small>
-    @error('admin')
-      <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
-    @enderror
-  </div>
-
-  <button type="submit">
-      Oluştur
-  </button> 
-</form>
+@endsection

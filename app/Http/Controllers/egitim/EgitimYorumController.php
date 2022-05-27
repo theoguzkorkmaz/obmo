@@ -2,24 +2,13 @@
 
 namespace App\Http\Controllers\egitim;
 
-use App\Http\Controllers\Controller;
 use App\Models\EgitimYorum;
+use App\Models\EgitimNavbar;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class EgitimYorumController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-      return view('egitim.yorum.index', [
-				'yorums' => EgitimYorum::latest()->get()
-			]);
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -27,7 +16,7 @@ class EgitimYorumController extends Controller
      */
     public function create()
     {
-			return view('admin.egitim.yorum.create');
+			return view('admin.egitim.yorum.create')->with('navbars', EgitimNavbar::all());
     }
 
     /**
@@ -52,19 +41,6 @@ class EgitimYorumController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(EgitimYorum $egitim_yorum)
-    {
-			return view('egitim.yorum.show', [
-        'yorum' =>  $egitim_yorum
-      ]);
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -73,7 +49,8 @@ class EgitimYorumController extends Controller
     public function edit(EgitimYorum $egitim_yorum)
     {
 			return view('admin.egitim.yorum.edit', [
-        'yorum' => $egitim_yorum
+        'yorum' => $egitim_yorum,
+        'navbars' => EgitimNavbar::all()
       ]);
     }
 
@@ -119,7 +96,8 @@ class EgitimYorumController extends Controller
     public function admin_index()
     {			
 			return view('admin.egitim.yorum.index', [
-				'yorums' => EgitimYorum::latest()->get()
+				'yorums' => EgitimYorum::latest()->paginate(12),
+        'navbars' => EgitimNavbar::all()
 			]);
     }
 
@@ -132,7 +110,8 @@ class EgitimYorumController extends Controller
     public function admin_show(EgitimYorum $egitim_yorum)
     {
 			return view('admin.egitim.yorum.show', [
-        'yorum' =>  $egitim_yorum
+        'yorum' =>  $egitim_yorum,
+        'navbars' => EgitimNavbar::all()
       ]);
     }
 }

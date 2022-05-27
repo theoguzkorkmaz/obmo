@@ -1,4 +1,11 @@
 <x-egitim_layout :navbars="$navbars">
-  <x-egitim_genel_bakis></x-egitim_genel_bakis>
-  <x-egitim_anasayfa_derslerim :onerilers="$onerilers" :egitims="$egitims"></x-egitim_anasayfa_derslerim>
-</x-egitim_layout>
+  <h1 class="baslik fs-2">
+    Selamlar {{auth()->user()->name}} 👋
+  </h1>
+  
+  <x-egitim_kategori :kategoris="$kategoris"></x-egitim_kategori>
+
+  <x-egitim_dersler :egitims="$egitims"></x-egitim_dersler>
+
+  <x-egitim_derslerim :megitims="$megitims"></x-egitim_derslerim>
+</x-egitim_layout> 

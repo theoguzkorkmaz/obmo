@@ -13,8 +13,8 @@
       <a class="card" href="/haber/haber_detay/{{$gundem->id}}" title="{{$gundem->baslik}}">
         <img src="{{$gundem->resim ? asset('storage/'.$gundem->resim) : asset('/images/no-image.png')}}" alt="{{$gundem->resim_aciklama}}" title="{{$gundem->resim_aciklama}}" class="card-img-top shadow-sm"/>
         <div class="card-body">
-          <h5 class="card-title">{{$gundem->baslik}}</h5>
-          <p class="card-text">{{$gundem->icerik}}</p>
+          <h5 class="card-title">{{Str::limit($gundem->baslik, 70)}}</h5>
+          <p class="card-text">{{Str::limit($gundem->icerik, 50)}}</p>
           <p class="card-text mb-0">
             <small class="text-muted">{{$gundem->created_at->diffForHumans()}}</small>
           </p>
@@ -60,7 +60,7 @@
             <div class="w-100">
               <h5 class="text-break">{{Str::limit($baslik->baslik, 70)}}</h5>            
             </div>
-            <p>{{Str::limit($baslik->icerik, 120)}}</p>          
+            <p>{{Str::limit($baslik->icerik, 50)}}</p>          
           </a>
         @endforeach
       @else

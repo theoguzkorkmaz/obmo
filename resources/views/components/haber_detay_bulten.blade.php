@@ -10,10 +10,13 @@
     <p>
       Her cuma günü gönderilir!
     </p>
-    <div class="input-group">
-      <label for="" class="form-label">E-mail (Gereklidir):</label>
-      <input type="email"class="form-control" name="" id="" aria-describedby="helpId" placeholder="">              
-    </div>
+    <form action="/haber" method="post">
+      @csrf
+      <div class="input-group">
+        <label for="" class="form-label">E-mail (Gereklidir):</label>
+        <input type="email"class="form-control" name="mail" id="" aria-describedby="helpId" placeholder="">              
+      </div>
+    </form>
     <small>
       E-mail adresinizi 3.parti kişilerle paylaşmayız! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo, repudiandae.
     </small>

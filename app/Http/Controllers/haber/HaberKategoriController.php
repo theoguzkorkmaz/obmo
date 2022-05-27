@@ -2,24 +2,13 @@
 
 namespace App\Http\Controllers\haber;
 
-use App\Http\Controllers\Controller;
-use App\Models\HaberKategori;
+use App\Models\EgitimNavbar;
 use Illuminate\Http\Request;
+use App\Models\HaberKategori;
+use App\Http\Controllers\Controller;
 
 class HaberKategoriController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-			return view('haber.kategori.index', [
-				'kategories' => HaberKategori::latest()->get()
-			]); 
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -27,7 +16,7 @@ class HaberKategoriController extends Controller
      */
     public function create()
     {
-			return view('admin.haber.kategori.create');
+			return view('admin.haber.kategori.create')->with('navbars', EgitimNavbar::all());
     }
 
     /**
@@ -58,19 +47,6 @@ class HaberKategoriController extends Controller
 		}
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(HaberKategori $haber_kategori)
-    {
-			return view('haber.kategori.show', [
-        'kategori' =>  $haber_kategori
-      ]);
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -79,7 +55,8 @@ class HaberKategoriController extends Controller
     public function edit(HaberKategori $haber_kategori)
     {
 			return view('admin.haber.kategori.edit', [
-        'kategori' => $haber_kategori 
+        'kategori' => $haber_kategori,
+        'navbars' => EgitimNavbar::all()
       ]);
     }
 
@@ -131,7 +108,8 @@ class HaberKategoriController extends Controller
     public function admin_index()
     {			
 			return view('admin.haber.kategori.index', [
-				'kategoris' => HaberKategori::latest()->get()
+				'kategoris' => HaberKategori::latest()->paginate(12), 
+        'navbars' => EgitimNavbar::all() 
 			]);
     }
 
@@ -144,7 +122,8 @@ class HaberKategoriController extends Controller
     public function admin_show(HaberKategori $haber_kategori)
     {
 			return view('admin.haber.kategori.show', [
-        'kategori' =>  $haber_kategori
+        'kategori' =>  $haber_kategori,
+        'navbars' => EgitimNavbar::all()
       ]);
     }
 }

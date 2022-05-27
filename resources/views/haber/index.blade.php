@@ -1,13 +1,13 @@
 {{-- index-sayfasi --}}
 
-{{-- @foreach ($kategori1 as $item)
+{{-- @foreach ($sosyals as $item)
     {{$item->id}}
     {{$item->baslik}}
     {{$item->ad}}
     <br>
 @endforeach --}}
 
-<x-haber_layout :topbars="$topbars" :kategoris="$kategoris" :sayfas="$sayfas" :fhabers="$fhabers">
+<x-haber_layout :topbars="$topbars" :kategoris="$kategoris" :sayfas="$sayfas" :fhabers="$fhabers" :sosyals="$sosyals">
   <x-haber_kategori_nav :kategoris="$kategoris"></x-haber_kategori_nav>
   <x-haber_carousel :gundem="$gundem" :gundems="$gundems" :basliks="$basliks"></x-haber_carousel>
   <x-haber_index_haberler :habers="$habers"></x-haber_index_haberler>

@@ -2,24 +2,13 @@
 
 namespace App\Http\Controllers\haber;
 
-use App\Http\Controllers\Controller;
 use App\Models\HaberTopbar;
+use App\Models\EgitimNavbar;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class HaberTopbarController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {			
-			return view('haber.topbar.index', [
-				'topbars' => HaberTopbar::latest()->get()
-			]);
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -27,7 +16,7 @@ class HaberTopbarController extends Controller
      */
     public function create()
     {			
-			return view('admin.haber.topbar.create'); 
+			return view('admin.haber.topbar.create')->with('navbars', EgitimNavbar::all()); 
     }
 
     /**
@@ -62,7 +51,8 @@ class HaberTopbarController extends Controller
     public function admin_show(HaberTopbar $haber_topbar)
     {
 			return view('admin.haber.topbar.show', [
-        'topbar' =>  $haber_topbar
+        'topbar' =>  $haber_topbar,
+        'navbars' => EgitimNavbar::all()
       ]);
     }
 
@@ -75,7 +65,8 @@ class HaberTopbarController extends Controller
     public function edit(HaberTopbar $haber_topbar)
     {
 			return view('admin.haber.topbar.edit', [
-        'topbar' => $haber_topbar
+        'topbar' => $haber_topbar,
+        'navbars' => EgitimNavbar::all()
       ]);
     }
 
@@ -122,7 +113,8 @@ class HaberTopbarController extends Controller
     public function admin_index()
     {			
 			return view('admin.haber.topbar.index', [
-				'topbars' => HaberTopbar::latest()->get()
+				'topbars' => HaberTopbar::latest()->paginate(12),
+        'navbars' => EgitimNavbar::all()
 			]);
     }
 }

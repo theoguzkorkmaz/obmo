@@ -3,23 +3,12 @@
 namespace App\Http\Controllers\egitim;
 
 use App\Models\EgitimCevap;
+use App\Models\EgitimNavbar;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class EgitimCevapController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-			return view('egitim.cevap.index', [
-				'cevaps' => EgitimCevap::latest()->get()
-			]); 
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -27,7 +16,7 @@ class EgitimCevapController extends Controller
      */
     public function create()
     {
-			return view('admin.egitim.cevap.create');
+			return view('admin.egitim.cevap.create')->with('navbars', EgitimNavbar::all());
     }
 
     /**
@@ -52,19 +41,6 @@ class EgitimCevapController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(EgitimCevap $egitim_cevap)
-    {
-			return view('egitim.cevap.show', [
-        'cevap' =>  $egitim_cevap
-      ]);
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -73,7 +49,8 @@ class EgitimCevapController extends Controller
     public function edit(EgitimCevap $egitim_cevap)
     {
 			return view('admin.egitim.cevap.edit', [
-        'cevap' => $egitim_cevap 
+        'cevap' => $egitim_cevap,
+        'navbars' => EgitimNavbar::all()
       ]);
     }
 
@@ -119,7 +96,8 @@ class EgitimCevapController extends Controller
     public function admin_index()
     {			
 			return view('admin.egitim.cevap.index', [
-				'cevaps' => EgitimCevap::latest()->get()
+				'cevaps' => EgitimCevap::latest()->paginate(12),
+        'navbars' => EgitimNavbar::all()
 			]);
     }
 
@@ -132,7 +110,8 @@ class EgitimCevapController extends Controller
     public function admin_show(EgitimCevap $egitim_cevap)
     {
 			return view('admin.egitim.cevap.show', [
-        'cevap' =>  $egitim_cevap
+        'cevap' =>  $egitim_cevap,
+        'navbars' => EgitimNavbar::all()
       ]);
     }
 }

@@ -26,6 +26,29 @@
   </div><!-- /&_left -->
   <div>
     <ul class="list-group list-group-horizontal d-flex gap-2">
+      @guest
+      <li>
+        <a href="/login" title="Giriş yapmak için tıklayın">
+          <i class="fas fa-sign-in-alt    "></i>
+          Giriş yap
+        </a>
+      </li>   
+      @endguest
+      @auth
+      <li>
+        <form action="{{ route('logout') }}" method="post">
+          @csrf
+          <button type="submit" class="btn">
+            <i class="fas fa-sign-out-alt    "></i>
+            {{auth()->user()->name}}
+          </button>
+        </form>
+      </li>    
+      @endauth
+    </ul>
+  </div> <!-- center -->
+  <div>
+    <ul class="list-group list-group-horizontal d-flex gap-2">
       @if (count($topbars) != 0)
         @foreach ($topbars as $topbar)
           @if ($topbar->yer == 1)                

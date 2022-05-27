@@ -51,6 +51,7 @@ h1, h2, h3, h4, h5, h6, p, span {
 
 #topbar .list-group {
   padding: 0.1rem 0;
+  list-style: none;
 }
 
 #topbar .list-group .list-group-item {

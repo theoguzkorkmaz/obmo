@@ -2,6 +2,7 @@
 @props(['sayfas'])
 @props(['topbars'])
 @props(['fhabers'])
+@props(['sosyals'])
 
 <footer class="container-fluid">
   <div class="container p-md-0">
@@ -12,36 +13,15 @@
           <span><i class="fas fa-dove"></i> Güvercin</span>      
         </a>
         <ul class="list-group list-group-horizontal">
-          <li class="list-group-item">
-            <a href="#">
-              <i class="fab fa-github"></i>
-            </a>
-          </li>
-          <li class="list-group-item">
-            <a href="#">
-              <i class="fab fa-facebook"></i>
-            </a>
-          </li>
-          <li class="list-group-item">
-            <a href="#">
-              <i class="fab fa-twitter"></i>
-            </a>
-          </li>
-          <li class="list-group-item">
-            <a href="#">
-              <i class="fab fa-linkedin"></i>
-            </a>
-          </li>
-          <li class="list-group-item">
-            <a href="#">
-              <i class="fab fa-instagram"></i>
-            </a>
-          </li>
-          <li class="list-group-item">
-            <a href="#">
-              <i class="fab fa-youtube"></i>
-            </a>
-          </li>
+          @foreach ($sosyals as $item)
+            @if (($item->aktiflik) == 1)
+              <li class="list-group-item">
+                <a href="{{$item->link}}" title="{{$item->aciklama}}">
+                  <i class="{{$item->icon}}"></i>
+                </a>
+              </li>   
+            @endif           
+          @endforeach
         </ul>
         <div class="row">
           <div id="google_translate_element"></div> 

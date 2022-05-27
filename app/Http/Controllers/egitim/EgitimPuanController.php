@@ -3,23 +3,12 @@
 namespace App\Http\Controllers\egitim;
 
 use App\Models\EgitimPuan;
+use App\Models\EgitimNavbar;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class EgitimPuanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-			return view('egitim.puan.index', [
-				'puans' => EgitimPuan::latest()->get()
-			]); 
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -27,7 +16,7 @@ class EgitimPuanController extends Controller
      */
     public function create()
     {
-			return view('admin.egitim.puan.create');
+			return view('admin.egitim.puan.create')->with('navbars', EgitimNavbar::all());
     }
 
     /**
@@ -52,19 +41,6 @@ class EgitimPuanController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(EgitimPuan $egitim_puan)
-    {
-			return view('egitim.puan.show', [
-        'puan' =>  $egitim_puan
-      ]);
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -73,7 +49,8 @@ class EgitimPuanController extends Controller
     public function edit(EgitimPuan $egitim_puan)
     {
 			return view('admin.egitim.puan.edit', [
-        'puan' => $egitim_puan 
+        'puan' => $egitim_puan,
+        'navbars' => EgitimNavbar::all()
       ]);
     }
 
@@ -119,7 +96,8 @@ class EgitimPuanController extends Controller
     public function admin_index()
     {			
 			return view('admin.egitim.puan.index', [
-				'puans' => EgitimPuan::latest()->get()
+				'puans' => EgitimPuan::latest()->paginate(12),
+        'navbars' => EgitimNavbar::all()
 			]);
     }
 
@@ -132,7 +110,8 @@ class EgitimPuanController extends Controller
     public function admin_show(EgitimPuan $egitim_puan)
     {
 			return view('admin.egitim.puan.show', [
-        'puan' =>  $egitim_puan
+        'puan' =>  $egitim_puan,
+        'navbars' => EgitimNavbar::all()
       ]);
     }
 }

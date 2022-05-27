@@ -2,7 +2,7 @@
 
 <div class="container p-md-0 haberler">
   <h2 class="baslik">
-    Haberler
+    Haberler    
   </h2>
 
   <div class="card-group d-flex flex-column flex-md-row flex-wrap gap-2">
@@ -14,7 +14,7 @@
             <h5 class="card-title">{{Str::limit($haber->baslik, 70)}}</h5>
             <p class="card-text">{{Str::limit($haber->icerik, 120)}}</p>
             <p class="card-text mb-0">
-              <small class="text-muted">{{$haber->created_at->diffForHumans()}}</small>
+              <small class="text-muted">{{$haber->created_at->diffForHumans()}}</small> 
             </p>
           </div>
         </a>

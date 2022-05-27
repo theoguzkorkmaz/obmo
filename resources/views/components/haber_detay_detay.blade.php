@@ -1,4 +1,5 @@
 @props(['haber'])
+@props(['yazar'])
 
 <div id="detay_haber">
   @if ($haber)
@@ -6,4 +7,4 @@
   @else
     <p>Haber detay yüklenemedi, lütfen daha sonra tekrar deneyiniz.</p>  
   @endif  
-</div><!-- /detay-haber -->
+</div><!-- /detay-haber --> 

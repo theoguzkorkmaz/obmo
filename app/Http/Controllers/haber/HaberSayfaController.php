@@ -3,23 +3,12 @@
 namespace App\Http\Controllers\haber;
 
 use App\Models\HaberSayfa;
+use App\Models\EgitimNavbar;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class HaberSayfaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index() 
-    {
-			return view('haber.sayfa.index', [
-				'sayfas' => HaberSayfa::latest()->get()
-			]); 
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -27,7 +16,7 @@ class HaberSayfaController extends Controller
      */
     public function create()
     {
-			return view('admin.haber.sayfa.create');
+			return view('admin.haber.sayfa.create')->with('navbars', EgitimNavbar::all());
     }
 
     /**
@@ -56,19 +45,6 @@ class HaberSayfaController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(HaberSayfa $haber_sayfa)
-    {
-			return view('haber.sayfa.show', [
-        'sayfa' =>  $haber_sayfa
-      ]);
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -77,7 +53,8 @@ class HaberSayfaController extends Controller
     public function edit(HaberSayfa $haber_sayfa)
     {
 			return view('admin.haber.sayfa.edit', [
-        'sayfa' => $haber_sayfa 
+        'sayfa' => $haber_sayfa,
+        'navbars' => EgitimNavbar::all()
       ]);
     }
 
@@ -127,7 +104,8 @@ class HaberSayfaController extends Controller
     public function admin_index()
     {			
 			return view('admin.haber.sayfa.index', [
-				'sayfas' => HaberSayfa::latest()->get()
+				'sayfas' => HaberSayfa::latest()->paginate(12),
+        'navbars' => EgitimNavbar::all()
 			]);
     }
 
@@ -140,7 +118,8 @@ class HaberSayfaController extends Controller
     public function admin_show(HaberSayfa $haber_sayfa)
     {
 			return view('admin.haber.sayfa.show', [
-        'sayfa' =>  $haber_sayfa
+        'sayfa' =>  $haber_sayfa,
+        'navbars' => EgitimNavbar::all()
       ]);
     }
 }

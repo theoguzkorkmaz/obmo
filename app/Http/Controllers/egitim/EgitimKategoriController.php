@@ -2,24 +2,13 @@
 
 namespace App\Http\Controllers\egitim;
 
-use App\Http\Controllers\Controller;
-use App\Models\EgitimKategori;
+use App\Models\EgitimNavbar;
 use Illuminate\Http\Request;
+use App\Models\EgitimKategori;
+use App\Http\Controllers\Controller;
 
 class EgitimKategoriController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-			return view('egitim.kategori.index', [
-				'kategoris' => EgitimKategori::latest()->get()
-			]); 
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -27,7 +16,7 @@ class EgitimKategoriController extends Controller
      */
     public function create()
     {
-			return view('admin.egitim.kategori.create');
+			return view('admin.egitim.kategori.create')->with('navbars', EgitimNavbar::all());
     }
 
     /**
@@ -56,19 +45,6 @@ class EgitimKategoriController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(EgitimKategori $egitim_kategori)
-    {
-			return view('egitim.kategori.show', [
-        'kategori' =>  $egitim_kategori
-      ]);
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -77,7 +53,8 @@ class EgitimKategoriController extends Controller
     public function edit(EgitimKategori $egitim_kategori)
     {
 			return view('admin.egitim.kategori.edit', [
-        'kategori' => $egitim_kategori 
+        'kategori' => $egitim_kategori,
+        'navbars' => EgitimNavbar::all()
       ]);
     }
 
@@ -127,7 +104,8 @@ class EgitimKategoriController extends Controller
     public function admin_index()
     {			
 			return view('admin.egitim.kategori.index', [
-				'kategoris' => EgitimKategori::latest()->get()
+				'kategoris' => EgitimKategori::latest()->paginate(12),
+        'navbars' => EgitimNavbar::all()
 			]);
     }
 
@@ -140,7 +118,8 @@ class EgitimKategoriController extends Controller
     public function admin_show(EgitimKategori $egitim_kategori)
     {
 			return view('admin.egitim.kategori.show', [
-        'kategori' =>  $egitim_kategori
+        'kategori' =>  $egitim_kategori,
+        'navbars' => EgitimNavbar::all()
       ]);
     }
 }

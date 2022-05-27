@@ -1,5 +1,8 @@
 <x-egitim_layout :navbars="$navbars">  
-  {{-- {{$egitim->baslik}} --}}  
+
+  @foreach ($yorums as $item)
+      {{$item->baslik}}
+  @endforeach
 
   @if ($egitim)
   <div class="d-flex flex-column flex-md-row gap-3 p-md-0 w-full" id="main_ic">
@@ -72,100 +75,43 @@
         <h3 class="baslik">kazanımlar</h3>
         <p>{{$egitim->kazanim}}</p>
       </div><!-- /kazanim -->
-      <div class="w-full" id="yorum">
-        <h3 class="baslik">yorumlar</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati modi illo, cupiditate fugiat deserunt debitis esse quae exercitationem assumenda, earum praesentium aliquid minima inventore. Ipsa qui saepe maiores ad ipsam.</p>
-        <div class="card-group d-flex flex-column gap-2 w-full">
-          <div class="card w-full">
-            <div class="card-title">
-              <i class="fas fa-quote-left"></i>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam, maxime?
-              <i class="fas fa-quote-right"></i>
-            </div>
-            <div class="card-body">
-              <strong>Ahmet Ahmetoğlu</strong>
-              <p>32.02.2032 tarihinde yazılmıştır.</p>
-            </div>
-          </div>
-          <div class="card w-full">
-            <div class="card-title">
-              <i class="fas fa-quote-left"></i>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam, maxime?
-              <i class="fas fa-quote-right"></i>
-            </div>
-            <div class="card-body">
-              <strong>Ahmet Ahmetoğlu</strong>
-              <p>32.02.2032 tarihinde yazılmıştır.</p>
-            </div>
-          </div>
-          <div class="card w-full">
-            <div class="card-title">
-              <i class="fas fa-quote-left"></i>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam, maxime?
-              <i class="fas fa-quote-right"></i>
-            </div>
-            <div class="card-body">
-              <strong>Ahmet Ahmetoğlu</strong>
-              <p>32.02.2032 tarihinde yazılmıştır.</p>
-            </div>
-          </div>
-        </div><!-- /card-group -->
-      </div><!-- /yorum -->
+      <x-egitim_detay_yorum :yorums="$yorums"></x-egitim_detay_yorum>
       <div class="w-full" id="dokuman">
         <h3 class="baslik">dökümanlar</h3>
         <p>{{$egitim->dokuman}}</p>
       </div><!-- /dokuman -->      
     </div><!-- /content -->
     <div class="" id="aside">
-      <div class="w-full d-flex flex-column gap-2 btn-group is-abone-degil">
-        <form action="/egitim/egitim_detay/{{$egitim->id}}" method="post">
-          @csrf
-          <button type="submit" name="" id="" class="btn">eğitime katıl</button>
-        </form>
-                      
-        <button type="button" name="" id="" class="btn btn1"><i class="fas fa-bookmark"></i>Daha sonra izleye ekle</button>              
-        <button type="button" name="" id="" class="btn btn2"><i class="fas fa-heart"></i>Beğenilere ekle</button>              
-      </div><!-- /abone-değil -->
-
+      @if($kayit)            
       <div class="w-full d-flex flex-column btn-group is-abone">
-        <button type="button" name="" id="" class="btn mb-2">eğitime devam et</button>              
+        <a href="/egitim/egitim_icerik/{{$egitim->id}}" class="btn mb-2">eğitime devam et</a>              
         <p>Katılım durumu: <span>Devam ediyor</span></p>
         <p>Başarı durumu: <span>Başarısız</span></p>
         <p>Başarı puanı: <span>4/100</span></p>
         <p>Harcanan süre: <span>2:40:00</span></p>
         <p>Tamamlanma durumu: <span>%40</span></p>
       </div><!-- /abone -->
+      @else        
+        <div class="w-full d-flex flex-column gap-2 btn-group is-abone-degil">
+          <form action="/egitim/egitim_detay/{{$egitim->id}}" method="post">
+            @csrf
+            <button type="submit" name="" id="" class="btn">eğitime katıl</button>
+          </form>
+                        
+          <button type="button" name="" id="" class="btn btn1"><i class="fas fa-bookmark"></i>Daha sonra izleye ekle</button>                        
+        </div><!-- /abone-değil -->
+      @endif      
 
       <div class="w-full d-flex flex-column gap-2 egitmen">
         <h4 class="baslik">Eğitmen</h4>
-        <a href="#" class="d-flex flex-row align-items-center gap-3">
-          <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTgwOTN8MHwxfHNlYXJjaHwyMHx8cG9ydHJhaXR8ZW58MHx8fHwxNjUxNzczNzkw&ixlib=rb-1.2.1&q=80&w=1080" alt="">
-          <div>
-            <h3>Oğuz Korkmaz</h3>
-            <p>Bilgisayar Mühendisi</p>
+        <a href="#" class="d-flex flex-row align-items-center align-items-center w-100 gap-3">          
+          <div class="w-100 py-2 px-4 d-flex flex-column gap-1">
+            <h3><i class="fas fa-user-astronaut    "></i> {{$egitmen->name}}</h3>
+            <p><i class="fas fa-envelope    "></i> {{$egitmen->email}}</p>
+            <p><i class="fas fa-location-arrow    "></i> {{$egitmen->city}}</p>
           </div>
         </a>
       </div><!-- /egitmen -->
-
-      <div class="w-full d-flex flex-column gap-2 egitmenler">
-        <h4 class="baslik">Eğitmenler</h4>
-        <div class="d-flex flex-column gap-2">
-          <a href="#" class="d-flex flex-row align-items-center gap-2">
-            <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTgwOTN8MHwxfHNlYXJjaHwyMHx8cG9ydHJhaXR8ZW58MHx8fHwxNjUxNzczNzkw&ixlib=rb-1.2.1&q=80&w=1080" alt="">
-            <div>
-              <h3>Oğuz Korkmaz</h3>
-              <p>Bilgisayar Mühendisi</p>
-            </div>
-          </a>
-          <a href="#" class="d-flex flex-row align-items-center gap-2">
-            <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTgwOTN8MHwxfHNlYXJjaHwyMHx8cG9ydHJhaXR8ZW58MHx8fHwxNjUxNzczNzkw&ixlib=rb-1.2.1&q=80&w=1080" alt="">
-            <div>
-              <h3>Oğuz Korkmaz</h3>
-              <p>Bilgisayar Mühendisi</p>
-            </div>
-          </a>
-        </div>
-      </div><!-- /egitmenler -->
     </div><!-- /aside -->
   </div><!-- /main_ic -->
   @else

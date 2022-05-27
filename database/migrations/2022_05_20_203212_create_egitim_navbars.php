@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('icon');
             $table->string('link');
             $table->string('icerik');
-            $table->boolean('ismenu')->default('0');
-            $table->foreignId('admin');
+            $table->boolean('ismenu')->default('0');            
+            $table->foreignId('admin');            
             $table->timestamps();
         });
     }

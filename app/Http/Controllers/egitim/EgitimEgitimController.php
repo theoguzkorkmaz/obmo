@@ -2,24 +2,13 @@
 
 namespace App\Http\Controllers\egitim;
 
-use App\Http\Controllers\Controller;
 use App\Models\EgitimEgitim;
+use App\Models\EgitimNavbar;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class EgitimEgitimController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-			return view('egitim.egitim.index', [
-				'egitims' => EgitimEgitim::latest()->get() 
-			]); 
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -27,7 +16,7 @@ class EgitimEgitimController extends Controller
      */
     public function create()
     {
-			return view('admin.egitim.egitim.create');
+			return view('admin.egitim.egitim.create')->with('navbars', EgitimNavbar::all());
     }
 
     /**
@@ -61,19 +50,6 @@ class EgitimEgitimController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(EgitimEgitim $egitim_egitim)
-    {
-			return view('egitim.egitim.show', [
-        'egitim' =>  $egitim_egitim
-      ]);
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -82,7 +58,8 @@ class EgitimEgitimController extends Controller
     public function edit(EgitimEgitim $egitim_egitim)
     {
 			return view('admin.egitim.egitim.edit', [
-        'egitim' => $egitim_egitim 
+        'egitim' => $egitim_egitim,
+        'navbars' => EgitimNavbar::all()
       ]);
     }
 
@@ -137,7 +114,8 @@ class EgitimEgitimController extends Controller
     public function admin_index()
     {			
 			return view('admin.egitim.egitim.index', [
-				'egitims' => EgitimEgitim::latest()->get()
+				'egitims' => EgitimEgitim::latest()->paginate(12),
+        'navbars' => EgitimNavbar::all()
 			]);
     }
 
@@ -150,7 +128,8 @@ class EgitimEgitimController extends Controller
     public function admin_show(EgitimEgitim $egitim_egitim)
     {
 			return view('admin.egitim.egitim.show', [
-        'egitim' =>  $egitim_egitim
+        'egitim' =>  $egitim_egitim,
+        'navbars' => EgitimNavbar::all()
       ]);
     }
 }

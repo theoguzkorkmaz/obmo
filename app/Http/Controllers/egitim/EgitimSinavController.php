@@ -2,24 +2,13 @@
 
 namespace App\Http\Controllers\egitim;
 
-use App\Http\Controllers\Controller;
 use App\Models\EgitimSinav;
+use App\Models\EgitimNavbar;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class EgitimSinavController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-			return view('egitim.sinav.index', [
-				'sinavs' => EgitimSinav::latest()->get()
-			]); 
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -27,7 +16,7 @@ class EgitimSinavController extends Controller
      */
     public function create()
     {
-			return view('admin.egitim.sinav.create');
+			return view('admin.egitim.sinav.create')->with('navbars', EgitimNavbar::all());
     }
 
     /**
@@ -51,19 +40,6 @@ class EgitimSinavController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(EgitimSinav $egitim_sinav)
-    {
-			return view('egitim.sinav.show', [
-        'sinav' =>  $egitim_sinav
-      ]);
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -72,7 +48,8 @@ class EgitimSinavController extends Controller
     public function edit(EgitimSinav $egitim_sinav)
     {
 			return view('admin.egitim.sinav.edit', [
-        'sinav' => $egitim_sinav 
+        'sinav' => $egitim_sinav,
+        'navbars' => EgitimNavbar::all()
       ]);
     }
 
@@ -117,7 +94,8 @@ class EgitimSinavController extends Controller
     public function admin_index()
     {			
 			return view('admin.egitim.sinav.index', [
-				'sinavs' => EgitimSinav::latest()->get()
+				'sinavs' => EgitimSinav::latest()->paginate(12),
+        'navbars' => EgitimNavbar::all()
 			]);
     }
 
@@ -129,8 +107,9 @@ class EgitimSinavController extends Controller
      */
     public function admin_show(EgitimSinav $egitim_sinav)
     {
-			return view('admin.egitim.sinav	.show', [
-        'sinav' =>  $egitim_sinav
+			return view('admin.egitim.sinav.show', [
+        'sinav' =>  $egitim_sinav,
+        'navbars' => EgitimNavbar::all()
       ]);
     }
 }

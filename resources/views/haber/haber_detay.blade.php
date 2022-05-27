@@ -8,8 +8,8 @@
     deneme
 @endforeach --}}
 
-<x-haber_layout :topbars="$topbars" :kategoris="$kategoris" :sayfas="$sayfas" :fhabers="$fhabers">
-   <x-haber_detay_header :haber="$haber"></x-haber_detay_header>
+<x-haber_layout :topbars="$topbars" :kategoris="$kategoris" :sayfas="$sayfas" :fhabers="$fhabers" :sosyals="$sosyals">
+   <x-haber_detay_header :haber="$haber" :yazar="$yazar"></x-haber_detay_header>
    <div class="container p-md-0">
     <div class="row">
       <main class="col-md-8">
@@ -21,4 +21,4 @@
       </article> <!-- /article -->
     </div>
   </div><!-- main-container -->
-</x-haber_layout>
+</x-haber_layout> 
