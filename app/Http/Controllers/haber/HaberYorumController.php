@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\haber;
 
 use App\Models\HaberYorum;
-use App\Models\EgitimNavbar;
+use App\Models\AdminNavbar;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\HaberHaber;
+use App\Models\User;
 
 class HaberYorumController extends Controller
 {
@@ -16,7 +18,10 @@ class HaberYorumController extends Controller
      */
     public function create()
     {
-      return view('admin.haber.yorum.create')->with('navbars', EgitimNavbar::all()); 
+      return view('admin.haber.yorum.create')
+        ->with('navbars', AdminNavbar::all())
+        ->with('habers', HaberHaber::all())
+        ->with('users', User::all()); 
     }
 
     /**
@@ -34,7 +39,7 @@ class HaberYorumController extends Controller
 				'icerik' => 'required',
         'onay' => 'required'    ,
         'admin' => 'required'    
-			]);
+			]); 
 
 			HaberYorum::create($formFields);
 
@@ -51,7 +56,9 @@ class HaberYorumController extends Controller
     {
 			return view('admin.haber.yorum.edit', [
         'yorum' => $haber_yorum,
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all(),
+        'habers' => HaberHaber::all(),
+        'users' => User::all()
       ]);
     }
 
@@ -99,7 +106,7 @@ class HaberYorumController extends Controller
     {			
 			return view('admin.haber.yorum.index', [
 				'yorums' => HaberYorum::latest()->paginate(12),
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all()
 			]);
     }
 
@@ -113,7 +120,7 @@ class HaberYorumController extends Controller
     {
 			return view('admin.haber.yorum.show', [
         'yorum' =>  $haber_yorum,
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all()
       ]);
     }
 }

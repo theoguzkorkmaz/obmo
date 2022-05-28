@@ -15,7 +15,7 @@
       <div class="col-md-4">
         <div class="card card-primary collapsed-card">
           <div class="card-header">
-            <h3 class="card-title">{{Str::limit($item->ad, 25)}}</h3>
+            <h3 class="card-title">{!! substr(strip_tags($item->ad), 0, 30) !!}</h3>
 
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse">

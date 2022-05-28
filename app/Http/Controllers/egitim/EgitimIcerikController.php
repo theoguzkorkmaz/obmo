@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\egitim;
 
 use App\Models\EgitimIcerik;
-use App\Models\EgitimNavbar;
+use App\Models\AdminNavbar;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\EgitimEgitim;
 
 class EgitimIcerikController extends Controller
 {
@@ -16,7 +17,9 @@ class EgitimIcerikController extends Controller
      */
     public function create()
     {
-			return view('admin.egitim.icerik.create')->with('navbars', EgitimNavbar::all());
+			return view('admin.egitim.icerik.create')
+        ->with('navbars', AdminNavbar::all())
+        ->with('egitims', EgitimEgitim::all());
     }
 
     /**
@@ -32,6 +35,9 @@ class EgitimIcerikController extends Controller
         'icerik_no' => 'required',
         'baslik' => 'required',
         'aciklama' => 'required',
+        'video' => 'required',
+        'video_aciklamasi' => 'required',
+        'video_yazili' => 'required',
         'puan' => 'required',
         'admin' => 'required'
       ]);
@@ -51,7 +57,8 @@ class EgitimIcerikController extends Controller
     {
 			return view('admin.egitim.icerik.edit', [
         'icerik' => $egitim_icerik,
-        'navbars' => EgitimNavbar::all() 
+        'navbars' => AdminNavbar::all(),
+        'egitims' => EgitimEgitim::all()
       ]);
     }
 
@@ -69,6 +76,9 @@ class EgitimIcerikController extends Controller
 				'icerik_no' => 'required',
         'baslik' => 'required',
         'aciklama' => 'required',
+        'video' => 'required',
+        'video_aciklamasi' => 'required',
+        'video_yazili' => 'required',
 				'puan' => 'required',
         'admin' => 'required'
 			]);
@@ -99,7 +109,7 @@ class EgitimIcerikController extends Controller
     {			
 			return view('admin.egitim.icerik.index', [
 				'iceriks' => EgitimIcerik::latest()->paginate(12),
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all()
 			]);
     }
 
@@ -113,7 +123,7 @@ class EgitimIcerikController extends Controller
     {
 			return view('admin.egitim.icerik.show', [
         'icerik' =>  $egitim_icerik,
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all()
       ]);
     }
 }

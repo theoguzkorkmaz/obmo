@@ -14,43 +14,56 @@
           <div class="card-body">
             
             <div class="mb-3">
-              <label class="form-label" for="soru_id">soru_id</label>
-              <input class="form-control" type="text" name="soru_id" value="{{old('soru_id')}}" />
+              <label class="form-label" for="soru_id">Soru:</label>
+              {{-- <input class="form-control" type="text" name="soru_id" value="{{old('soru_id')}}" /> --}}
+              <select class="form-select form-control" name="soru_id" aria-label="Default select example">
+                <option selected disabled>Sorular</option>
+                @foreach ($sorus as $item)                      
+                  <option value="{{$item->id}}">{{$item->soru}}</option>
+                @endforeach                  
+              </select>
               @error('soru_id')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
               @enderror
             </div>
           
             <div class="mb-3">
-                <label class="form-label" for="baslik">cevap_no</label>
-                <input class="form-control" type="text" name="cevap_no" value="{{old('baslik')}}" />
+                <label class="form-label" for="cevap_no">Cevap no:</label>
+                <input class="form-control" type="text" name="cevap_no" value="{{old('cevap_no')}}" />
                 @error('cevap_no')
                   <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
                 @enderror 
-            </div>
+            </div> 
           
             <div class="mb-3">
-              <label class="form-label" for="icerik">icerik</label>
-              <input class="form-control" type="text" name="icerik" value="{{old('icerik')}}" />
+              <label class="form-label" for="icerik">İçerik:</label>
+              {{-- <input class="form-control" type="text" name="icerik" value="{{old('icerik')}}" /> --}}
+              <textarea id="summernote" name="icerik">
+                {{old('icerik')}} 
+              </textarea>
               @error('icerik')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
               @enderror
             </div>
           
             <div class="mb-3">
-              <label class="form-label" for="dogru">dogru</label>
-              <input class="form-control" type="text" name="dogru" value="{{old('dogru')}}" />
+              <label class="form-label" for="dogru">Doğru:</label>
+              {{-- <input class="form-control" type="text" name="dogru" value="{{old('dogru')}}" /> --}}
+              <select class="form-select form-control" name="dogru" aria-label="Default select example">                                
+                <option value="0" selected>Yanlış cevaptır</option>
+                <option value="1">Doğru cevaptır</option>                
+              </select>
               @error('dogru')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
               @enderror
             </div>
           
             <div class="mb-3">
-              <label class="form-label" for="admin">admin</label>
+              <label class="form-label" for="admin">Admin:</label>
               <input class="form-control" type="text" name="admin" value="{{auth()->user()->id}}" readonly />
               <small>Bu veri <b>{{auth()->user()->name}}</b> tarafından oluşturulacak</small>
               @error('admin')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="text-red-500 text-xs mt-1">{{$message}}</p>     
               @enderror
             </div>
 
@@ -71,4 +84,5 @@
     </div>
   </div>
 
+  
 @endsection

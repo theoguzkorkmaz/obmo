@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\egitim;
 
-use App\Models\EgitimNavbar;
+use App\Models\AdminNavbar;
 use Illuminate\Http\Request;
 use App\Models\EgitimKategori;
 use App\Http\Controllers\Controller;
@@ -16,7 +16,7 @@ class EgitimKategoriController extends Controller
      */
     public function create()
     {
-			return view('admin.egitim.kategori.create')->with('navbars', EgitimNavbar::all());
+			return view('admin.egitim.kategori.create')->with('navbars', AdminNavbar::all());
     }
 
     /**
@@ -54,7 +54,7 @@ class EgitimKategoriController extends Controller
     {
 			return view('admin.egitim.kategori.edit', [
         'kategori' => $egitim_kategori,
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all()
       ]);
     }
 
@@ -105,7 +105,7 @@ class EgitimKategoriController extends Controller
     {			
 			return view('admin.egitim.kategori.index', [
 				'kategoris' => EgitimKategori::latest()->paginate(12),
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all()
 			]);
     }
 
@@ -119,7 +119,7 @@ class EgitimKategoriController extends Controller
     {
 			return view('admin.egitim.kategori.show', [
         'kategori' =>  $egitim_kategori,
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all()
       ]);
     }
 }

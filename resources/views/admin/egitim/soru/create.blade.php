@@ -14,15 +14,21 @@
           <div class="card-body">
             
             <div class="mb-3">
-              <label class="form-label" for="sinav_id">sinav_id</label>
-              <input class="form-control" type="text" name="sinav_id" value="{{old('sinav_id')}}" />
+              <label class="form-label" for="sinav_id">Sınav:</label>
+              {{-- <input class="form-control" type="text" name="sinav_id" value="{{old('sinav_id')}}" /> --}}
+              <select class="form-select form-control" name="sinav_id" aria-label="Default select example">
+                <option selected disabled>Sınavlar</option>
+                @foreach ($sinavs as $item)                      
+                  <option value="{{$item->id}}">{{$item->baslik}}</option>
+                @endforeach                   
+              </select>
               @error('sinav_id')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="text-red-500 text-xs mt-1">{{$message}}</p>     
               @enderror
             </div>
           
             <div class="mb-3">
-                <label class="form-label" for="soru_no">soru_no</label>
+                <label class="form-label" for="soru_no">Soru no:</label>
                 <input class="form-control" type="text" name="soru_no" value="{{old('soru_no')}}" />
                 @error('soru_no')
                   <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
@@ -30,7 +36,7 @@
             </div>
           
             <div class="mb-3">
-              <label class="form-label" for="baslik">soru</label>
+              <label class="form-label" for="baslik">Soru:</label>
               <input class="form-control" type="text" name="soru" value="{{old('soru')}}" />
               @error('soru')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
@@ -38,7 +44,7 @@
             </div>
           
             <div class="mb-3">
-              <label class="form-label" for="yer">resim</label>
+              <label class="form-label" for="yer">Resim:</label>
               <input class="form-control" type="file" name="resim"/>
               @error('resim')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
@@ -46,7 +52,7 @@
             </div>
           
             <div class="mb-3">
-              <label class="form-label" for="resim_aciklama">resim_aciklama</label>
+              <label class="form-label" for="resim_aciklama">Resim açıklama:</label>
               <input class="form-control" type="text" name="resim_aciklama" value="{{old('resim_aciklama')}}" />
               @error('resim_aciklama')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
@@ -54,7 +60,7 @@
             </div>
           
             <div class="mb-3">
-              <label class="form-label" for="admin">admin</label>
+              <label class="form-label" for="admin">Admin:</label>
               <input class="form-control" type="text" name="admin" value="{{auth()->user()->id}}" readonly />
               <small>Bu veri <b>{{auth()->user()->name}}</b> tarafından oluşturulacak</small>
               @error('admin')

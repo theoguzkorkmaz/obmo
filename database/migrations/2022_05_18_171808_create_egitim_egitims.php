@@ -17,14 +17,14 @@ return new class extends Migration
             $table->id();
             $table->foreignId('kategori_id'); 
             $table->string('baslik');
+            $table->text('aciklama');
             $table->text('icerik');
             $table->string('resim')->nullable();
             $table->string('resim_aciklama')->nullable();
             $table->string('etiket')->nullable();
             $table->text('kitle');
             $table->text('kazanim');
-            $table->text('dokuman');
-            $table->text('sss');
+            $table->text('dokuman');            
             $table->foreignId('admin');
             $table->timestamps();
         }); 

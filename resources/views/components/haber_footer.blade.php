@@ -33,9 +33,11 @@
           <ul class="list-group">
             @if (count($kategoris) != 0)
               @foreach ($kategoris as $kategori)
-                <li class="list-group-item">
-                  <a href="/haber/kategori_detay/{{$kategori->id}}" title="{{$kategori->ad}}">{{$kategori->ad}}</a>
-                </li>
+                @if (($kategori->footer_gorunme) == 1)
+                  <li class="list-group-item">
+                    <a href="/haber/kategori_detay/{{$kategori->id}}" title="{{$kategori->ad}}">{{$kategori->ad}}</a>
+                  </li>
+                @endif
               @endforeach
             @else
               <p>Kategoriler yüklenememiştir, lütfen daha sonra tekrar deneyin!</p>
@@ -47,9 +49,11 @@
           <ul class="list-group">
             @if (count($sayfas) != 0)
               @foreach ($sayfas as $sayfa)
-                <li class="list-group-item">
-                  <a href="/haber/sayfa_detay/{{$sayfa->id}}" title="{{$sayfa->ad}}">{{$sayfa->ad}}</a>
-                </li>
+                @if (($sayfa->footer_gorunme) == 1)
+                  <li class="list-group-item">
+                    <a href="/haber/sayfa_detay/{{$sayfa->id}}" title="{{$sayfa->ad}}">{{$sayfa->ad}}</a>
+                  </li>
+                @endif
               @endforeach
             @else
               <p>Sayfalar yüklenememiştir, lütfen daha sonra tekrar deneyin!</p>

@@ -12,6 +12,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css' integrity='sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw==' crossorigin='anonymous'/>
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('js/summernote/summernote-bs4.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/admin_main.css') }}">
 </head>
 <body class="hold-transition sidebar-mini dark-mode layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
@@ -27,12 +29,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">{{$header}}</h1>
+            <h1 class="m-0">{!! $header !!}</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{ $title_link }}" class="text-danger">{{ $title }}</a></li>
-              <li class="breadcrumb-item text-white">{{ $title2 }}</li>
+              <li class="breadcrumb-item"><a href="{{ $title_link }}" class="text-danger">{!! $title !!}</a></li>
+              <li class="breadcrumb-item text-white">{!! $title2 !!}</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -79,5 +81,32 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('js/adminlte.min.js') }}"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+<script src="{{ asset('js/summernote/summernote-bs4.min.js') }}"></script>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#summernote').summernote(
+      {height: 150,}
+    );
+    $('#summernote2').summernote(
+      {height: 150,}
+    );
+    $('#summernote3').summernote(
+      {height: 150,}
+    );
+    $('#summernote4').summernote(
+      {height: 150,}
+    );
+    $('#summernote5').summernote(
+      {height: 150,}
+    );
+    $('#summernote6').summernote(
+      {height: 150,}
+    );
+  });
+</script>
 </body>
 </html>

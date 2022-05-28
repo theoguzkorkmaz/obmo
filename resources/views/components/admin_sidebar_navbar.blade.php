@@ -9,7 +9,7 @@
       <a href="/admin" class="nav-link">Yönetim Paneli</a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-      <a href="/admin/search" class="nav-link"><i class="fas fa-search    "></i> Ara</a>
+      <a href="/admin/ara" class="nav-link"><i class="fas fa-search    "></i> Ara</a>
     </li>
   </ul>
 

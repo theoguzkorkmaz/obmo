@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\egitim;
 
 use App\Models\EgitimSoru;
-use App\Models\EgitimNavbar;
+use App\Models\AdminNavbar;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\EgitimSinav;
 
 class EgitimSoruController extends Controller
 {
@@ -16,7 +17,9 @@ class EgitimSoruController extends Controller
      */
     public function create()
     {
-			return view('admin.egitim.soru.create')->with('navbars', EgitimNavbar::all());
+			return view('admin.egitim.soru.create')
+        ->with('navbars', AdminNavbar::all())
+        ->with('sinavs', EgitimSinav::all());
     }
 
     /**
@@ -54,7 +57,8 @@ class EgitimSoruController extends Controller
     {
 			return view('admin.egitim.soru.edit', [
         'soru' => $egitim_soru,
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all(),
+        'sinavs' => EgitimSinav::all()
       ]);
     }
 
@@ -105,7 +109,7 @@ class EgitimSoruController extends Controller
     {
       return view('admin.egitim.soru.index', [
 				'sorus' => EgitimSoru::latest()->paginate(12),
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all()
 			]);
     }
 
@@ -119,7 +123,7 @@ class EgitimSoruController extends Controller
     {
 			return view('admin.egitim.soru.show', [
         'soru' =>  $egitim_soru,
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all()
       ]);
     }
 }

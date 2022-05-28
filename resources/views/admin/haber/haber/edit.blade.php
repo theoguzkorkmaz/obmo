@@ -12,18 +12,23 @@
         <form method="POST" action="/admin/haber/habers/{{$haber->id}}" enctype="multipart/form-data">
           @csrf
           @method('PUT')
-          <div class="card-body">
-            
+          <div class="card-body">            
+
             <div class="mb-3">
-              <label class="form-label" for="ad">kategori_id</label>
-              <input class="form-control" type="text" name="kategori_id" value="{{$haber->kategori_id}}" />
+              <label class="form-label" for="ad">Kategori:</label>
+              {{-- <input class="form-control" type="text" name="kategori_id" value="{{$haber->kategori_id}}" /> --}}
+              <select class="form-select form-control" name="kategori_id" aria-label="Default select example">                
+                @foreach ($kategoris as $item)                      
+                  <option value="{{$item->id}}" {{ ($haber->kategori_id == $item->id) ? 'selected' : ''}}>{{$item->ad}}</option>
+                @endforeach 
+              </select>
               @error('kategori_id')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
               @enderror
             </div>
           
             <div class="mb-3"> 
-              <label class="form-label" for="baslik">baslik</label>
+              <label class="form-label" for="baslik">Başlık:</label>
               <input class="form-control" type="text" name="baslik" value="{{$haber->baslik}}" />
               @error('baslik')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
@@ -31,15 +36,18 @@
             </div>
           
             <div class="mb-3">
-              <label class="form-label" for="icerik">içerik</label>
-              <input class="form-control" type="text" name="icerik" value="{{$haber->icerik}}" />
+              <label class="form-label" for="icerik">İçerik:</label>
+              {{-- <input class="form-control" type="text" name="icerik" value="{{$haber->icerik}}" /> --}}
+              <textarea id="summernote" name="icerik">
+                {!! $haber->icerik !!}
+              </textarea>
               @error('icerik')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
               @enderror
             </div>
           
             <div class="mb-3">
-              <label class="form-label" for="resim">Resim</label>
+              <label class="form-label" for="resim">Resim:</label>
               <input class="form-control" type="file" name="resim"/>
               <br>
               <img src="{{$haber->resim ? asset('storage/'.$haber->resim) : asset('/images/no-image.png')}}" alt="" style="width: 320px;height: 320px;"/>    
@@ -49,7 +57,7 @@
             </div>
           
             <div class="mb-3">
-              <label class="form-label" for="resim_aciklama">resim_aciklama</label>
+              <label class="form-label" for="resim_aciklama">Resim açıklama:</label>
               <input class="form-control" type="text" name="resim_aciklama" value="{{$haber->resim_aciklama}}" />
               @error('resim_aciklama')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
@@ -57,7 +65,7 @@
             </div>
           
             <div class="mb-3">
-              <label class="form-label" for="etiket">etiket</label>
+              <label class="form-label" for="etiket">Etiket:</label>
               <input class="form-control" type="text" name="etiket" value="{{$haber->etiket}}" />
               @error('etiket')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
@@ -65,7 +73,7 @@
             </div>
           
             <div class="mb-3">
-              <label class="form-label" for="admin">admin</label>
+              <label class="form-label" for="admin">Ekleyen admin:</label>
               <input class="form-control" type="text" name="admin" value="{{auth()->user()->id}}" readonly />
               <small>Bu veri <b>{{auth()->user()->name}}</b> tarafından oluşturulacak</small>
               @error('admin')

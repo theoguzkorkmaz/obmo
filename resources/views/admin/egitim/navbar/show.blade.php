@@ -22,13 +22,9 @@
       <td><strong>Menü tür:</strong></td>
       <td>
         @if (($navbar->ismenu) == 0)
-          <p style="font-size: 0.9rem">Haber</p>
-        @elseif (($navbar->ismenu) == 1)
-          <p style="font-size: 0.9rem">Eğitim</p>
-        @elseif (($navbar->ismenu) == 2)
-          <p style="font-size: 0.9rem">Admin</p>
+          <p style="font-size: 0.9rem">Diğer kısmında</p>
         @else
-          <p style="font-size: 0.9rem">Menü elemanı</p>
+          <p style="font-size: 0.9rem">Menü kısmında</p>
         @endif
       </td>
     </tr>    

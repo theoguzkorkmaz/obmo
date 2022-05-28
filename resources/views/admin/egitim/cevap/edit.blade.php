@@ -16,11 +16,16 @@
             
             <div class="mb-3">
               <label class="form-label" for="soru_id">soru_id</label>
-              <input class="form-control" type="text" name="soru_id" value="{{$cevap->soru_id}}" />
+              {{-- <input class="form-control" type="text" name="soru_id" value="{{$cevap->soru_id}}" /> --}}
+              <select class="form-select form-control" name="soru_id" aria-label="Default select example">                
+                @foreach ($sorus as $item)                      
+                  <option value="{{$item->id}}" {{ ($cevap->soru_id == $item->id) ? 'selected' : ''}}>{{$item->soru}}</option>
+                @endforeach 
+              </select>
               @error('soru_id')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
               @enderror
-            </div>
+            </div> 
           
             <div class="mb-3">
                 <label class="form-label" for="baslik">cevap_no</label>
@@ -32,7 +37,10 @@
           
             <div class="mb-3">
               <label class="form-label" for="icerik">icerik</label>
-              <input class="form-control" type="text" name="icerik" value="{{$cevap->icerik}}" />
+              {{-- <input class="form-control" type="text" name="icerik" value="{{$cevap->icerik}}" /> --}}
+              <textarea id="summernote" name="icerik">
+                {!! $cevap->icerik !!}
+              </textarea>
               @error('icerik')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
               @enderror
@@ -40,7 +48,11 @@
           
             <div class="mb-3">
               <label class="form-label" for="dogru">dogru</label>
-              <input class="form-control" type="text" name="dogru" value="{{$cevap->dogru}}" />
+              {{-- <input class="form-control" type="text" name="dogru" value="{{$cevap->dogru}}" /> --}}
+              <select class="form-select form-control" name="dogru" aria-label="Default select example">                                
+                <option value="0" {{ ($cevap->dogru == 0) ? 'selected' : ''}}>Yanlış cevaptır</option>
+                <option value="1" {{ ($cevap->dogru == 1) ? 'selected' : ''}}>Doğru cevaptır</option>                
+              </select>
               @error('dogru')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
               @enderror

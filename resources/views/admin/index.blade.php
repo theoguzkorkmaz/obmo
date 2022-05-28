@@ -116,5 +116,8 @@
       <li>
         <a href="/admin/sosyals">Sosyal medya mecraları</a>
       </li>
+      <li>
+        <a href="/admin/admin/admin_navbars">Admin - Navbar</a>
+      </li>
     </ul>  
 @endsection

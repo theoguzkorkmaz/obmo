@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\egitim;
 
+use App\Models\User;
 use App\Models\EgitimYorum;
-use App\Models\EgitimNavbar;
+use App\Models\EgitimEgitim;
+use App\Models\AdminNavbar;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -16,7 +18,10 @@ class EgitimYorumController extends Controller
      */
     public function create()
     {
-			return view('admin.egitim.yorum.create')->with('navbars', EgitimNavbar::all());
+			return view('admin.egitim.yorum.create')
+        ->with('navbars', AdminNavbar::all())
+        ->with('egitims', EgitimEgitim::all())
+        ->with('users', User::all());
     }
 
     /**
@@ -50,7 +55,9 @@ class EgitimYorumController extends Controller
     {
 			return view('admin.egitim.yorum.edit', [
         'yorum' => $egitim_yorum,
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all(),
+        'egitims' => EgitimEgitim::all(),
+        'users' => User::all()
       ]);
     }
 
@@ -97,7 +104,7 @@ class EgitimYorumController extends Controller
     {			
 			return view('admin.egitim.yorum.index', [
 				'yorums' => EgitimYorum::latest()->paginate(12),
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all()
 			]);
     }
 
@@ -111,7 +118,7 @@ class EgitimYorumController extends Controller
     {
 			return view('admin.egitim.yorum.show', [
         'yorum' =>  $egitim_yorum,
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all()
       ]);
     }
 }

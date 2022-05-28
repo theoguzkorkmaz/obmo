@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\egitim;
 
 use App\Models\EgitimCevap;
-use App\Models\EgitimNavbar;
+use App\Models\AdminNavbar;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\EgitimSoru;
 
 class EgitimCevapController extends Controller
 {
@@ -16,7 +17,9 @@ class EgitimCevapController extends Controller
      */
     public function create()
     {
-			return view('admin.egitim.cevap.create')->with('navbars', EgitimNavbar::all());
+			return view('admin.egitim.cevap.create')
+        ->with('navbars', AdminNavbar::all())
+        ->with('sorus', EgitimSoru::all());
     }
 
     /**
@@ -50,7 +53,8 @@ class EgitimCevapController extends Controller
     {
 			return view('admin.egitim.cevap.edit', [
         'cevap' => $egitim_cevap,
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all(),
+        'sorus' => EgitimSoru::all()
       ]);
     }
 
@@ -97,7 +101,7 @@ class EgitimCevapController extends Controller
     {			
 			return view('admin.egitim.cevap.index', [
 				'cevaps' => EgitimCevap::latest()->paginate(12),
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all()
 			]);
     }
 
@@ -111,7 +115,7 @@ class EgitimCevapController extends Controller
     {
 			return view('admin.egitim.cevap.show', [
         'cevap' =>  $egitim_cevap,
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all()
       ]);
     }
 }

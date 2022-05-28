@@ -5,7 +5,7 @@
     <div class="col-md-7 col-12">
       <!-- general form elements -->
       <div class="card card-primary">
-        <div class="card-header">
+        <div class="card-header"> 
         </div>
         <!-- /.card-header -->
         <!-- form start -->
@@ -23,7 +23,10 @@
           
             <div class="mb-3">
               <label class="form-label" for="aciklama">Açıklama:</label>
-              <input class="form-control" type="text" name="aciklama" value="{{old('aciklama')}}" />
+              {{-- <input class="form-control" type="text" name="aciklama" value="{{old('aciklama')}}" /> --}}
+              <textarea id="summernote" name="aciklama">
+                {{old('aciklama')}} 
+              </textarea>
               @error('aciklama')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
               @enderror
@@ -55,7 +58,11 @@
           
             <div class="mb-3">
               <label class="form-label" for="navbar_gorunme">Navbar görünme:</label>
-              <input class="form-control" type="text" name="navbar_gorunme" value="{{old('navbar_gorunme')}}" />
+              {{-- <input class="form-control" type="text" name="navbar_gorunme" value="{{old('navbar_gorunme')}}" /> --}}
+              <select class="form-select form-control" name="navbar_gorunme" aria-label="Default select example">                                
+                <option value="0">Gözükmesin</option>
+                <option value="1" selected>Gözüksün</option>                
+              </select>
               @error('navbar_gorunme')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
               @enderror
@@ -63,7 +70,11 @@
           
             <div class="mb-3">
               <label class="form-label" for="footer_gorunme">Footer görünme:</label>
-              <input class="form-control" type="text" name="footer_gorunme" value="{{old('footer_gorunme')}}" />
+              {{-- <input class="form-control" type="text" name="footer_gorunme" value="{{old('footer_gorunme')}}" /> --}}
+              <select class="form-select form-control" name="footer_gorunme" aria-label="Default select example">                                
+                <option value="0">Gözükmesin</option>
+                <option value="1" selected>Gözüksün</option>                
+              </select>
               @error('footer_gorunme')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
               @enderror

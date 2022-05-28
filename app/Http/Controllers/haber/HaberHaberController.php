@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\haber;
 
 use App\Models\HaberHaber;
-use App\Models\EgitimNavbar;
+use App\Models\AdminNavbar;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\EgitimKategori;
+use App\Models\HaberKategori;
 
 class HaberHaberController extends Controller
 {
@@ -16,7 +18,9 @@ class HaberHaberController extends Controller
      */
     public function create()
     {
-			return view('admin.haber.haber.create')->with('navbars', EgitimNavbar::all());
+			return view('admin.haber.haber.create')
+        ->with('navbars', AdminNavbar::all())
+        ->with('kategoris', HaberKategori::all());
     }
 
     /**
@@ -55,7 +59,8 @@ class HaberHaberController extends Controller
     {
 			return view('admin.haber.haber.edit', [
         'haber' => $haber_haber,
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all(),
+        'kategoris' => HaberKategori::all()
       ]);
     }
 
@@ -107,7 +112,7 @@ class HaberHaberController extends Controller
     {			
 			return view('admin.haber.haber.index', [
 				'habers' => HaberHaber::latest()->paginate(12),
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all()
 			]);
     }
 
@@ -121,7 +126,7 @@ class HaberHaberController extends Controller
     {
 			return view('admin.haber.haber.show', [
         'haber' =>  $haber_haber,
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all()
       ]);
     }
 }

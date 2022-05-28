@@ -14,23 +14,35 @@
           <div class="card-body">
             
             <div class="mb-3">
-              <label class="form-label" for="egitim_id">egitim_id</label>
-              <input class="form-control" type="text" name="egitim_id" value="{{old('egitim_id')}}" />
+              <label class="form-label" for="egitim_id">Eğitim:</label>
+              {{-- <input class="form-control" type="text" name="egitim_id" value="{{old('egitim_id')}}" />  --}}
+              <select class="form-select form-control" name="egitim_id" aria-label="Default select example">
+                <option selected disabled>Eğitimler</option>
+                @foreach ($egitims as $item)                      
+                  <option value="{{$item->id}}">{{$item->baslik}}</option>
+                @endforeach                   
+              </select>
               @error('egitim_id')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
               @enderror
             </div>
           
             <div class="mb-3">
-                <label class="form-label" for="kullanici_id">kullanici_id</label>
-                <input class="form-control" type="text" name="kullanici_id" value="{{old('kullanici_id')}}" />
+                <label class="form-label" for="kullanici_id">Kullanıcı:</label>
+                {{-- <input class="form-control" type="text" name="kullanici_id" value="{{old('kullanici_id')}}" /> --}}
+                <select class="form-select form-control" name="kullanici_id" aria-label="Default select example">
+                  <option selected disabled>Kullanıcılar</option>
+                  @foreach ($users as $item)                      
+                    <option value="{{$item->id}}">{{$item->name}}</option>
+                  @endforeach                   
+                </select>
                 @error('kullanici_id')
                   <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
                 @enderror 
             </div>
           
             <div class="mb-3">
-              <label class="form-label" for="baslik">baslik</label>
+              <label class="form-label" for="baslik">Başlık:</label>
               <input class="form-control" type="text" name="baslik" value="{{old('baslik')}}" />
               @error('baslik')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
@@ -38,7 +50,7 @@
             </div>
           
             <div class="mb-3">
-              <label class="form-label" for="icerik">icerik</label>
+              <label class="form-label" for="icerik">İçerik:</label>
               <input class="form-control" type="text" name="icerik" value="{{old('icerik')}}" />
               @error('icerik')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
@@ -46,7 +58,7 @@
             </div>
           
             <div class="mb-3">
-              <label class="form-label" for="admin">admin</label>
+              <label class="form-label" for="admin">Admin:</label>
               <input class="form-control" type="text" name="admin" value="{{auth()->user()->id}}" readonly />
               <small>Bu veri <b>{{auth()->user()->name}}</b> tarafından oluşturulacak</small>
               @error('admin')

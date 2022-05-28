@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\egitim;
 
 use App\Models\EgitimEgitim;
-use App\Models\EgitimNavbar;
+use App\Models\AdminNavbar;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\EgitimKategori;
 
 class EgitimEgitimController extends Controller
 {
@@ -16,7 +17,9 @@ class EgitimEgitimController extends Controller
      */
     public function create()
     {
-			return view('admin.egitim.egitim.create')->with('navbars', EgitimNavbar::all());
+			return view('admin.egitim.egitim.create')
+        ->with('navbars', AdminNavbar::all())
+        ->with('kategoris', EgitimKategori::all());
     }
 
     /**
@@ -30,13 +33,13 @@ class EgitimEgitimController extends Controller
 			$formFields = $request->validate([
 				'kategori_id' => 'required',
 				'baslik' => 'required',
+        'aciklama' => 'required',
 				'icerik' => 'required',
         'resim_aciklama' => 'required',
         'etiket' => 'required',
-        'kitle' => 'required',
+        'kitle' => 'required', 
         'kazanim' => 'required',
-        'dokuman' => 'required',
-        'sss' => 'required',
+        'dokuman' => 'required',        
         'admin' => 'required'
 			]);
 
@@ -59,7 +62,8 @@ class EgitimEgitimController extends Controller
     {
 			return view('admin.egitim.egitim.edit', [
         'egitim' => $egitim_egitim,
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all(),
+        'kategoris' => EgitimKategori::all()
       ]);
     }
 
@@ -75,13 +79,13 @@ class EgitimEgitimController extends Controller
 			$formFields = $request->validate([
         'kategori_id' => 'required',
 				'baslik' => 'required',
+        'aciklama' => 'required',
 				'icerik' => 'required',
         'resim_aciklama' => 'required',
         'etiket' => 'required',
         'kitle' => 'required',
         'kazanim' => 'required',
-        'dokuman' => 'required',
-        'sss' => 'required',
+        'dokuman' => 'required',        
         'admin' => 'required'
       ]);
 
@@ -115,7 +119,7 @@ class EgitimEgitimController extends Controller
     {			
 			return view('admin.egitim.egitim.index', [
 				'egitims' => EgitimEgitim::latest()->paginate(12),
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all()
 			]);
     }
 
@@ -129,7 +133,7 @@ class EgitimEgitimController extends Controller
     {
 			return view('admin.egitim.egitim.show', [
         'egitim' =>  $egitim_egitim,
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all()
       ]);
     }
 }

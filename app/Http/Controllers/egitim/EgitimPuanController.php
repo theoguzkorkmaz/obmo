@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\egitim;
 
 use App\Models\EgitimPuan;
-use App\Models\EgitimNavbar;
+use App\Models\AdminNavbar;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\EgitimSinav;
 
 class EgitimPuanController extends Controller
 {
@@ -16,7 +17,9 @@ class EgitimPuanController extends Controller
      */
     public function create()
     {
-			return view('admin.egitim.puan.create')->with('navbars', EgitimNavbar::all());
+			return view('admin.egitim.puan.create')
+        ->with('navbars', AdminNavbar::all())
+        ->with('sinavs', EgitimSinav::all());
     }
 
     /**
@@ -50,7 +53,8 @@ class EgitimPuanController extends Controller
     {
 			return view('admin.egitim.puan.edit', [
         'puan' => $egitim_puan,
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all(),
+        'sinavs' => EgitimSinav::all()
       ]);
     }
 
@@ -97,7 +101,7 @@ class EgitimPuanController extends Controller
     {			
 			return view('admin.egitim.puan.index', [
 				'puans' => EgitimPuan::latest()->paginate(12),
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all()
 			]);
     }
 
@@ -111,7 +115,7 @@ class EgitimPuanController extends Controller
     {
 			return view('admin.egitim.puan.show', [
         'puan' =>  $egitim_puan,
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all()
       ]);
     }
 }

@@ -40,6 +40,12 @@
                 </td>
               </tr>
               <tr>
+                <td><strong class="fs-5">Puan:</strong></td>
+                <td style="font-size: 0.85rem">
+                  {{Str::limit($item->puan, 100)}}
+                </td>
+              </tr>
+              <tr>
                 <td><strong class="fs-5">İçerik:</strong></td>
                 <td style="font-size: 0.85rem">
                   {{Str::limit($item->aciklama, 100)}}

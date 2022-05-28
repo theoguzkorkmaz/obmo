@@ -14,7 +14,7 @@
           <div class="card-body">
             
             <div class="mb-3">
-              <label class="form-label" for="ad">ad</label>
+              <label class="form-label" for="ad">Başlık:</label>
               <input class="form-control" type="text" name="ad" value="{{old('ad')}}" />
               @error('ad')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
@@ -22,15 +22,18 @@
             </div>
           
             <div class="mb-3">
-              <label class="form-label" for="icerik">içerik</label>
-              <input class="form-control" type="text" name="icerik" value="{{old('icerik')}}" />
-              @error('icerik')
+              <label class="form-label" for="icerik">İçerik:</label>
+              {{-- <input class="form-control" type="text" name="icerik" value="{{old('icerik')}}" /> --}}
+              <textarea id="summernote" name="icerik">
+                {{old('icerik')}} 
+              </textarea>
+              @error('icerik') 
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
               @enderror
             </div>
           
             <div class="mb-3">
-              <label class="form-label" for="resim">Resim</label>
+              <label class="form-label" for="resim">Resim:</label>
               <input class="form-control" type="file" name="resim"/>
               @error('resim')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
@@ -38,23 +41,31 @@
             </div>
           
             <div class="mb-3">
-              <label class="form-label" for="navbar_gorunme">navbar_gorunme</label>
-              <input class="form-control" type="text" name="navbar_gorunme" value="{{old('navbar_gorunme')}}" />
+              <label class="form-label" for="navbar_gorunme">Navbarda gözükme durumu:</label>
+              {{-- <input class="form-control" type="text" name="navbar_gorunme" value="{{old('navbar_gorunme')}}" /> --}}
+              <select class="form-select form-control" name="navbar_gorunme" aria-label="Default select example">                                
+                <option value="0">Gözükmesin</option>
+                <option value="1" selected>Gözüksün</option>                
+              </select>
               @error('navbar_gorunme')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
               @enderror
             </div>
           
             <div class="mb-3">
-              <label class="form-label" for="footer_gorunme">footer_gorunme</label>
-              <input class="form-control" type="text" name="footer_gorunme" value="{{old('footer_gorunme')}}" />
+              <label class="form-label" for="footer_gorunme">Footerda gözükme durumu:</label>
+              {{-- <input class="form-control" type="text" name="footer_gorunme" value="{{old('footer_gorunme')}}" /> --}}
+              <select class="form-select form-control" name="footer_gorunme" aria-label="Default select example">                                
+                  <option value="0">Gözükmesin</option>
+                  <option value="1" selected>Gözüksün</option>                
+              </select>
               @error('footer_gorunme')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
               @enderror
             </div>
           
             <div class="mb-3">
-              <label class="form-label" for="admin">admin</label>
+              <label class="form-label" for="admin">Admin:</label>
               <input class="form-control" type="text" name="admin" value="{{auth()->user()->id}}" readonly />
               <small>Bu veri <b>{{auth()->user()->name}}</b> tarafından oluşturulacak</small>
               @error('admin')

@@ -24,14 +24,16 @@
             <div class="row row-cols-1 row-cols-md-6 g-4">
               @if (count($kategoris) != 0)
                 @foreach ($kategoris as $kategori)
-                <div class="col">
-                  <a class="card border" href="/haber/kategori_detay/{{$kategori->id}}" title="{{$kategori->aciklama}}">
-                    <div class="card-body">
-                      <h5 class="card-title">{{$kategori->ad}}</h5>
-                      <p class="card-text">{{Str::limit($kategori->aciklama, 30)}}</p>
+                  @if (($kategori->navbar_gorunme) == 1)
+                    <div class="col">
+                      <a class="card border" href="/haber/kategori_detay/{{$kategori->id}}" title="{{$kategori->aciklama}}">
+                        <div class="card-body">
+                          <h5 class="card-title">{{$kategori->ad}}</h5>
+                          <p class="card-text">{{Str::limit($kategori->aciklama, 30)}}</p>
+                        </div>
+                      </a>
                     </div>
-                  </a>
-                </div>
+                  @endif
                 @endforeach
               @else
                 <p>Kategoriler yüklenemedi, lütfen daha sonra tekrar deneyin!</p>
@@ -45,14 +47,16 @@
             <div class="row row-cols-1 row-cols-md-6 g-4">
               @if (count($sayfas) != 0)
                 @foreach ($sayfas as $sayfa)
-                <div class="col">
-                  <a class="card border" href="/haber/sayfa_detay/{{$sayfa->id}}" title="{{$sayfa->icerik}}">
-                    <div class="card-body">
-                      <h5 class="card-title">{{$sayfa->ad}}</h5>
-                      <p class="card-text">{{Str::limit($sayfa->icerik, 30)}}</p>
+                  @if (($sayfa->navbar_gorunme) == 1)
+                    <div class="col">
+                      <a class="card border" href="/haber/sayfa_detay/{{$sayfa->id}}" title="{{$sayfa->icerik}}">
+                        <div class="card-body">
+                          <h5 class="card-title">{{$sayfa->ad}}</h5>
+                          <p class="card-text">{{Str::limit($sayfa->icerik, 30)}}</p>
+                        </div>
+                      </a>
                     </div>
-                  </a>
-                </div>
+                  @endif
                 @endforeach
               @else
                 <p>Sayfalar yüklenemedi, lütfen daha sonra tekrar deneyin!</p>

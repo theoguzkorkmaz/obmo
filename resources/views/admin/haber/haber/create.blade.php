@@ -5,17 +5,23 @@
     <div class="col-md-7 col-12">
       <!-- general form elements -->
       <div class="card card-primary">
-        <div class="card-header">
+        <div class="card-header"> 
         </div>
         <!-- /.card-header -->
         <!-- form start -->
         <form method="POST" action="/admin/haber/habers" class="w-100" enctype="multipart/form-data">
           @csrf
-          <div class="card-body">
-            
+          <div class="card-body">            
+             
             <div class="mb-3">
                 <label class="form-label" for="ad">Kategori id:</label>
-                <input class="form-control" type="text" name="kategori_id" value="{{old('kategori_id')}}" />
+                {{-- <input class="form-control" type="text" name="kategori_id" value="{{old('kategori_id')}}" /> --}}
+                <select class="form-select form-control" name="kategori_id" aria-label="Default select example">
+                  <option selected disabled>Kategoriler</option>
+                  @foreach ($kategoris as $item)                      
+                    <option value="{{$item->id}}">{{$item->ad}}</option>
+                  @endforeach                   
+                </select>
                 @error('kategori_id')
                   <p class="text-danger mt-1">{{$message}}</p>    
                 @enderror
@@ -31,7 +37,10 @@
         
             <div class="mb-3">
               <label class="form-label" for="icerik">İçerik:</label>
-              <input class="form-control" type="text" name="icerik" value="{{old('icerik')}}" />
+              {{-- <input class="form-control" type="text" name="icerik" value="{{old('icerik')}}" /> --}}
+              <textarea id="summernote" name="icerik">
+                {{old('icerik')}} 
+              </textarea>
               @error('icerik')
                 <p class="text-danger mt-1">{{$message}}</p>    
               @enderror

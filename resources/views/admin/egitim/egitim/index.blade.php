@@ -15,7 +15,7 @@
       <div class="col-md-4">
         <div class="card card-primary collapsed-card">
           <div class="card-header">
-            <h3 class="card-title">{{Str::limit($item->baslik, 25)}}</h3>
+            <h3 class="card-title">{!! substr(strip_tags($item->baslik), 0, 30) !!}</h3>
 
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -31,6 +31,12 @@
                 <td><strong class="fs-5">Başlık:</strong></td>
                 <td style="font-size: 0.85rem">
                   {{Str::limit($item->baslik, 100)}}
+                </td>
+              </tr>
+              <tr>
+                <td><strong class="fs-5">Açıklama:</strong></td>
+                <td style="font-size: 0.85rem">
+                  {{Str::limit($item->aciklama, 100)}}
                 </td>
               </tr>
               <tr>
@@ -52,29 +58,23 @@
                 </td>
               </tr>
               <tr>
-                <td><strong class="fs-5">Cevap no:</strong></td>
+                <td><strong class="fs-5">Kitle:</strong></td>
                 <td style="font-size: 0.85rem">
                   {{Str::limit($item->kitle, 100)}}
                 </td>
               </tr>
               <tr>
-                <td><strong class="fs-5">Cevap no:</strong></td>
+                <td><strong class="fs-5">Kazanım:</strong></td>
                 <td style="font-size: 0.85rem">
                   {{Str::limit($item->kazanim, 100)}}
                 </td>
               </tr>
               <tr>
-                <td><strong class="fs-5">Cevap no:</strong></td>
+                <td><strong class="fs-5">Döküman:</strong></td>
                 <td style="font-size: 0.85rem">
                   {{Str::limit($item->dokuman, 100)}}
                 </td>
-              </tr>
-              <tr>
-                <td><strong class="fs-5">Cevap no:</strong></td>
-                <td style="font-size: 0.85rem">
-                  {{Str::limit($item->sss, 100)}}
-                </td>
-              </tr>
+              </tr>              
               <tr>                
                 <td style="font-size: 0.85rem" colspan="2">
                   <a href="/admin/egitim/egitims/{{$item->id}}" class="btn btn-primary btn-xs w-100">

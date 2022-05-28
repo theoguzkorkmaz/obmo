@@ -8,7 +8,7 @@
     </tr>   
     <tr>
       <td><strong>Açıklama:</strong></td>
-      <td><p style="font-size: 0.9rem">{{$kategori->aciklama}}</p></td>
+      <td><p style="font-size: 0.9rem">{!! $kategori->aciklama !!}</p></td>
     </tr>  
     <tr>
       <td><strong>Resim:</strong></td>

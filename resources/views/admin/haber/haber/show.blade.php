@@ -12,7 +12,7 @@
     </tr>  
     <tr>
       <td><strong>İçerik:</strong></td>
-      <td><p style="font-size: 0.9rem">{{$haber->icerik}}</p></td>
+      <td><p style="font-size: 0.9rem">{!! $haber->icerik !!}</p></td>
     </tr>  
     <tr>
       <td><strong>Resim:</strong></td>

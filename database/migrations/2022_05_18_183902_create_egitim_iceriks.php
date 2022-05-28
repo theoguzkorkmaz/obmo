@@ -19,6 +19,9 @@ return new class extends Migration
             $table->string('icerik_no');
             $table->string('baslik');
             $table->text('aciklama');
+            $table->text('video');
+            $table->text('video_aciklamasi');
+            $table->text('video_yazili');
             $table->string('puan')->nullable();
             $table->foreignId('admin');
             $table->timestamps(); 

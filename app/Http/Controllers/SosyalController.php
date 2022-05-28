@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Sosyal;
-use App\Models\EgitimNavbar;
+use App\Models\AdminNavbar;
 use Illuminate\Http\Request;
 
 class SosyalController extends Controller
@@ -15,7 +15,7 @@ class SosyalController extends Controller
      */
     public function create()
     {
-      return view('admin.sosyal.create')->with('navbars', EgitimNavbar::all());
+      return view('admin.sosyal.create')->with('navbars', AdminNavbar::all());
     }
 
     /**
@@ -50,7 +50,7 @@ class SosyalController extends Controller
     {
 			return view('admin.sosyal.edit', [
         'sosyal' => $sosyal,
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all()
       ]);
     }
 
@@ -98,7 +98,7 @@ class SosyalController extends Controller
     {			
 			return view('admin.sosyal.index', [
 				'sosyals' => Sosyal::latest()->paginate(12),
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all()
 			]);
     }
 
@@ -112,7 +112,7 @@ class SosyalController extends Controller
     {
 			return view('admin.sosyal.show', [
         'sosyal' =>  $sosyal,
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all()
       ]);
     }
 }

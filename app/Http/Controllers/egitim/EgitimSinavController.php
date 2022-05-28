@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\egitim;
 
 use App\Models\EgitimSinav;
-use App\Models\EgitimNavbar;
+use App\Models\AdminNavbar;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\EgitimIcerik;
 
 class EgitimSinavController extends Controller
 {
@@ -16,7 +17,9 @@ class EgitimSinavController extends Controller
      */
     public function create()
     {
-			return view('admin.egitim.sinav.create')->with('navbars', EgitimNavbar::all());
+			return view('admin.egitim.sinav.create')
+        ->with('navbars', AdminNavbar::all())
+        ->with('iceriks', EgitimIcerik::all());
     }
 
     /**
@@ -31,6 +34,7 @@ class EgitimSinavController extends Controller
 				'icerik_id' => 'required',
         'baslik' => 'required',
         'aciklama' => 'required',
+        'puan' => 'required',
         'admin' => 'required'
       ]);
 
@@ -49,7 +53,8 @@ class EgitimSinavController extends Controller
     {
 			return view('admin.egitim.sinav.edit', [
         'sinav' => $egitim_sinav,
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all(),
+        'iceriks' => EgitimIcerik::all()
       ]);
     }
 
@@ -66,6 +71,7 @@ class EgitimSinavController extends Controller
 				'icerik_id' => 'required',
         'baslik' => 'required',
         'aciklama' => 'required',
+        'puan' => 'required',
         'admin' => 'required'
 			]);
 
@@ -95,7 +101,7 @@ class EgitimSinavController extends Controller
     {			
 			return view('admin.egitim.sinav.index', [
 				'sinavs' => EgitimSinav::latest()->paginate(12),
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all()
 			]);
     }
 
@@ -109,7 +115,7 @@ class EgitimSinavController extends Controller
     {
 			return view('admin.egitim.sinav.show', [
         'sinav' =>  $egitim_sinav,
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all()
       ]);
     }
 }

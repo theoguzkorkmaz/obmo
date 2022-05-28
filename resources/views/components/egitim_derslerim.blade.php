@@ -21,7 +21,7 @@
             </div>
           @endforeach   
           @else
-            <p>Eğitimlere ulaşamadık, lütfen daha sonra tekrar deneyiniz!</p>
+            <p>Kayıtlı ders yok!</p>
           @endif
         </div><!-- /content -->
       </div>

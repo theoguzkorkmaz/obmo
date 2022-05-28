@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\AdminNavbarController;
 use App\Http\Controllers\AdminController;
 use App\Models\EgitimSinav;
 use Illuminate\Support\Facades\Auth;
@@ -42,20 +43,34 @@ Route::get('/home', function () {
 });
 
 Route::get('/haber', [HaberController::class, 'haber_index']);
+
 Route::get('/haber/haber_detay/{haber}', [HaberController::class, 'haber_show']);
+Route::post('/haber/haber_detay/{haber}', [HaberController::class, 'haber_yorum']);
+
 Route::get('/haber/kategori_detay/{kategori}', [HaberController::class, 'kategori_show']);
-Route::get('/haber/sayfa_detay/{sayfa}', [HaberController::class, 'sayfa_show']);
+Route::get('/haber/sayfa_detay/{sayfa}', [HaberController::class, 'sayfa_show']); 
 Route::get('/haber/ara', [HaberController::class, 'ara_show']);
 Route::get('/haber/kategoriler', [HaberController::class, 'kategoriler_show']);
 Route::post('/haber', [HaberController::class, 'bulten']);
 
 Route::get('/egitim', [EgitimController::class, 'egitim_index']);
+Route::get('/egitim/ara', [EgitimController::class, 'ara_show']);
+Route::post('/egitim/egitim_icerik/{icerik}', [EgitimController::class, 'ders_yorum']);
+Route::get('/egitim/icerik_detay/{egitim_icerik}', [EgitimController::class, 'egitim_icerik_detay']);
+Route::post('/egitim/icerik_detay/{icerik}', [EgitimController::class, 'icerigi_tamamla']);
+
 Route::get('/egitim/egitim_detay/{egitim}', [EgitimController::class, 'egitim_detay']);
 Route::post('/egitim/egitim_detay/{egitim}', [EgitimController::class,'ders_kayit']);
+
+Route::get('/egitim/sinav_detay/{sinav}', [EgitimController::class, 'sinav_detay']);
+Route::post('/egitim/sinav_detay/{sinav}', [EgitimController::class, 'sinavi_tamamla']);
+
 Route::get('/egitim/kategoriler', [EgitimController::class, 'kategoriler_show']);
 Route::get('/egitim/kategori_detay/{kategori}', [EgitimController::class,'kategori_detay']);
 Route::get('/egitim/derslerim', [EgitimController::class, 'derslerim']);
 Route::get('/egitim/egitim_icerik/{icerik}', [EgitimController::class, 'egitim_icerik']);
+
+Route::get('/admin/ara', [AdminController::class, 'ara_show']);
 
 Route::controller(HaberTopbarController::class)->group(function() {    
     //Topbar kısmı - private
@@ -325,6 +340,24 @@ Route::controller(EgitimNavbarController::class)->group(function() {
     Route::put('/admin/egitim/egitim_navbars/{egitim_navbar}', 'update');
     //--topbars delete işlemi:
     Route::delete('/admin/egitim/egitim_navbars/{egitim_navbar}', 'destroy');
+});
+
+Route::controller(AdminNavbarController::class)->group(function() {
+    //Topbar kısmı - private
+    //--admin sayfası için topbars veri gönderimi:
+    Route::get('/admin/admin/admin_navbars', 'admin_index');
+    //--topbars create sayfası:
+    Route::get('/admin/admin/admin_navbars/olustur', 'create');
+    //--topbars create işlemi:
+    Route::post('/admin/admin/admin_navbars', 'store');
+    //--topbars admin show sayfası:
+    Route::get('/admin/admin/admin_navbars/{admin_navbar}', 'admin_show');
+    //--topbars edit sayfası:
+    Route::get('/admin/admin/admin_navbars/{admin_navbar}/guncelle', 'edit');
+    //--topbars edit işlemi:
+    Route::put('/admin/admin/admin_navbars/{admin_navbar}', 'update');
+    //--topbars delete işlemi:
+    Route::delete('/admin/admin/admin_navbars/{admin_navbar}', 'destroy');
 });
 
 Auth::routes();

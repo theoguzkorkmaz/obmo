@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\egitim;
 
-use App\Http\Controllers\Controller;
+use App\Models\AdminNavbar;
 use App\Models\EgitimNavbar;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class EgitimNavbarController extends Controller
 {
@@ -15,7 +16,7 @@ class EgitimNavbarController extends Controller
      */
     public function create()
     {
-			return view('admin.egitim.navbar.create')->with('navbars', EgitimNavbar::all());
+			return view('admin.egitim.navbar.create')->with('navbars', AdminNavbar::all());
     }
 
     /**
@@ -50,7 +51,7 @@ class EgitimNavbarController extends Controller
     {
       return view('admin.egitim.navbar.edit', [
         'navbar' => $egitim_navbar,
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all()
       ]);
     }
 
@@ -98,7 +99,7 @@ class EgitimNavbarController extends Controller
     {			
 			return view('admin.egitim.navbar.index', [
 				'navbars2' => EgitimNavbar::latest()->paginate(12),
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all() 
 			]);
     }
 
@@ -112,7 +113,7 @@ class EgitimNavbarController extends Controller
     {
 			return view('admin.egitim.navbar.show', [
         'navbar' =>  $egitim_navbar,
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all()
       ]);
     }
 }

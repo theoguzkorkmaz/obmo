@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\haber;
 
 use App\Models\HaberSayfa;
-use App\Models\EgitimNavbar;
+use App\Models\AdminNavbar;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -16,7 +16,7 @@ class HaberSayfaController extends Controller
      */
     public function create()
     {
-			return view('admin.haber.sayfa.create')->with('navbars', EgitimNavbar::all());
+			return view('admin.haber.sayfa.create')->with('navbars', AdminNavbar::all());
     }
 
     /**
@@ -54,7 +54,7 @@ class HaberSayfaController extends Controller
     {
 			return view('admin.haber.sayfa.edit', [
         'sayfa' => $haber_sayfa,
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all()
       ]);
     }
 
@@ -105,7 +105,7 @@ class HaberSayfaController extends Controller
     {			
 			return view('admin.haber.sayfa.index', [
 				'sayfas' => HaberSayfa::latest()->paginate(12),
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all()
 			]);
     }
 
@@ -119,7 +119,7 @@ class HaberSayfaController extends Controller
     {
 			return view('admin.haber.sayfa.show', [
         'sayfa' =>  $haber_sayfa,
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all()
       ]);
     }
 }

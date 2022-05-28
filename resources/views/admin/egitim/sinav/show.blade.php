@@ -13,6 +13,10 @@
     <tr>
       <td><strong>Açıklama:</strong></td>
       <td><p style="font-size: 0.9rem">{{$sinav->aciklama}}</p></td>
+    </tr>
+    <tr>
+      <td><strong>Puan:</strong></td>
+      <td><p style="font-size: 0.9rem">{{$sinav->puan}}</p></td>
     </tr>    
     <tr>
       <td colspan="2">

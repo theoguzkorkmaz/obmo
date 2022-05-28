@@ -18,7 +18,7 @@
                   <img src="{{$item->resim ? asset('storage/'.$item->resim) : asset('/images/no-image.png')}}" class="card-img-top" alt="{{Str::limit($item->baslik, 30)}}" title="{{Str::limit($item->baslik, 30)}}">
                   <div class="card-body">
                     <h5 class="card-title">{{$item->baslik}}</h5>                        
-                    <p>{{$item->aciklama}}</p>
+                    <p>{{Str::limit($item->aciklama, 100)}}</p>
                     <p><i class="{{$item->icon}}"></i></p>
                   </div>
                 </a>

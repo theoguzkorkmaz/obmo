@@ -15,7 +15,7 @@
           <div class="card-body">
             
             <div class="mb-3">
-              <label class="form-label" for="baslik">baslik</label>
+              <label class="form-label" for="baslik">Başlık:</label>
               <input class="form-control" type="text" name="baslik" value="{{$kategori->baslik}}" />
               @error('baslik')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
@@ -23,15 +23,18 @@
             </div>
           
             <div class="mb-3">
-              <label class="form-label" for="aciklama">Açıklama</label>
-              <input class="form-control" type="text" name="aciklama" value="{{$kategori->aciklama}}" />
+              <label class="form-label" for="aciklama">Açıklama:</label>
+              {{-- <input class="form-control" type="text" name="aciklama" value="{{$kategori->aciklama}}" /> --}}
+              <textarea id="summernote" name="aciklama">
+                {{$kategori->aciklama}}
+              </textarea>
               @error('aciklama')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
               @enderror
             </div>
           
             <div class="mb-3">
-              <label class="form-label" for="resim">resim</label>
+              <label class="form-label" for="resim">Resim:</label>
               <input class="form-control" type="file" name="resim"/>
               <br>
               <img src="{{$kategori->resim ? asset('storage/'.$kategori->resim) : asset('/images/no-image.png')}}" alt="" style="width: 320px;height: 320px;"/>    
@@ -41,7 +44,7 @@
             </div>
           
             <div class="mb-3">
-              <label class="form-label" for="resim_aciklama">resim_aciklama</label>
+              <label class="form-label" for="resim_aciklama">Resim açıklama:</label>
               <input class="form-control" type="text" name="resim_aciklama" value="{{$kategori->resim_aciklama}}" />
               @error('resim_aciklama')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
@@ -49,7 +52,7 @@
             </div>
           
             <div class="mb-3">
-              <label class="form-label" for="icon">icon</label>
+              <label class="form-label" for="icon">Icon:</label>
               <input class="form-control" type="text" name="icon" value="{{$kategori->icon}}" />
               @error('icon')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
@@ -57,7 +60,7 @@
             </div>
             
             <div class="mb-3">
-              <label class="form-label" for="admin">admin</label>
+              <label class="form-label" for="admin">Admin:</label>
               <input class="form-control" type="text" name="admin" value="{{auth()->user()->id}}" readonly />
               <small>Bu veri <b>{{auth()->user()->name}}</b> tarafından oluşturulacak</small>
               @error('admin')

@@ -16,7 +16,12 @@
             
             <div class="mb-3">
               <label class="form-label" for="egitim_id">egitim_id</label>
-              <input class="form-control" type="text" name="egitim_id" value="{{$yorum->egitim_id}}" />
+              {{-- <input class="form-control" type="text" name="egitim_id" value="{{$yorum->egitim_id}}" /> --}}
+              <select class="form-select form-control" name="egitim_id" aria-label="Default select example">                
+                @foreach ($egitims as $item)                      
+                  <option value="{{$item->id}}" {{ ($yorum->egitim_id == $item->id) ? 'selected' : ''}}>{{$item->baslik}}</option>
+                @endforeach 
+              </select>
               @error('egitim_id')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
               @enderror
@@ -24,7 +29,12 @@
           
             <div class="mb-3">
                 <label class="form-label" for="kullanici_id">kullanici_id</label>
-                <input class="form-control" type="text" name="kullanici_id" value="{{$yorum->kullanici_id}}" />
+                {{-- <input class="form-control" type="text" name="kullanici_id" value="{{$yorum->kullanici_id}}" /> --}}
+                <select class="form-select form-control" name="kullanici_id" aria-label="Default select example">                
+                  @foreach ($users as $item)                      
+                    <option value="{{$item->id}}" {{ ($yorum->kullanici_id == $item->id) ? 'selected' : ''}}>{{$item->name}}</option>
+                  @endforeach 
+                </select>
                 @error('kullanici_id')
                   <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
                 @enderror 

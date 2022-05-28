@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\haber;
 
 use App\Models\HaberTopbar;
-use App\Models\EgitimNavbar;
+use App\Models\AdminNavbar;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -16,7 +16,7 @@ class HaberTopbarController extends Controller
      */
     public function create()
     {			
-			return view('admin.haber.topbar.create')->with('navbars', EgitimNavbar::all()); 
+			return view('admin.haber.topbar.create')->with('navbars', AdminNavbar::all()); 
     }
 
     /**
@@ -52,7 +52,7 @@ class HaberTopbarController extends Controller
     {
 			return view('admin.haber.topbar.show', [
         'topbar' =>  $haber_topbar,
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all()
       ]);
     }
 
@@ -66,7 +66,7 @@ class HaberTopbarController extends Controller
     {
 			return view('admin.haber.topbar.edit', [
         'topbar' => $haber_topbar,
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all()
       ]);
     }
 
@@ -114,7 +114,7 @@ class HaberTopbarController extends Controller
     {			
 			return view('admin.haber.topbar.index', [
 				'topbars' => HaberTopbar::latest()->paginate(12),
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all()
 			]);
     }
 }

@@ -15,7 +15,7 @@
       <div class="col-md-4">
         <div class="card card-primary collapsed-card">
           <div class="card-header">
-            <h3 class="card-title">{{Str::limit($item->baslik, 25)}}</h3>
+            <h3 class="card-title">{!! substr(strip_tags($item->baslik), 0, 30) !!}</h3>
 
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -43,6 +43,12 @@
                 <td><strong class="fs-5">Başlık:</strong></td>
                 <td style="font-size: 0.85rem">
                   {{Str::limit($item->baslik, 100)}}
+                </td>
+              </tr>
+              <tr>
+                <td><strong class="fs-5">Video:</strong></td>
+                <td style="font-size: 0.85rem">
+                  {!! $item->video !!}
                 </td>
               </tr>
               <tr>

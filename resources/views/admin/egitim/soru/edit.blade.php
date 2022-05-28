@@ -16,7 +16,12 @@
             
             <div class="mb-3">
               <label class="form-label" for="sinav_id">sinav_id</label>
-              <input class="form-control" type="text" name="sinav_id" value="{{$soru->sinav_id}}" />
+              {{-- <input class="form-control" type="text" name="sinav_id" value="{{$soru->sinav_id}}" /> --}}
+              <select class="form-select form-control" name="sinav_id" aria-label="Default select example">                
+                @foreach ($sinavs as $item)                      
+                  <option value="{{$item->id}}" {{ ($soru->sinav_id == $item->id) ? 'selected' : ''}}>{{$item->baslik}}</option>
+                @endforeach 
+              </select>
               @error('sinav_id')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
               @enderror

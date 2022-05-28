@@ -1,4 +1,4 @@
-@extends('admin.layout', ['navbars' => $navbars, 'title' => "Cevap", 'title2' => 'show', 'title_link' => '/admin/egitim/egitim_cevaps', 'header' => "Cevap verisi: {$cevap->icerik}"])
+@extends('admin.layout', ['navbars' => $navbars, 'title' => "Cevap", 'title2' => 'show', 'title_link' => '/admin/egitim/egitim_cevaps', 'header' => "Cevap verisi: $cevap->icerik"])
 @section('content')
 
   <table class="table table-bordered">
@@ -12,7 +12,7 @@
     </tr>
     <tr>
       <td><strong>İçerik</strong>:</td>
-      <td><p style="font-size: 0.9rem">{{$cevap->icerik}}</p></td>
+      <td><p style="font-size: 0.9rem">{!! $cevap->icerik !!}</p></td> 
     </tr>
     <tr>
       <td><strong>Doğru:</strong></td>

@@ -14,7 +14,7 @@
           <div class="card-body">
             
             <div class="mb-3">
-              <label class="form-label" for="baslik">baslik</label>
+              <label class="form-label" for="baslik">Başlık:</label>
               <input class="form-control" type="text" name="baslik" value="{{old('baslik')}}" />
               @error('baslik')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
@@ -22,15 +22,18 @@
             </div>
           
             <div class="mb-3">
-              <label class="form-label" for="aciklama">Açıklama</label>
-              <input class="form-control" type="text" name="aciklama" value="{{old('aciklama')}}" />
+              <label class="form-label" for="aciklama">Açıklama:</label>
+              {{-- <input class="form-control" type="text" name="aciklama" value="{{old('aciklama')}}" /> --}}
+              <textarea id="summernote" name="aciklama">
+                {{old('aciklama')}} 
+              </textarea>
               @error('aciklama')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
               @enderror
             </div>
           
             <div class="mb-3">
-              <label class="form-label" for="yer">resim</label>
+              <label class="form-label" for="yer">Resim:</label>
               <input class="form-control" type="file" name="resim"/>
               @error('resim')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
@@ -38,7 +41,7 @@
             </div>
           
             <div class="mb-3">
-              <label class="form-label" for="resim_aciklama">resim_aciklama</label>
+              <label class="form-label" for="resim_aciklama">Resim açıklama:</label>
               <input class="form-control" type="text" name="resim_aciklama" value="{{old('resim_aciklama')}}" />
               @error('resim_aciklama')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
@@ -46,7 +49,7 @@
             </div>
           
             <div class="mb-3">
-              <label class="form-label" for="icon">icon</label>
+              <label class="form-label" for="icon">Icon:</label>
               <input class="form-control" type="text" name="icon" value="{{old('icon')}}" />
               @error('icon')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
@@ -54,7 +57,7 @@
             </div>
           
             <div class="mb-3">
-              <label class="form-label" for="admin">admin</label>
+              <label class="form-label" for="admin">Admin:</label>
               <input class="form-control" type="text" name="admin" value="{{auth()->user()->id}}" readonly />
               <small>Bu veri <b>{{auth()->user()->name}}</b> tarafından oluşturulacak</small>
               @error('admin')

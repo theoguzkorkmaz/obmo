@@ -11,8 +11,12 @@
       <td><p style="font-size: 0.9rem">{{$egitim->baslik}}</p></td>
     </tr>
     <tr>
+      <td><strong>Açıklama:</strong></td>
+      <td><p style="font-size: 0.9rem">{{$egitim->aciklama}}</p></td>
+    </tr>
+    <tr>
       <td><strong>İçerik:</strong>:</td>
-      <td><p style="font-size: 0.9rem">{{$egitim->icerik}}</p></td>
+      <td><p style="font-size: 0.9rem">{!! $egitim->icerik !!}</p></td>
     </tr>
     <tr>
       <td><strong>Resim:</strong></td>
@@ -37,11 +41,7 @@
     <tr>
       <td><strong>Doküman:</strong></td>
       <td><p style="font-size: 0.9rem">{{$egitim->dokuman}}</p></td>
-    </tr>
-    <tr>
-      <td><strong>S.S.S:</strong></td>
-      <td><p style="font-size: 0.9rem">{{$egitim->sss}}</p></td>
-    </tr>
+    </tr>    
     <tr>
       <td colspan="2">
         <form method="POST" action="/admin/egitim/egitims/{{$egitim->id}}" class="w-100">

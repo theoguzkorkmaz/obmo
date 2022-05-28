@@ -41,14 +41,18 @@
           <div class="mb-3">
             <label class="form-label" for="aciklama">aciklama</label>
             <input class="form-control" type="text" name="aciklama" value="{{$sosyal->aciklama}}" />
-            @error('aciklama')
+            @error('aciklama') 
               <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
             @enderror
           </div>
         
           <div class="mb-3">
             <label class="form-label" for="aktiflik">aktiflik</label>
-            <input class="form-control" type="text" name="aktiflik" value="{{$sosyal->aktiflik}}" />
+            {{-- <input class="form-control" type="text" name="aktiflik" value="{{$sosyal->aktiflik}}" /> --}}
+            <select class="form-select form-control" name="aktiflik" aria-label="Default select example">                                
+              <option value="0" {{ ($sosyal->aktiflik == 0) ? 'selected' : ''}}>Aktif değil</option>
+              <option value="1" {{ ($sosyal->aktiflik == 1) ? 'selected' : ''}}>Aktif</option>                
+            </select>
             @error('aktiflik')
               <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
             @enderror

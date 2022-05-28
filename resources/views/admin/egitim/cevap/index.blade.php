@@ -14,8 +14,8 @@
       @foreach($cevaps as $item)  
       <div class="col-md-4">
         <div class="card card-primary collapsed-card">
-          <div class="card-header">
-            <h3 class="card-title">{{Str::limit($item->icerik, 25)}}</h3>
+          <div class="card-header">            
+            <h3 class="card-title">{!! substr(strip_tags($item->icerik), 0, 30) !!}</h3>
 
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -42,7 +42,7 @@
               <tr>
                 <td><strong class="fs-5">İçerik:</strong></td>
                 <td style="font-size: 0.85rem">
-                  {{Str::limit($item->icerik, 100)}}
+                  {!! $item->icerik !!}
                 </td>
               </tr>
               <tr>                

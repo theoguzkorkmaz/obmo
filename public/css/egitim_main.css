@@ -17,13 +17,39 @@ h1, h2, h3, h4, h5, h6, p, span {
 .btn, a {
   padding: 0 0.2rem;
   border: dashed 1px transparent;
-  border-radius: 0;
+  border-radius: 0; 
   font-size: 0.9rem;
   display: block;
   color: #4b5563 !important;
   text-decoration: none;
   -webkit-transition: 0.7s all;
   transition: 0.7s all;
+}
+
+.btn-ozel {
+  border: dashed 1px #467bca;
+  border-bottom: solid 3px #3c69b9;
+  border-radius: 0.3rem;
+}
+
+.btn-ozel:hover {
+  border: dashed 1px #467bca !important;
+  border-bottom: solid 3px #3c69b9 !important;
+  background: #467bca;  
+  color: #fff !important;
+}
+
+.btn-ozel2 {
+  border: dashed 1px #EE4B2B;
+  border-bottom: solid 3px #880808;
+  border-radius: 0.3rem;
+}
+
+.btn-ozel2:hover {
+  border: dashed 1px #EE4B2B !important;
+  border-bottom: solid 3px #880808 !important;
+  background: #EE4B2B;  
+  color: #fff !important;
 }
 
 .btn span, a span {
@@ -607,15 +633,15 @@ h1, h2, h3, h4, h5, h6, p, span {
   color: #fff !important;
 }
 
-#main #main_ic #content #aciklama, #main #main_ic #content #icerik, #main #main_ic #content #kitle, #main #main_ic #content #kazanim, #main #main_ic #content #yorum, #main #main_ic #content #dokuman, #main #main_ic #content #sss, #main #main_ic #content #dersler, #main #main_ic #content #istatistik, #main #main_ic #content #basarilar {
+#main #main_ic #content #aciklama, #main #main_ic #content #icerik, #main #main_ic #content #kitle, #main #main_ic #content #kazanim, #main #main_ic #content #yorum, #main #main_ic #content #dokuman, #main #main_ic #content #sss, #main #main_ic #content #dersler, #main #main_ic #content #istatistik, #main #main_ic #content #basarilar, #yorum {
   margin: 1.3rem auto;
 }
 
-#main #main_ic #content #aciklama .baslik, #main #main_ic #content #icerik .baslik, #main #main_ic #content #kitle .baslik, #main #main_ic #content #kazanim .baslik, #main #main_ic #content #yorum .baslik, #main #main_ic #content #dokuman .baslik, #main #main_ic #content #sss .baslik, #main #main_ic #content #dersler .baslik, #main #main_ic #content #istatistik .baslik, #main #main_ic #content #basarilar .baslik {
+#main #main_ic #content #aciklama .baslik, #main #main_ic #content #icerik .baslik, #main #main_ic #content #kitle .baslik, #main #main_ic #content #kazanim .baslik, #main #main_ic #content #yorum .baslik, #main #main_ic #content #dokuman .baslik, #main #main_ic #content #sss .baslik, #main #main_ic #content #dersler .baslik, #main #main_ic #content #istatistik .baslik, #main #main_ic #content #basarilar .baslik, #yorum .baslik {
   text-transform: capitalize;
 }
 
-#main #main_ic #content #aciklama p, #main #main_ic #content #icerik p, #main #main_ic #content #kitle p, #main #main_ic #content #kazanim p, #main #main_ic #content #yorum p, #main #main_ic #content #dokuman p, #main #main_ic #content #sss p, #main #main_ic #content #dersler p, #main #main_ic #content #istatistik p, #main #main_ic #content #basarilar p {
+#main #main_ic #content #aciklama p, #main #main_ic #content #icerik p, #main #main_ic #content #kitle p, #main #main_ic #content #kazanim p, #main #main_ic #content #yorum p, #main #main_ic #content #dokuman p, #main #main_ic #content #sss p, #main #main_ic #content #dersler p, #main #main_ic #content #istatistik p, #main #main_ic #content #basarilar p , #yorum p{
   margin-top: 0.3rem;
   color: #4b5563;
   font-size: 0.9rem;
@@ -664,11 +690,11 @@ h1, h2, h3, h4, h5, h6, p, span {
   border-radius: 0.3rem;
 }
 
-#main #main_ic #content #aciklama .list-group, #main #main_ic #content #icerik .list-group, #main #main_ic #content #kitle .list-group, #main #main_ic #content #kazanim .list-group, #main #main_ic #content #yorum .list-group, #main #main_ic #content #dokuman .list-group, #main #main_ic #content #sss .list-group, #main #main_ic #content #dersler .list-group, #main #main_ic #content #istatistik .list-group, #main #main_ic #content #basarilar .list-group {
+#main #main_ic #content #aciklama .list-group, #main #main_ic #content #icerik .list-group, #main #main_ic #content #kitle .list-group, #main #main_ic #content #kazanim .list-group, #main #main_ic #content #yorum .list-group, #main #main_ic #content #dokuman .list-group, #main #main_ic #content #sss .list-group, #main #main_ic #content #dersler .list-group, #main #main_ic #content #istatistik .list-group, #main #main_ic #content #basarilar .list-group, #yorum .list-group {
   margin-top: 0.3rem;
 }
 
-#main #main_ic #content #aciklama .list-group-item, #main #main_ic #content #icerik .list-group-item, #main #main_ic #content #kitle .list-group-item, #main #main_ic #content #kazanim .list-group-item, #main #main_ic #content #yorum .list-group-item, #main #main_ic #content #dokuman .list-group-item, #main #main_ic #content #sss .list-group-item, #main #main_ic #content #dersler .list-group-item, #main #main_ic #content #istatistik .list-group-item, #main #main_ic #content #basarilar .list-group-item {
+#main #main_ic #content #aciklama .list-group-item, #main #main_ic #content #icerik .list-group-item, #main #main_ic #content #kitle .list-group-item, #main #main_ic #content #kazanim .list-group-item, #main #main_ic #content #yorum .list-group-item, #main #main_ic #content #dokuman .list-group-item, #main #main_ic #content #sss .list-group-item, #main #main_ic #content #dersler .list-group-item, #main #main_ic #content #istatistik .list-group-item, #main #main_ic #content #basarilar .list-group-item, #yorum .list-group-item {
   padding: 0.3rem 0 !important;
   font-size: 0.9rem;
   border: 0;
@@ -677,7 +703,7 @@ h1, h2, h3, h4, h5, h6, p, span {
   color: #4b5563;
 }
 
-#main #main_ic #content #aciklama .list-group-item a, #main #main_ic #content #icerik .list-group-item a, #main #main_ic #content #kitle .list-group-item a, #main #main_ic #content #kazanim .list-group-item a, #main #main_ic #content #yorum .list-group-item a, #main #main_ic #content #dokuman .list-group-item a, #main #main_ic #content #sss .list-group-item a, #main #main_ic #content #dersler .list-group-item a, #main #main_ic #content #istatistik .list-group-item a, #main #main_ic #content #basarilar .list-group-item a {
+#main #main_ic #content #aciklama .list-group-item a, #main #main_ic #content #icerik .list-group-item a, #main #main_ic #content #kitle .list-group-item a, #main #main_ic #content #kazanim .list-group-item a, #main #main_ic #content #yorum .list-group-item a, #main #main_ic #content #dokuman .list-group-item a, #main #main_ic #content #sss .list-group-item a, #main #main_ic #content #dersler .list-group-item a, #main #main_ic #content #istatistik .list-group-item a, #main #main_ic #content #basarilar .list-group-item a, #yorum .list-group-item a {
   padding: 0.3rem 0;
 }
 
@@ -685,11 +711,11 @@ h1, h2, h3, h4, h5, h6, p, span {
   padding: 0.3rem 0.5rem;
 }
 
-#main #main_ic #content #aciklama .card-group, #main #main_ic #content #icerik .card-group, #main #main_ic #content #kitle .card-group, #main #main_ic #content #kazanim .card-group, #main #main_ic #content #yorum .card-group, #main #main_ic #content #dokuman .card-group, #main #main_ic #content #sss .card-group, #main #main_ic #content #dersler .card-group, #main #main_ic #content #istatistik .card-group, #main #main_ic #content #basarilar .card-group {
+#main #main_ic #content #aciklama .card-group, #main #main_ic #content #icerik .card-group, #main #main_ic #content #kitle .card-group, #main #main_ic #content #kazanim .card-group, #main #main_ic #content #yorum .card-group, #main #main_ic #content #dokuman .card-group, #main #main_ic #content #sss .card-group, #main #main_ic #content #dersler .card-group, #main #main_ic #content #istatistik .card-group, #main #main_ic #content #basarilar .card-group, #yorum .card-group {
   margin-top: 0.3rem;
 }
 
-#main #main_ic #content #aciklama .card-group .card, #main #main_ic #content #icerik .card-group .card, #main #main_ic #content #kitle .card-group .card, #main #main_ic #content #kazanim .card-group .card, #main #main_ic #content #yorum .card-group .card, #main #main_ic #content #dokuman .card-group .card, #main #main_ic #content #sss .card-group .card, #main #main_ic #content #dersler .card-group .card, #main #main_ic #content #istatistik .card-group .card, #main #main_ic #content #basarilar .card-group .card {
+#main #main_ic #content #aciklama .card-group .card, #main #main_ic #content #icerik .card-group .card, #main #main_ic #content #kitle .card-group .card, #main #main_ic #content #kazanim .card-group .card, #main #main_ic #content #yorum .card-group .card, #main #main_ic #content #dokuman .card-group .card, #main #main_ic #content #sss .card-group .card, #main #main_ic #content #dersler .card-group .card, #main #main_ic #content #istatistik .card-group .card, #main #main_ic #content #basarilar .card-group .card, #yorum .card-group .card{
   border: dashed 1px #467bca;
   border-bottom: 3px solid #3c69b9;
   cursor: default;
@@ -700,24 +726,24 @@ h1, h2, h3, h4, h5, h6, p, span {
   border-radius: 0.3rem;
 }
 
-#main #main_ic #content #aciklama .card-group .card-title, #main #main_ic #content #icerik .card-group .card-title, #main #main_ic #content #kitle .card-group .card-title, #main #main_ic #content #kazanim .card-group .card-title, #main #main_ic #content #yorum .card-group .card-title, #main #main_ic #content #dokuman .card-group .card-title, #main #main_ic #content #sss .card-group .card-title, #main #main_ic #content #dersler .card-group .card-title, #main #main_ic #content #istatistik .card-group .card-title, #main #main_ic #content #basarilar .card-group .card-title {
+#main #main_ic #content #aciklama .card-group .card-title, #main #main_ic #content #icerik .card-group .card-title, #main #main_ic #content #kitle .card-group .card-title, #main #main_ic #content #kazanim .card-group .card-title, #main #main_ic #content #yorum .card-group .card-title, #main #main_ic #content #dokuman .card-group .card-title, #main #main_ic #content #sss .card-group .card-title, #main #main_ic #content #dersler .card-group .card-title, #main #main_ic #content #istatistik .card-group .card-title, #main #main_ic #content #basarilar .card-group .card-title, #yorum .card-group .card-title {
   font-size: 0.9rem;
   font-weight: 600;
 }
 
-#main #main_ic #content #aciklama .card-group .card-title i, #main #main_ic #content #icerik .card-group .card-title i, #main #main_ic #content #kitle .card-group .card-title i, #main #main_ic #content #kazanim .card-group .card-title i, #main #main_ic #content #yorum .card-group .card-title i, #main #main_ic #content #dokuman .card-group .card-title i, #main #main_ic #content #sss .card-group .card-title i, #main #main_ic #content #dersler .card-group .card-title i, #main #main_ic #content #istatistik .card-group .card-title i, #main #main_ic #content #basarilar .card-group .card-title i {
+#main #main_ic #content #aciklama .card-group .card-title i, #main #main_ic #content #icerik .card-group .card-title i, #main #main_ic #content #kitle .card-group .card-title i, #main #main_ic #content #kazanim .card-group .card-title i, #main #main_ic #content #yorum .card-group .card-title i, #main #main_ic #content #dokuman .card-group .card-title i, #main #main_ic #content #sss .card-group .card-title i, #main #main_ic #content #dersler .card-group .card-title i, #main #main_ic #content #istatistik .card-group .card-title i, #main #main_ic #content #basarilar .card-group .card-title i, #yorum .card-group .card-title {
   margin: 0 0.1rem;
 }
 
-#main #main_ic #content #aciklama .card-group .card-body, #main #main_ic #content #icerik .card-group .card-body, #main #main_ic #content #kitle .card-group .card-body, #main #main_ic #content #kazanim .card-group .card-body, #main #main_ic #content #yorum .card-group .card-body, #main #main_ic #content #dokuman .card-group .card-body, #main #main_ic #content #sss .card-group .card-body, #main #main_ic #content #dersler .card-group .card-body, #main #main_ic #content #istatistik .card-group .card-body, #main #main_ic #content #basarilar .card-group .card-body {
+#main #main_ic #content #aciklama .card-group .card-body, #main #main_ic #content #icerik .card-group .card-body, #main #main_ic #content #kitle .card-group .card-body, #main #main_ic #content #kazanim .card-group .card-body, #main #main_ic #content #yorum .card-group .card-body, #main #main_ic #content #dokuman .card-group .card-body, #main #main_ic #content #sss .card-group .card-body, #main #main_ic #content #dersler .card-group .card-body, #main #main_ic #content #istatistik .card-group .card-body, #main #main_ic #content #basarilar .card-group .card-body, #yorum .card-group .card-body {
   padding: 0;
 }
 
-#main #main_ic #content #aciklama .card-group .card-body strong, #main #main_ic #content #icerik .card-group .card-body strong, #main #main_ic #content #kitle .card-group .card-body strong, #main #main_ic #content #kazanim .card-group .card-body strong, #main #main_ic #content #yorum .card-group .card-body strong, #main #main_ic #content #dokuman .card-group .card-body strong, #main #main_ic #content #sss .card-group .card-body strong, #main #main_ic #content #dersler .card-group .card-body strong, #main #main_ic #content #istatistik .card-group .card-body strong, #main #main_ic #content #basarilar .card-group .card-body strong {
+#main #main_ic #content #aciklama .card-group .card-body strong, #main #main_ic #content #icerik .card-group .card-body strong, #main #main_ic #content #kitle .card-group .card-body strong, #main #main_ic #content #kazanim .card-group .card-body strong, #main #main_ic #content #yorum .card-group .card-body strong, #main #main_ic #content #dokuman .card-group .card-body strong, #main #main_ic #content #sss .card-group .card-body strong, #main #main_ic #content #dersler .card-group .card-body strong, #main #main_ic #content #istatistik .card-group .card-body strong, #main #main_ic #content #basarilar .card-group .card-body strong, #yorum .card-group .card-body strong {
   font-size: 0.8rem;
 }
 
-#main #main_ic #content #aciklama .card-group .card-body p, #main #main_ic #content #icerik .card-group .card-body p, #main #main_ic #content #kitle .card-group .card-body p, #main #main_ic #content #kazanim .card-group .card-body p, #main #main_ic #content #yorum .card-group .card-body p, #main #main_ic #content #dokuman .card-group .card-body p, #main #main_ic #content #sss .card-group .card-body p, #main #main_ic #content #dersler .card-group .card-body p, #main #main_ic #content #istatistik .card-group .card-body p, #main #main_ic #content #basarilar .card-group .card-body p {
+#main #main_ic #content #aciklama .card-group .card-body p, #main #main_ic #content #icerik .card-group .card-body p, #main #main_ic #content #kitle .card-group .card-body p, #main #main_ic #content #kazanim .card-group .card-body p, #main #main_ic #content #yorum .card-group .card-body p, #main #main_ic #content #dokuman .card-group .card-body p, #main #main_ic #content #sss .card-group .card-body p, #main #main_ic #content #dersler .card-group .card-body p, #main #main_ic #content #istatistik .card-group .card-body p, #main #main_ic #content #basarilar .card-group .card-body p, #yorum .card-group .card-body {
   font-size: 0.7rem;
   margin-top: -3px;
 }
@@ -1096,6 +1122,105 @@ h1, h2, h3, h4, h5, h6, p, span {
 }
 
 #header-list > .list-group-item > a:hover {    
+  background: #467bca;
+  color: #fff !important;
+}
+
+#ara {
+  margin-bottom: 2rem !important;
+}
+
+#ara .ara-brand {
+  color: #4b5563 !important;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  text-align: center;
+  cursor: default;
+  margin-top: 1rem;
+}
+
+#ara .ara-brand span {
+  font-size: 2rem;
+}
+
+#ara .ara-brand span:last-child {
+  font-size: 1.3rem;
+  border-left: dotted 2px #f3f4f6;
+  padding-left: 0.5rem;
+  color: #467bca;
+}
+
+#ara .ara-brand span i {
+  margin-right: 0.3rem;
+}
+
+#ara .input-group {
+  width: 70%;
+  height: 40px;
+  margin: 1rem auto;
+}
+
+#ara .input-group input {
+  width: 90%;
+  border: dashed 1px #467bca;
+  border-radius: 0.3rem 0 0 0.3rem;
+}
+
+#ara .input-group button {
+  width: 10%;
+  border: dashed 1px #467bca;
+  border-left: none;
+  border-radius: 0 0.3rem 0.3rem 0;
+}
+
+#ara-sonuc .baslik {
+  margin-bottom: 0.7rem !important;
+}
+
+#ara-sonuc #sonuc-false p, #ara-sonuc #sonuc-true p {
+  color: #374151;
+  cursor: default;
+  margin-bottom: 0.7rem !important;
+}
+
+#yorum  #yorum_form {
+  border: dashed 1px #467bca;
+  border-bottom: solid 3px #3c69b9;
+  border-radius: 0.3rem;
+}
+
+#yorum  #yorum_form label {
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+#yorum  #yorum_form input {
+  border: dashed 1px #467bca;
+  margin-bottom: 1rem;
+}
+
+#yorum  #yorum_form .btn {
+  border: dashed 1px #467bca;
+  border-radius: 0.3rem;
+  border-bottom: solid 3px #3c69b9;
+}
+
+#yorum  #yorum_form .btn:first-child {
   background: #467bca;
   color: #fff !important;
 }

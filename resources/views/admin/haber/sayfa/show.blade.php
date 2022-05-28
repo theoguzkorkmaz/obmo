@@ -3,12 +3,12 @@
 
   <table class="table table-bordered">    
     <tr>
-      <td><strong>Ad:</strong></td>
+      <td><strong>Ad:</strong></td> 
       <td><p style="font-size: 0.9rem">{{$sayfa->ad}}</p></td>
     </tr> 
     <tr>
       <td><strong>İçerik:</strong></td>
-      <td><p style="font-size: 0.9rem">{{$sayfa->icerik}}</p></td>
+      <td><p style="font-size: 0.9rem">{!! $sayfa->icerik !!}</p></td>
     </tr> 
     <tr>
       <td><strong>Resim:</strong></td>

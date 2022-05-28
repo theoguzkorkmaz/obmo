@@ -1380,4 +1380,25 @@ footer #copyright p {
   color: #4b5563;
   margin-bottom: 0.7rem;
 }
+
+#yorum_form label {
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+#yorum_form input {
+  border: dashed 1px #ea580c;
+  margin-bottom: 1rem;
+}
+
+#yorum_form .btn {
+  border: dashed 1px #ea580c;
+  border-radius: 0.3rem;
+  border-bottom: solid 3px #c2410c;
+}
+
+#yorum_form .btn:first-child {
+  background: #ea580c;
+  color: #fff !important;
+}
 /*# sourceMappingURL=main.css.map */

@@ -14,15 +14,21 @@
           <div class="card-body">
             
             <div class="mb-3">
-              <label class="form-label" for="icerik_id">icerik_id</label>
-              <input class="form-control" type="text" name="icerik_id" value="{{old('icerik_id')}}" />
+              <label class="form-label" for="icerik_id">İçerik:</label> 
+              {{-- <input class="form-control" type="text" name="icerik_id" value="{{old('icerik_id')}}" /> --}}
+              <select class="form-select form-control" name="icerik_id" aria-label="Default select example">
+                <option selected disabled>İçerikler</option>
+                @foreach ($iceriks as $item)                      
+                  <option value="{{$item->id}}">{{$item->baslik}}</option>
+                @endforeach                   
+              </select>
               @error('icerik_id')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
               @enderror
             </div>
           
             <div class="mb-3">
-                <label class="form-label" for="baslik">baslik</label>
+                <label class="form-label" for="baslik">Başlık:</label>
                 <input class="form-control" type="text" name="baslik" value="{{old('baslik')}}" />
                 @error('baslik')
                   <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
@@ -30,15 +36,23 @@
             </div>
           
             <div class="mb-3">
-              <label class="form-label" for="aciklama">Açıklama</label>
+              <label class="form-label" for="aciklama">Açıklama:</label>
               <input class="form-control" type="text" name="aciklama" value="{{old('aciklama')}}" />
               @error('aciklama')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
               @enderror
             </div> 
+
+            <div class="mb-3">
+              <label class="form-label" for="puan">Puan:</label>
+              <input class="form-control" type="text" name="puan" value="{{old('puan')}}" />
+              @error('puan')
+                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+              @enderror 
+            </div>
           
             <div class="mb-3">
-              <label class="form-label" for="admin">admin</label>
+              <label class="form-label" for="admin">Admin:</label>
               <input class="form-control" type="text" name="admin" value="{{auth()->user()->id}}" readonly />
               <small>Bu veri <b>{{auth()->user()->name}}</b> tarafından oluşturulacak</small>
               @error('admin')

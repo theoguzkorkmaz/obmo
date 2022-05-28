@@ -15,8 +15,22 @@
       <td><p style="font-size: 0.9rem">{{$icerik->baslik}}</p></td>
     </tr>
     <tr>
+      <td><strong>Video:</strong></td>
+      <td style="font-size: 0.85rem">
+        {!! $icerik->video !!}
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Video açıklama:</strong></td>
+      <td><p style="font-size: 0.9rem">{{$icerik->video_aciklamasi}}</p></td>
+    </tr>
+    <tr>
+      <td><strong>Video yazılı:</strong></td>
+      <td><p style="font-size: 0.9rem">{{$icerik->video_yazili}}</p></td>
+    </tr>
+    <tr>
       <td><strong>Açıklama:</strong></td>
-      <td><p style="font-size: 0.9rem">{{$icerik->aciklama}}</p></td>
+      <td><p style="font-size: 0.9rem">{!! $icerik->aciklama !!}</p></td>
     </tr>
     <tr>
       <td><strong>Puan:</strong></td>

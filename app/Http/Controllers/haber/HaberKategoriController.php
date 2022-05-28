@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\haber;
 
-use App\Models\EgitimNavbar;
+use App\Models\AdminNavbar;
 use Illuminate\Http\Request;
 use App\Models\HaberKategori;
 use App\Http\Controllers\Controller;
@@ -16,7 +16,7 @@ class HaberKategoriController extends Controller
      */
     public function create()
     {
-			return view('admin.haber.kategori.create')->with('navbars', EgitimNavbar::all());
+			return view('admin.haber.kategori.create')->with('navbars', AdminNavbar::all());
     }
 
     /**
@@ -56,7 +56,7 @@ class HaberKategoriController extends Controller
     {
 			return view('admin.haber.kategori.edit', [
         'kategori' => $haber_kategori,
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all()
       ]);
     }
 
@@ -109,7 +109,7 @@ class HaberKategoriController extends Controller
     {			
 			return view('admin.haber.kategori.index', [
 				'kategoris' => HaberKategori::latest()->paginate(12), 
-        'navbars' => EgitimNavbar::all() 
+        'navbars' => AdminNavbar::all() 
 			]);
     }
 
@@ -123,7 +123,7 @@ class HaberKategoriController extends Controller
     {
 			return view('admin.haber.kategori.show', [
         'kategori' =>  $haber_kategori,
-        'navbars' => EgitimNavbar::all()
+        'navbars' => AdminNavbar::all()
       ]);
     }
 }

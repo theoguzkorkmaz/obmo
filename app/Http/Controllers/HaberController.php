@@ -10,6 +10,7 @@ use App\Models\HaberBulten;
 use App\Models\HaberTopbar;
 use Illuminate\Http\Request;
 use App\Models\HaberKategori;
+use App\Models\HaberYorum;
 use Illuminate\Support\Facades\DB;
 
 class HaberController extends Controller
@@ -40,6 +41,7 @@ class HaberController extends Controller
             ->with('kategoris', HaberKategori::all())
             ->with('sayfas', HaberSayfa::all())
             ->with('haber', HaberHaber::select('*', 'haber_habers.created_at as tarih')->leftJoin('haber_kategoris', 'haber_habers.kategori_id', '=', 'haber_kategoris.id')->where('haber_habers.id', '=', $id)->first())
+            ->with('habert', HaberHaber::where('haber_habers.id', '=', $id)->first())
             ->with('yorums', HaberHaber::leftJoin('haber_yorums', 'haber_habers.id', '=', 'haber_yorums.haber_id')->where('haber_habers.id', '=', $id)->orderBy('haber_yorums.created_at', 'desc')->get())
             ->with('kacirmas', HaberHaber::inRandomOrder()->limit(10)->get())
             ->with('fhabers', HaberHaber::inRandomOrder()->limit(4)->get())
@@ -106,6 +108,22 @@ class HaberController extends Controller
         $mail = $request->mail;
         HaberBulten::create([
             'mail' => $mail
+        ]);
+
+        return redirect()->back();
+    }
+
+    public function haber_yorum(Request $request, $id) {        
+        $baslik = $request->baslik;
+        $icerik = $request->icerik;
+        $user = auth()->user()->id;
+        $haber = $id;
+        HaberYorum::create([
+            'haber_id' => $haber,
+            'user_id' => $user,
+            'baslik' => $baslik,
+            'icerik' => $icerik,
+            'admin' => '0'
         ]);
 
         return redirect()->back();

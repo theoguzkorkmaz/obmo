@@ -12,7 +12,7 @@
     </tr>
     <tr>
       <td><strong>Açıklama:</strong></td>
-      <td><p style="font-size: 0.9rem">{{$topbar->aciklama}}</p></td>
+      <td><p style="font-size: 0.9rem">{!! $topbar->aciklama !!}</p></td>
     </tr>
     <tr>
       <td><strong>Yer:</strong></td>
