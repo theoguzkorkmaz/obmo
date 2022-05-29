@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\egitim;
 
-use App\Models\EgitimCevap;
+use App\Models\LogKayit;
+use App\Models\EgitimSoru;
 use App\Models\AdminNavbar;
+use App\Models\EgitimCevap;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\EgitimSoru;
 
 class EgitimCevapController extends Controller
 {
@@ -39,6 +40,11 @@ class EgitimCevapController extends Controller
 			]);
 
 			EgitimCevap::create($formFields);
+
+      LogKayit::create([
+        'user_id' => auth()->user()->id,        
+        'icerik' => $request->icerik." oluşturuldu."
+      ]);
 
 			return redirect('/admin/egitim/egitim_cevaps');
     }
@@ -77,6 +83,11 @@ class EgitimCevapController extends Controller
 
       $egitim_cevap->update($formFields);
 
+      LogKayit::create([
+        'user_id' => auth()->user()->id,        
+        'icerik' => $request->icerik." güncellendi."
+      ]);
+
       return redirect('/admin/egitim/egitim_cevaps');
     }
 
@@ -89,6 +100,12 @@ class EgitimCevapController extends Controller
     public function destroy(EgitimCevap $egitim_cevap)
     {
 			$egitim_cevap->delete();
+
+      LogKayit::create([
+        'user_id' => auth()->user()->id,        
+        'icerik' => $egitim_cevap->icerik." silindi."
+      ]);  
+
       return redirect('/admin/egitim/egitim_cevaps');
     }
 

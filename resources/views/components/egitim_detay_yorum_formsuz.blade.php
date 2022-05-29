@@ -28,12 +28,13 @@
         @if(count($yorums) != 0)
           <div class="card w-full" >
             <div class="card-title">
-              <i class="fas fa-quote-left"></i>
-              {{$yorum->icerik}}
-              <i class="fas fa-quote-right"></i>
+              <div>
+                <h4 class="mb-1 fw-bold fs-5 mb-2"> {{$yorum->baslik}} </h4>
+                <h5 class="mb-1 fs-6"><i class="fas fa-quote-left"></i> {{$yorum->icerik}} <i class="fas fa-quote-right"></i></h5>
+              </div>                  
             </div>
-            <div class="card-body">
-              <p>{{$yorum->created_at}} tarihinde yazılmıştır.</p>
+            <div class="card-body mt-1">
+              <p style="color: #333 !important;">{{$yorum->created_at}} tarihinde yazılmıştır.</p>
             </div>
           </div>
         @endif

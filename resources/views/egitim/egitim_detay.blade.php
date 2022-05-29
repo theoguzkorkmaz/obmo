@@ -3,24 +3,27 @@
   @if ($egitim)
   <div class="d-flex flex-column flex-md-row gap-3 p-md-0 w-full" id="main_ic">
     <div class="" id="content">
-      <div class="header">
+      <div class="header">        
         <div class="d-flex flex-row gap-3">
           <img src="{{$egitim->resim ? asset('storage/'.$egitim->resim) : asset('/images/no-image.png')}}" alt="{!! $egitim->baslik !!}" class="shadow-sm">                
           <div class="d-flex flex-column gap-2 justify-content-between">
             <h2 class="baslik">{!! $egitim->baslik !!}</h2>
             <ul class="list-group">
-              <li class="list-group-item">
-                <a href="#"><i class="fas fa-heart"></i> 3 beğeni</a>
-              </li>              
-              <li class="list-group-item">
-                <a href="#"><i class="fas fa-user-graduate"></i> 23 kişi kayıtlı</a>
-              </li>           
-              <li class="list-group-item">
-                <a href="#"><i class="fas fa-comments"></i> 123 yorum</a>
-              </li>              
-              <li class="list-group-item">
-                <a href="#"><i class="fas fa-paperclip"></i> 3 ek dosya</a>
-              </li>           
+              @if (count($sonrasay) != 0)
+                <li class="list-group-item">
+                  <a href="#"><i class="fas fa-heart"></i> {{count($sonrasay)}} kişinin daha sonrasında</a>
+                </li>              
+              @endif  
+              @if (count($usersay) != 0)
+                <li class="list-group-item">
+                  <a href="#"><i class="fas fa-user-graduate"></i> {{count($usersay)}} kişi kayıtlı</a>
+                </li>              
+              @endif       
+              @if (count($yorumsay) != 0)
+                <li class="list-group-item">
+                  <a href="#"><i class="fas fa-comments"></i> {{count($yorumsay)}} yorum</a>
+                </li>              
+              @endif       
             </ul>
           </div>
         </div>              
@@ -82,21 +85,32 @@
     <div class="" id="aside">
       @if($kayit)            
       <div class="w-full d-flex flex-column btn-group is-abone">
-        <a href="/egitim/egitim_icerik/{!! $egitim->id !!}" class="btn mb-2">eğitime devam et</a>              
-        <p>Katılım durumu: <span>Devam ediyor</span></p>
-        <p>Başarı durumu: <span>Başarısız</span></p>
-        <p>Başarı puanı: <span>4/100</span></p>
-        <p>Harcanan süre: <span>2:40:00</span></p>
-        <p>Tamamlanma durumu: <span>%40</span></p>
+        <a href="/egitim/egitim_icerik/{!! $egitim->id !!}" class="btn mb-2">eğitime devam et</a>                      
+        @if (count($useres) != 0)
+          <p>Katılım durumu: <span>Devam ediyor</span></p> 
+        @endif
+        <p>Eğitim bölümleri: <span>{{count($iceriksay)}}</span></p>
+        <p>Sınav sayısı: <span>{{count($sinavsay)}}</span></p>
       </div><!-- /abone -->
       @else        
         <div class="w-full d-flex flex-column gap-2 btn-group is-abone-degil">
           <form action="/egitim/egitim_detay/{!! $egitim->id !!}" method="post">
             @csrf
-            <button type="submit" name="" id="" class="btn">eğitime katıl</button>
-          </form>
-                        
-          <button type="button" name="" id="" class="btn btn1"><i class="fas fa-bookmark"></i>Daha sonra izleye ekle</button>                        
+            <button type="submit" name="action" value="join" class="btn">eğitime katıl</button>
+
+            @if (count($sonras) != 0)
+              @foreach ($sonras as $item)
+                  @if (($item->ders_id) != ($egitim->id))
+                  <button type="submit" name="action" value="bookmarks" class="btn btn1 mt-2"><i class="fas fa-bookmark"></i>Daha sonra izleye ekle</button>            
+                  @endif                          
+              @endforeach 
+            @else
+              <button type="submit" name="action" value="bookmarks" class="btn btn1 mt-2"><i class="fas fa-bookmark"></i>Daha sonra izleye ekle</button>            
+            @endif
+          </form>  
+          <p>Katılım durumu: <span>Kayıtsız</span></p>
+          <p>Eğitim bölümleri: <span>{{count($iceriksay)}}</span></p>   
+          <p>Sınav sayısı: <span>{{count($sinavsay)}}</span></p>           
         </div><!-- /abone-değil -->
       @endif      
 

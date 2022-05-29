@@ -6,6 +6,7 @@ use App\Models\AdminNavbar;
 use App\Models\EgitimNavbar;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\LogKayit;
 
 class EgitimNavbarController extends Controller
 {
@@ -36,7 +37,12 @@ class EgitimNavbarController extends Controller
         'admin' => 'required'
 			]);
 
-			EgitimNavbar::create($formFields);
+			EgitimNavbar::create($formFields);  
+
+      LogKayit::create([
+        'user_id' => auth()->user()->id,        
+        'icerik' => $request->ad." oluşturuldu."
+      ]);
 
 			return redirect('/admin/egitim/egitim_navbars');
     }
@@ -75,6 +81,11 @@ class EgitimNavbarController extends Controller
 
       $egitim_navbar->update($formFields);
 
+      LogKayit::create([
+        'user_id' => auth()->user()->id,        
+        'icerik' => $request->ad." güncellendi."
+      ]); 
+
       return redirect('/admin/egitim/egitim_navbars');
     }
 
@@ -87,6 +98,12 @@ class EgitimNavbarController extends Controller
     public function destroy(EgitimNavbar $egitim_navbar)
     {
       $egitim_navbar->delete();
+
+      LogKayit::create([
+        'user_id' => auth()->user()->id,        
+        'icerik' => $egitim_navbar->ad." silindi."
+      ]);
+
       return redirect('/admin/egitim/egitim_navbars');
     }
 

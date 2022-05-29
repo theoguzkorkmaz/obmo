@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\haber;
 
+use App\Models\LogKayit;
 use App\Models\HaberHaber;
 use App\Models\AdminNavbar;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Models\EgitimKategori;
 use App\Models\HaberKategori;
+use App\Models\EgitimKategori;
+use App\Http\Controllers\Controller;
 
 class HaberHaberController extends Controller
 {
@@ -45,6 +46,11 @@ class HaberHaberController extends Controller
 			}
 
 			HaberHaber::create($formFields);
+
+      LogKayit::create([
+        'user_id' => auth()->user()->id,        
+        'icerik' => $request->baslik." oluşturuldu."
+      ]);
 
 			return redirect('/admin/haber/habers');
     }
@@ -88,6 +94,11 @@ class HaberHaberController extends Controller
 
       $haber_haber->update($formFields);
 
+      LogKayit::create([
+        'user_id' => auth()->user()->id,        
+        'icerik' => $request->baslik." güncellendi."
+      ]);
+
       return redirect('/admin/haber/habers');
     }
 
@@ -100,6 +111,12 @@ class HaberHaberController extends Controller
     public function destroy(HaberHaber $haber_haber)
     {
 			$haber_haber->delete();
+
+      LogKayit::create([
+        'user_id' => auth()->user()->id,        
+        'icerik' => $haber_haber->baslik." silindi."
+      ]);
+
       return redirect('/admin/haber/habers');
     }
 

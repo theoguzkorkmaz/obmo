@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\egitim;
 
+use App\Models\LogKayit;
 use App\Models\AdminNavbar;
 use Illuminate\Http\Request;
 use App\Models\EgitimKategori;
@@ -40,6 +41,11 @@ class EgitimKategoriController extends Controller
         }
 
 				EgitimKategori::create($formFields);
+
+        LogKayit::create([
+          'user_id' => auth()->user()->id,        
+          'icerik' => $request->baslik." oluşturuldu."
+        ]);
 
 				return redirect('/admin/egitim/egitim_kategoris');
     }
@@ -81,6 +87,11 @@ class EgitimKategoriController extends Controller
 
       $egitim_kategori->update($formFields);
 
+      LogKayit::create([
+        'user_id' => auth()->user()->id,        
+        'icerik' => $request->baslik." güncellendi."
+      ]); 
+
       return redirect('/admin/egitim/egitim_kategoris');
     }
 
@@ -93,6 +104,12 @@ class EgitimKategoriController extends Controller
     public function destroy(EgitimKategori $egitim_kategori)
     {
 			$egitim_kategori->delete();
+
+      LogKayit::create([
+        'user_id' => auth()->user()->id,        
+        'icerik' => $egitim_kategori->baslik." silindi."
+      ]); 
+
       return redirect('/admin/egitim/egitim_kategoris');
     }
 

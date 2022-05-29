@@ -6,6 +6,12 @@
 <div class="container d-flex flex-row items-center justify-content-between p-md-0" id="topbar">    
   <div>
     <ul class="list-group list-group-horizontal d-flex gap-2">   
+      <li class="list-group-item">
+        <a type="button" onclick="themeToggle()" title="Mode değiştirmek için tıklayınız!"><i class="fas fa-moon    "></i> Dark mode</a>
+      </li>
+      <li class="list-group-item">
+        <a href="/haber/ara" title="Arama sayfasına gitmek için tıklayınız."><i class="fas fa-search"></i> Ara</a>
+      </li>
       @if (count($topbars) != 0) 
         @foreach ($topbars as $topbar)
           @if ($topbar->yer == 0)                
@@ -49,6 +55,9 @@
   </div> <!-- center -->
   <div>
     <ul class="list-group list-group-horizontal d-flex gap-2">
+      <li class="list-group-item">
+        <a href="/profil/{{auth()->user()->id}}" title="Profile gitmek için tıklayınız."><i class="fas fa-user"></i> Profil</a>
+      </li>
       @if (count($topbars) != 0)
         @foreach ($topbars as $topbar)
           @if ($topbar->yer == 1)                

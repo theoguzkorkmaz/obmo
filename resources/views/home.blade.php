@@ -1,23 +1,69 @@
-@extends('layouts.app')
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+    <title>O B M O</title>
 
-                    {{ __('You are logged in!') }}
-                </div>
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css' integrity='sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw==' crossorigin='anonymous'/>
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+</head>
+<body class="home_body w-100">   
+    <div class="container d-flex flex-row justify-content-center">
+        <button class="btn dark_btn m-auto" onclick="themeToggle()" title="Mode değiştirmek için tıklayınız!">
+            <i class="fas fa-moon"></i>
+            Dark mode
+        </button>        
+        @guest
+            <a href="/login" class="btn dark_btn m-auto">
+                <i class="fas fa-sign-in-alt    "></i>
+                Giriş yap
+            </a>
+        @endguest
+        @auth        
+        <form action="{{ route('logout') }}" method="post" class="dark_btn2">
+            @csrf
+            <button type="submit" class="btn dark_btn2 m-auto">                
+                <i class="fas fa-sign-out-alt "></i>
+                {{auth()->user()->name}}                
+            </button>
+          </form>
+        @endauth
+    </div>  
+    <div class="container d-flex flex-column flex-md-row align-items-center justify-content-center" id="home">        
+        <div class="d-flex flex-column flex-md-row gap-4 justify-content-between w-100" id="home_in">
+            <div class="d-flex align-items-center justify-content-center home_card2">
+                <div class="container p-md-0 text-center" id="ara">
+                    <div class="ara-brand2">
+                        <span>O B M O</span>   
+                    </div><!-- /ara-brand -->                      
+                </div><!-- /ara --> 
             </div>
+            <a href="/haber" class="d-flex align-items-center justify-content-center home_card">
+                <h2>Haber</h2>
+                <i class="fas fa-newspaper"></i>
+            </a>
+            <a href="/egitim" class="d-flex align-items-center justify-content-center home_card">
+                <h2>Eğitim</h2>
+                <i class="fas fa-school    "></i>
+            </a>
+            <a href="/admin" class="d-flex align-items-center justify-content-center home_card">
+                <h2>Admin</h2>
+                <i class="fas fa-user-cog    "></i>
+            </a>
         </div>
-    </div>
-</div>
-@endsection
+    </div>     
+</body>
+</html>

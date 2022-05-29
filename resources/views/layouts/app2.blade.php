@@ -18,14 +18,21 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        .dark-mode {
+            background-color: $black !important;
+            color: $white2;
+        }
+    </style>
 </head>
 <body>
-    <div class="d-flex flex-column justify-content-center" style="height: 100vh">
+    <div class="d-flex flex-column justify-content-center" style="">
         <div class="container p-md-0" id="ara">
             <div class="ara-brand">
                 <span>O B M O</span>
-                <span>👋 Hoşgeldiniz</span>      
-            </div><!-- /ara-brand -->        
+                <span>🤗 {{$user}}</span>     
+                                 
+            </div><!-- /ara-brand -->                 
         </div><!-- /ara --> 
     
         <div id="app">        

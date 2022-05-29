@@ -15,7 +15,7 @@
   <link href="{{ asset('css/egitim_main.css') }}" rel="stylesheet">
 </head>
 <body>        
-  <div class="container-fluid">
+  <div class="container-fluid">    
     <div class="row">
       <x-egitim_navbar :navbars="$navbars"></x-egitim_navbar>
       <main class="col-md-10 col-12" id="main">

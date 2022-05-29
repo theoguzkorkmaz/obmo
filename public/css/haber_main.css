@@ -499,7 +499,7 @@ footer #copyright p {
 #bunlari-kacirma .box .list-group-item {
   padding: 0;
   border: none;
-  border-radius: 0;
+  border-radius: 0;  
 }
 
 #bunlari-kacirma .box .list-group-item span {
@@ -1400,5 +1400,50 @@ footer #copyright p {
 #yorum_form .btn:first-child {
   background: #ea580c;
   color: #fff !important;
+}
+
+.dark-mode {
+  background-color: #111 !important;
+  color: #fff;
+}
+
+.dark-mode .navbar {
+  background: #000 !important;
+}
+
+.dark-mode .navbar .megamenu{
+  background: #000 !important;
+}
+
+.dark-mode footer {
+  background: #000 !important;
+}
+
+.dark-mode #bunlari-kacirma .box .list-group-item, .dark-mode #detay_article .box .list-group-item {
+  background: #000 !important;
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.dark-mode a,.dark-mode p, .dark-mode h1, .dark-mode span, .dark-mode .btn, .dark-mode label, .dark-mode small {
+  color: #fff !important;
+}
+
+.dark-mode a:hover {
+  color: #fff !important;
+  border-color: #fff;
+}
+
+.dark-mode input {
+  background: #111;
+}
+
+.dark-mode input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #fff;
+  opacity: 1; /* Firefox */
+}
+
+.dark-mode .card {
+  background: transparent;
 }
 /*# sourceMappingURL=main.css.map */

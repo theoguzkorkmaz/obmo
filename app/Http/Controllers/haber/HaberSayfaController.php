@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\haber;
 
+use App\Models\LogKayit;
 use App\Models\HaberSayfa;
 use App\Models\AdminNavbar;
 use Illuminate\Http\Request;
@@ -40,6 +41,11 @@ class HaberSayfaController extends Controller
 			}
 
 			HaberSayfa::create($formFields);
+
+      LogKayit::create([
+        'user_id' => auth()->user()->id,        
+        'icerik' => $request->ad." oluşturuldu."
+      ]);
 
 			return redirect('/admin/haber/haber_sayfas'); 
     }
@@ -81,6 +87,11 @@ class HaberSayfaController extends Controller
 
       $haber_sayfa->update($formFields);
 
+      LogKayit::create([
+        'user_id' => auth()->user()->id,        
+        'icerik' => $request->ad." güncellendi."
+      ]);
+
       return redirect('/admin/haber/haber_sayfas');
     }
 
@@ -93,6 +104,12 @@ class HaberSayfaController extends Controller
     public function destroy(HaberSayfa $haber_sayfa)
     {
 			$haber_sayfa->delete();
+
+      LogKayit::create([
+        'user_id' => auth()->user()->id,        
+        'icerik' => $haber_sayfa->ad." silindi."
+      ]);
+
       return redirect('/admin/haber/haber_sayfas');
     }
 

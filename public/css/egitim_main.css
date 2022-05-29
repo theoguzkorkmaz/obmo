@@ -170,6 +170,10 @@ h1, h2, h3, h4, h5, h6, p, span {
   width: fit-content;
 }
 
+.dark-mode #main_nav #nav-kimlik a, .dark-mode #main_nav #nav-kimlik button {
+  background: #000 !important;
+}
+
 #main_nav #nav-kimlik a span, #main_nav #nav-kimlik button span {
   font-size: 0.9rem;
   font-weight: bold;
@@ -373,6 +377,10 @@ h1, h2, h3, h4, h5, h6, p, span {
   color: #374151;
 }
 
+.dark-mode #main #genel-carousel .box-group .box {
+  color: #fff !important;
+}
+
 #main #genel-carousel .box-group .box .box-header {
   margin-bottom: 0.5rem;
 }
@@ -434,6 +442,10 @@ h1, h2, h3, h4, h5, h6, p, span {
   font-family: 'Inter', sans-serif;
 }
 
+.dark-mode #main #anasayfa-derslerim #derslerim .baslik p {
+  color: #fff !important;
+}
+
 #main #anasayfa-derslerim #derslerim #content {
   margin-top: 0;
 }
@@ -446,6 +458,10 @@ h1, h2, h3, h4, h5, h6, p, span {
   border-bottom: solid 3px #467bca;
   border-radius: 0.3rem;
   padding: 0.3rem;
+}
+
+.dark-mode #main #anasayfa-derslerim #derslerim #content .col .card {
+  color: #fff !important;
 }
 
 #main #anasayfa-derslerim #derslerim #content .col .card img {
@@ -478,10 +494,18 @@ h1, h2, h3, h4, h5, h6, p, span {
   color: #374151;
 }
 
+.dark-mode #main #anasayfa-derslerim #derslerim #content .col .card .card-body p {
+  color: #fff !important;
+}
+
 #main #anasayfa-derslerim #derslerim #content .col .card .card-body p span {
   font-size: 0.8rem !important;
   font-weight: 400;
   color: #4b5563;
+}
+
+.dark-mode #main #anasayfa-derslerim #derslerim #content .col .card .card-body p span {
+  color: #fff !important;
 }
 
 #main #anasayfa-derslerim #derslerim #content .col .card:hover {
@@ -641,10 +665,15 @@ h1, h2, h3, h4, h5, h6, p, span {
   text-transform: capitalize;
 }
 
+
 #main #main_ic #content #aciklama p, #main #main_ic #content #icerik p, #main #main_ic #content #kitle p, #main #main_ic #content #kazanim p, #main #main_ic #content #yorum p, #main #main_ic #content #dokuman p, #main #main_ic #content #sss p, #main #main_ic #content #dersler p, #main #main_ic #content #istatistik p, #main #main_ic #content #basarilar p , #yorum p{
   margin-top: 0.3rem;
   color: #4b5563;
   font-size: 0.9rem;
+}
+
+.dark-mode #main #main_ic #content #aciklama p, .dark-mode #main #main_ic #content #icerik p, .dark-mode #main #main_ic #content #kitle p, .dark-mode #main #main_ic #content #kazanim p, .dark-mode #main #main_ic #content #yorum p, .dark-mode #main #main_ic #content #dokuman p, .dark-mode #main #main_ic #content #sss p, .dark-mode #main #main_ic #content #dersler p, .dark-mode #main #main_ic #content #istatistik p, .dark-mode #main #main_ic #content #basarilar p , #yorum p{
+  color: #fff !important;
 }
 
 #main #main_ic #content #aciklama .accordion, #main #main_ic #content #icerik .accordion, #main #main_ic #content #kitle .accordion, #main #main_ic #content #kazanim .accordion, #main #main_ic #content #yorum .accordion, #main #main_ic #content #dokuman .accordion, #main #main_ic #content #sss .accordion, #main #main_ic #content #dersler .accordion, #main #main_ic #content #istatistik .accordion, #main #main_ic #content #basarilar .accordion {
@@ -668,6 +697,12 @@ h1, h2, h3, h4, h5, h6, p, span {
   border-radius: 0.3rem;
 }
 
+.dark-mode #main #main_ic #content #aciklama .accordion-item .accordion-header .accordion-button, .dark-mode #main #main_ic #content #icerik .accordion-item .accordion-header .accordion-button, .dark-mode #main #main_ic #content #kitle .accordion-item .accordion-header .accordion-button, .dark-mode #main #main_ic #content #kazanim .accordion-item .accordion-header .accordion-button, .dark-mode #main #main_ic #content #yorum .accordion-item .accordion-header .accordion-button, .dark-mode #main #main_ic #content #dokuman .accordion-item .accordion-header .accordion-button, .dark-mode #main #main_ic #content #sss .accordion-item .accordion-header .accordion-button, .dark-mode #main #main_ic #content #dersler .accordion-item .accordion-header .accordion-button, .dark-mode #main #main_ic #content #istatistik .accordion-item .accordion-header .accordion-button, .dark-mode #main #main_ic #content #basarilar .accordion-item .accordion-header .accordion-button {  
+  background: #111;
+  border: dashed 1px #333 !important;  
+  color: #fff !important;
+}
+
 #main #main_ic #content #aciklama .accordion-item .accordion-header .collapsed, #main #main_ic #content #icerik .accordion-item .accordion-header .collapsed, #main #main_ic #content #kitle .accordion-item .accordion-header .collapsed, #main #main_ic #content #kazanim .accordion-item .accordion-header .collapsed, #main #main_ic #content #yorum .accordion-item .accordion-header .collapsed, #main #main_ic #content #dokuman .accordion-item .accordion-header .collapsed, #main #main_ic #content #sss .accordion-item .accordion-header .collapsed, #main #main_ic #content #dersler .accordion-item .accordion-header .collapsed, #main #main_ic #content #istatistik .accordion-item .accordion-header .collapsed, #main #main_ic #content #basarilar .accordion-item .accordion-header .collapsed {
   padding: 0.7rem 0.5rem !important;
   background: #f9fafb;
@@ -680,6 +715,12 @@ h1, h2, h3, h4, h5, h6, p, span {
   border-radius: 0.3rem;
 }
 
+.dark-mode #main #main_ic #content #aciklama .accordion-item .accordion-header .collapsed, .dark-mode #main #main_ic #content #icerik .accordion-item .accordion-header .collapsed, .dark-mode #main #main_ic #content #kitle .accordion-item .accordion-header .collapsed, .dark-mode #main #main_ic #content #kazanim .accordion-item .accordion-header .collapsed, .dark-mode #main #main_ic #content #yorum .accordion-item .accordion-header .collapsed, .dark-mode #main #main_ic #content #dokuman .accordion-item .accordion-header .collapsed, .dark-mode #main #main_ic #content #sss .accordion-item .accordion-header .collapsed, .dark-mode #main #main_ic #content #dersler .accordion-item .accordion-header .collapsed, .dark-mode #main #main_ic #content #istatistik .accordion-item .accordion-header .collapsed, .dark-mode #main #main_ic #content #basarilar .accordion-item .accordion-header .collapsed {  
+  background: #111;
+  border: solid 1px #333;  
+  color: #fff !important;  
+}
+
 #main #main_ic #content #aciklama .accordion-item .accordion-collapse .accordion-body, #main #main_ic #content #icerik .accordion-item .accordion-collapse .accordion-body, #main #main_ic #content #kitle .accordion-item .accordion-collapse .accordion-body, #main #main_ic #content #kazanim .accordion-item .accordion-collapse .accordion-body, #main #main_ic #content #yorum .accordion-item .accordion-collapse .accordion-body, #main #main_ic #content #dokuman .accordion-item .accordion-collapse .accordion-body, #main #main_ic #content #sss .accordion-item .accordion-collapse .accordion-body, #main #main_ic #content #dersler .accordion-item .accordion-collapse .accordion-body, #main #main_ic #content #istatistik .accordion-item .accordion-collapse .accordion-body, #main #main_ic #content #basarilar .accordion-item .accordion-collapse .accordion-body {
   background: #f9fafb;
   font-size: 0.9rem;
@@ -688,6 +729,12 @@ h1, h2, h3, h4, h5, h6, p, span {
   color: #4b5563;
   margin-bottom: 0.7rem;
   border-radius: 0.3rem;
+}
+
+.dark-mode #main #main_ic #content #aciklama .accordion-item .accordion-collapse .accordion-body, .dark-mode #main #main_ic #content #icerik .accordion-item .accordion-collapse .accordion-body, .dark-mode #main #main_ic #content #kitle .accordion-item .accordion-collapse .accordion-body, .dark-mode #main #main_ic #content #kazanim .accordion-item .accordion-collapse .accordion-body, .dark-mode #main #main_ic #content #yorum .accordion-item .accordion-collapse .accordion-body, .dark-mode #main #main_ic #content #dokuman .accordion-item .accordion-collapse .accordion-body, .dark-mode #main #main_ic #content #sss .accordion-item .accordion-collapse .accordion-body, .dark-mode #main #main_ic #content #dersler .accordion-item .accordion-collapse .accordion-body, .dark-mode #main #main_ic #content #istatistik .accordion-item .accordion-collapse .accordion-body, .dark-mode #main #main_ic #content #basarilar .accordion-item .accordion-collapse .accordion-body {
+  background: #111;
+  border: solid 1px #333 !important;
+  color: #fff;
 }
 
 #main #main_ic #content #aciklama .list-group, #main #main_ic #content #icerik .list-group, #main #main_ic #content #kitle .list-group, #main #main_ic #content #kazanim .list-group, #main #main_ic #content #yorum .list-group, #main #main_ic #content #dokuman .list-group, #main #main_ic #content #sss .list-group, #main #main_ic #content #dersler .list-group, #main #main_ic #content #istatistik .list-group, #main #main_ic #content #basarilar .list-group, #yorum .list-group {
@@ -1113,6 +1160,10 @@ h1, h2, h3, h4, h5, h6, p, span {
   margin-right: 0.5rem;
 }
 
+.dark-mode #header-list > .list-group-item {    
+  background: #111;
+}
+
 #header-list > .list-group-item > a {    
   border: dashed 1px #467bca;
   border-bottom: solid 3px #3c69b9;
@@ -1222,6 +1273,146 @@ h1, h2, h3, h4, h5, h6, p, span {
 
 #yorum  #yorum_form .btn:first-child {
   background: #467bca;
+  color: #fff !important;
+}
+
+#egitim_icerik .card{
+  border: dashed 1px #467bca;
+  border-radius: 0.3rem;
+  border-bottom: solid 3px #3c69b9;
+}
+
+.dark-mode #egitim_icerik, .dark-mode #egitim_icerik .card, .dark-mode #egitim_icerik .card p {
+  color: #fff;
+}
+
+.dark-mode #egitim_icerik .table,.dark-mode #egitim_icerik table {
+  color: #fff !important;
+}
+
+.dark-mode #egitim_icerik_egitmen .table{
+  color: #fff !important;
+}
+
+#egitim_icerik .card p{ 
+  cursor: default !important;
+}
+
+#egitim_icerik .card .card-title{
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+#egitim_icerik .card .table{
+  padding: 0;  
+}
+
+#egitim_icerik .card .table tr, #egitim_icerik .card .table td{
+  padding: 0.3rem 0.6rem;
+}
+
+#egitim_icerik .card .iceriks .baslik, #egitim_icerik .card .sinavs .baslik{
+  font-size: 0.9rem;
+}
+
+#egitim_icerik_detay .video{
+  width: 100%;
+}
+
+#egitim_icerik_detay .video iframe {
+  border: dashed 2px #467bca;
+  border-bottom: 5px solid #3c69b9;
+  width: 70%;
+  min-height: 400px;
+  border-radius: 0.3rem;
+}
+
+#egitim_icerik_detay .video_icerik {
+  width: 100%;
+}
+
+.dark-mode {
+  background-color: #111 !important;
+  color: #fff;
+}
+
+.dark-mode .navbar {
+  background: #000 !important;
+}
+
+.dark-mode #main_nav, .dark-mode .offcanvas  {
+  background: #000 !important;
+  color: #fff !important;
+}
+
+.dark-mode #main {
+  background: #111 !important;
+  color: #fff !important;
+}
+
+.dark-mode .offcanvas .btn-close, .dark-mode .offcanvas .text-reset, .dark-mode .offcanvas button {
+  color: #000 !important;
+  background: #fff;
+}
+
+.dark-mode .navbar .megamenu{
+  background: #000 !important;
+}
+
+.dark-mode footer {
+  background: #000 !important;
+}
+
+.dark-mode #bunlari-kacirma .box .list-group-item, .dark-mode #detay_article .box .list-group-item {
+  background: #000 !important;
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.dark-mode a,.dark-mode p, .dark-mode h1, .dark-mode span, .dark-mode .btn, .dark-mode label, .dark-mode small {
+  color: #fff !important;
+}
+
+.dark-mode a:hover {
+  color: #fff !important;
+  border-color: #fff;
+}
+
+.dark-mode input {
+  background: #111;
+}
+
+.dark-mode input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #fff;
+  opacity: 1; /* Firefox */
+}
+
+.dark-mode .card {
+  background: transparent;
+}
+
+.dark-mode .btn, .dark-mode a {
+  color: #fff;
+}
+
+.dark-mode #main #main_ic #aside .is-abone-degil p span, .dark-mode #main #main_ic #aside .is-abone p span {
+  color: #000;
+  font-weight: 400;
+}
+
+.dark-mode #main #main_ic #aside .egitmen h3 {
+  color: #fff;
+}
+
+.dark-mode .list-group-item {
+  background: #111 !important;
+}
+
+.dark-mode .card-title {
+  color: #fff;
+}
+
+.dark-mode .table, .dark-mode table {
   color: #fff !important;
 }
 

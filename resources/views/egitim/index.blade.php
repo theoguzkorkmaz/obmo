@@ -5,7 +5,7 @@
   
   <x-egitim_kategori :kategoris="$kategoris"></x-egitim_kategori>
 
-  <x-egitim_dersler :egitims="$egitims"></x-egitim_dersler>
+  <x-egitim_dersler :egitims="$egitims" :eiceriks="$eiceriks"></x-egitim_dersler>
 
-  <x-egitim_derslerim :megitims="$megitims"></x-egitim_derslerim>
+  <x-egitim_derslerim :megitims="$megitims" :eiceriks="$eiceriks"></x-egitim_derslerim> 
 </x-egitim_layout> 

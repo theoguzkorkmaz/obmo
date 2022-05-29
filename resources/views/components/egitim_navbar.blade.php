@@ -10,6 +10,12 @@
     <div class="w-full" id="menu">
       <span>Menü:</span>
       <ul class="list-group">
+        <li class="list-group-item">
+          <a href="/egitim/ara" title="Arama sayfasına gitmek için tıklayınız."><i class="fas fa-search"></i> Ara</a>
+        </li>
+        <li class="list-group-item">
+          <a href="/egitim/dahasonra" title="Daha sonra sayfasına gitmek için tıklayınız."><i class="fas fa-bookmark"></i> Daha sonra</a>
+        </li>
         @if (count($navbars) != 0)
           @foreach ($navbars as $item)
             @if (($item->ismenu) == 1)
@@ -27,6 +33,12 @@
 
       <span>Diğer:</span>
       <ul class="list-group">
+        <li class="list-group-item">
+          <a type="button" onclick="themeToggle()" title="Mode değiştirmek için tıklayınız!"><i class="fas fa-moon    "></i> Dark mode</a>
+        </li>
+        <li class="list-group-item">
+          <a href="/profil/{{auth()->user()->id}}" title="Profile gitmek için tıklayınız."><i class="fas fa-user"></i> Profil</a>
+        </li>
         @if (count($navbars) != 0)
           @foreach ($navbars as $item)            
             @if (($item->ismenu) == 0)

@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\egitim;
 
 use App\Models\User;
+use App\Models\LogKayit;
+use App\Models\AdminNavbar;
 use App\Models\EgitimYorum;
 use App\Models\EgitimEgitim;
-use App\Models\AdminNavbar;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -41,6 +42,11 @@ class EgitimYorumController extends Controller
 				]);
 
 				EgitimYorum::create($formFields);
+
+        LogKayit::create([
+          'user_id' => auth()->user()->id,        
+          'icerik' => $request->baslik." oluşturuldu."
+        ]);
 
 				return redirect('/admin/egitim/egitim_yorums');
     }
@@ -80,6 +86,11 @@ class EgitimYorumController extends Controller
 
       $egitim_yorum->update($formFields);
 
+      LogKayit::create([
+        'user_id' => auth()->user()->id,        
+        'icerik' => $request->baslik." güncellendi."
+      ]);
+
       return redirect('/admin/egitim/egitim_yorums');
     }
 
@@ -92,6 +103,12 @@ class EgitimYorumController extends Controller
     public function destroy(EgitimYorum $egitim_yorum)
     {
 			$egitim_yorum->delete();
+
+      LogKayit::create([
+        'user_id' => auth()->user()->id,        
+        'icerik' => $egitim_yorum->baslik." silindi."
+      ]);
+
       return redirect('/admin/egitim/egitim_yorums');
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Sosyal;
+use App\Models\LogKayit;
 use App\Models\AdminNavbar;
 use Illuminate\Http\Request;
 
@@ -36,6 +37,11 @@ class SosyalController extends Controller
 			]);
 
 			Sosyal::create($formFields);
+
+      LogKayit::create([
+        'user_id' => auth()->user()->id,        
+        'icerik' => $request->ad." oluşturuldu."
+      ]);
 
 			return redirect('/admin/sosyals');
     }
@@ -74,6 +80,11 @@ class SosyalController extends Controller
 
 			$sosyal->update($formFields);
 
+      LogKayit::create([
+        'user_id' => auth()->user()->id,        
+        'icerik' => $request->ad." güncellendi."
+      ]);
+
       return redirect('/admin/sosyals');
     }
 
@@ -86,6 +97,12 @@ class SosyalController extends Controller
     public function destroy(Sosyal $sosyal)
     {
 			$sosyal->delete();
+
+      LogKayit::create([
+        'user_id' => auth()->user()->id,        
+        'icerik' => $sosyal->ad." silindi."
+      ]);
+
       return redirect('/admin/sosyals');
     }
 

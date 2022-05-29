@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\egitim;
 
-use App\Models\EgitimIcerik;
+use App\Models\LogKayit;
 use App\Models\AdminNavbar;
+use App\Models\EgitimEgitim;
+use App\Models\EgitimIcerik;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\EgitimEgitim;
 
 class EgitimIcerikController extends Controller
 {
@@ -43,6 +44,11 @@ class EgitimIcerikController extends Controller
       ]);
 
       EgitimIcerik::create($formFields);
+
+      LogKayit::create([
+        'user_id' => auth()->user()->id,        
+        'icerik' => $request->baslik." oluşturuldu."
+      ]); 
 
       return redirect('/admin/egitim/egitim_iceriks');
     }
@@ -85,6 +91,11 @@ class EgitimIcerikController extends Controller
 
       $egitim_icerik->update($formFields);
 
+      LogKayit::create([
+        'user_id' => auth()->user()->id,        
+        'icerik' => $request->baslik." güncellendi."
+      ]);
+
       return redirect('/admin/egitim/egitim_iceriks');
     }
 
@@ -97,6 +108,12 @@ class EgitimIcerikController extends Controller
     public function destroy(EgitimIcerik $egitim_icerik)
     {
 			$egitim_icerik->delete();
+
+      LogKayit::create([
+        'user_id' => auth()->user()->id,        
+        'icerik' => $egitim_icerik->baslik." silindi."
+      ]);
+
       return redirect('/admin/egitim/egitim_iceriks');
     }
 

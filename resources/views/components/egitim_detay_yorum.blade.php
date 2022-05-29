@@ -15,7 +15,7 @@
   <div id="yorum">
     <form action="/egitim/egitim_icerik/{{$egitim->id}}" method="POST" name="yorum">
       @csrf
-      <div class="my-3 mb-4 py-3 px-3 w-50" id="yorum_form">
+      <div class="my-3 mb-4 py-3 px-3 w-100 w-md-50" id="yorum_form">
         <div class="mb-2">
           <label for="exampleFormControlInput1">Başlık:</label>
           <input type="text" class="form-control" id="exampleFormControlInput1" name="baslik" placeholder="Yorum başlık giriniz">
@@ -44,7 +44,7 @@
                   </div>                  
                 </div>
                 <div class="card-body">
-                  <p>{{$yorum->created_at}} tarihinde yazılmıştır.</p>
+                  <p style="color: #333 !important;">{{$yorum->created_at}} tarihinde yazılmıştır.</p>
                 </div>
               </div>
             @endif

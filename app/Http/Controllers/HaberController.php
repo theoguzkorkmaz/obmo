@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\EgitimEgitim;
 use App\Models\User;
 use App\Models\Sosyal;
+use App\Models\LogKayit;
 use App\Models\HaberHaber;
 use App\Models\HaberSayfa;
+use App\Models\HaberYorum;
 use App\Models\HaberBulten;
 use App\Models\HaberTopbar;
 use Illuminate\Http\Request;
 use App\Models\HaberKategori;
-use App\Models\HaberYorum;
 use Illuminate\Support\Facades\DB;
 
 class HaberController extends Controller
@@ -110,6 +112,11 @@ class HaberController extends Controller
             'mail' => $mail
         ]);
 
+        LogKayit::create([
+            'user_id' => 0,        
+            'icerik' => $mail." bültene eklendi."
+          ]);
+
         return redirect()->back();
     }
 
@@ -126,6 +133,30 @@ class HaberController extends Controller
             'admin' => '0'
         ]);
 
+        LogKayit::create([
+            'user_id' => auth()->user()->id,        
+            'icerik' => $request->baslik." yorumu sisteme ".auth()->user()->name." tarafından eklendi."
+        ]);
+
+        $token = "407538557:5498794643:AAHByItGuGCqmaEn2chW4EVyEC8w0h2z6t0";
+        $user_id = 1055988705;
+        $ad = "Oğuz Korkmaz";
+        $msg = 'Testo importante '.$ad;
+        $request_params = [
+            'chat_id' => $user_id,
+            'text' => $msg    
+        ];
+        $request_url = 'https://api.telegram.org/bot'.$token.'/sendMessage?'.http_build_query($request_params);
+        file_get_contents($request_url);
+
         return redirect()->back();
+    }
+
+    public function profil_detay($id)
+    {
+        return view('profil')
+            ->with('user', User::where('id', $id)->first())
+            ->with('egitims', EgitimEgitim::leftJoin('user_egitims', 'egitim_egitims.id', '=', 'user_egitims.ders_id')->where('user_egitims.user_id', '=', $id)->get())
+            ->with('logs', LogKayit::where('user_id', $id)->get());
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\haber;
 
+use App\Models\LogKayit;
 use App\Models\AdminNavbar;
 use Illuminate\Http\Request;
 use App\Models\HaberKategori;
@@ -42,6 +43,11 @@ class HaberKategoriController extends Controller
       }
 
       HaberKategori::create($formFields);
+
+      LogKayit::create([
+        'user_id' => auth()->user()->id,        
+        'icerik' => $request->ad." oluşturuldu."
+      ]);
 
       return redirect('/admin/haber/haber_kategoris');
 		}
@@ -85,6 +91,11 @@ class HaberKategoriController extends Controller
 
       $haber_kategori->update($formFields);
 
+      LogKayit::create([
+        'user_id' => auth()->user()->id,        
+        'icerik' => $request->ad." güncellendi."
+      ]);
+
       return redirect('/admin/haber/haber_kategoris');
     }
 
@@ -97,6 +108,12 @@ class HaberKategoriController extends Controller
     public function destroy(HaberKategori $haber_kategori)
     {
 			$haber_kategori->delete();
+
+      LogKayit::create([
+        'user_id' => auth()->user()->id,        
+        'icerik' => $haber_kategori->ad." silindi."
+      ]);
+
       return redirect('/admin/haber/haber_kategoris');
     }
 

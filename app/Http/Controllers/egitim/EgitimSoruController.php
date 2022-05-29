@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\egitim;
 
+use App\Models\LogKayit;
 use App\Models\EgitimSoru;
 use App\Models\AdminNavbar;
+use App\Models\EgitimSinav;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\EgitimSinav;
 
 class EgitimSoruController extends Controller
 {
@@ -43,6 +44,11 @@ class EgitimSoruController extends Controller
 			}
 
 			EgitimSoru::create($formFields);
+
+      LogKayit::create([
+        'user_id' => auth()->user()->id,        
+        'icerik' => $request->soru." oluşturuldu."
+      ]);
 
 			return redirect('/admin/egitim/egitim_sorus');
     }
@@ -85,6 +91,11 @@ class EgitimSoruController extends Controller
 
       $egitim_soru->update($formFields);
 
+      LogKayit::create([
+        'user_id' => auth()->user()->id,        
+        'icerik' => $request->soru." güncellendi."
+      ]);
+
       return redirect('/admin/egitim/egitim_sorus');
     }
 
@@ -97,6 +108,12 @@ class EgitimSoruController extends Controller
     public function destroy(EgitimSoru $egitim_soru)
     {
 			$egitim_soru->delete();
+
+      LogKayit::create([
+        'user_id' => auth()->user()->id,        
+        'icerik' => $egitim_soru->soru." silindi."
+      ]);
+
       return redirect('/admin/egitim/egitim_sorus');
     }
 

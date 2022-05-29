@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\haber;
 
-use App\Models\HaberTopbar;
+use App\Models\LogKayit;
 use App\Models\AdminNavbar;
+use App\Models\HaberTopbar;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -38,6 +39,11 @@ class HaberTopbarController extends Controller
       ]);
 
       HaberTopbar::create($formFields);
+
+      LogKayit::create([
+        'user_id' => auth()->user()->id,        
+        'icerik' => $request->ad." oluşturuldu."
+      ]);
 
       return redirect('/admin/haber/haber_topbars');
     }
@@ -90,6 +96,11 @@ class HaberTopbarController extends Controller
 
       $haber_topbar->update($formFields);
 
+      LogKayit::create([
+        'user_id' => auth()->user()->id,        
+        'icerik' => $request->ad." güncellendi."
+      ]);
+
       return redirect('/admin/haber/haber_topbars');
     }
 
@@ -102,6 +113,12 @@ class HaberTopbarController extends Controller
     public function destroy(HaberTopbar $haber_topbar)
     {
 			$haber_topbar->delete();
+
+      LogKayit::create([
+        'user_id' => auth()->user()->id,        
+        'icerik' => $haber_topbar->ad." silindi."
+      ]);
+
       return redirect('/admin/haber/haber_topbars');
     }
 
