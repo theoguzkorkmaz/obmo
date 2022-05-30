@@ -3,7 +3,7 @@
 This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
 -->
-<html lang="en">
+<html lang="tr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,16 +14,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
   <link rel="stylesheet" href="{{ asset('js/summernote/summernote-bs4.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/admin_main.css') }}">
+  <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 <body class="hold-transition sidebar-mini dark-mode layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
 
-  <x-admin_sidebar_navbar :navbars="$navbars"></x-admin_sidebar_navbar>
-
-  
+  <x-admin_sidebar_navbar :navbars="$navbars"></x-admin_sidebar_navbar>      
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper">    
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
@@ -44,6 +43,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Main content -->
     <div class="content px-3">
+      @if (\Session::has('success'))
+        <div x-data="{show: true}" x-init="setTimeout(() => show = false, 3500)" x-show="show" class="alert alert-success w-50" role="alert">
+          {!! \Session::get('success') !!}    
+          <button @click="show = !show" class="btn p-0 float-right text-white">
+            <i class="fas fa-times    "></i>  
+          </button>      
+        </div>
+      @endif
       @yield('content')
     </div>
   <!-- /.content-wrapper -->

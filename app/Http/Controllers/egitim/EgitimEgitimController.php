@@ -36,7 +36,6 @@ class EgitimEgitimController extends Controller
 				'baslik' => 'required',
         'aciklama' => 'required',
 				'icerik' => 'required',
-        'resim_aciklama' => 'required',
         'etiket' => 'required',
         'kitle' => 'required', 
         'kazanim' => 'required',
@@ -55,7 +54,7 @@ class EgitimEgitimController extends Controller
         'icerik' => $request->baslik." oluşturuldu."
       ]); 
 
-			return redirect('/admin/egitim/egitims');
+			return redirect('/admin/egitim/egitims')->with('success', 'Eğitim başarı ile oluşturuldu!');
     }
 
     /**
@@ -87,7 +86,6 @@ class EgitimEgitimController extends Controller
 				'baslik' => 'required',
         'aciklama' => 'required',
 				'icerik' => 'required',
-        'resim_aciklama' => 'required',
         'etiket' => 'required',
         'kitle' => 'required',
         'kazanim' => 'required',
@@ -106,7 +104,7 @@ class EgitimEgitimController extends Controller
         'icerik' => $request->baslik." güncellendi."
       ]);
 
-      return redirect('/admin/egitim/egitims');
+      return redirect('/admin/egitim/egitims')->with('success', 'Eğitim başarı ile güncellendi!');
     }
 
     /**
@@ -124,7 +122,7 @@ class EgitimEgitimController extends Controller
         'icerik' => $egitim_egitim->baslik." silindi."
       ]);
 
-      return redirect('/admin/egitim/egitims');
+      return redirect('/admin/egitim/egitims')->with('success', 'Eğitim başarı ile silindi!');
     }
 
 		/**

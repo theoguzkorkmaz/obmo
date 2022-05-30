@@ -88,6 +88,6 @@ class AdminController extends Controller
             'icerik' => $user_id." adminlik derecesine yükseltildi."
         ]); 
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Adminlik başarı ile verildi!');
     }
 }

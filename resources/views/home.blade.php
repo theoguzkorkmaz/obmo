@@ -19,18 +19,21 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+           
 </head>
 <body class="home_body w-100">   
-    <div class="container d-flex flex-row justify-content-center">
-        <button class="btn dark_btn m-auto" onclick="themeToggle()" title="Mode değiştirmek için tıklayınız!">
-            <i class="fas fa-moon"></i>
-            Dark mode
-        </button>        
+    <div class="container d-flex flex-row align-items-end justify-content-end">
         @guest
-            <a href="/login" class="btn dark_btn m-auto">
-                <i class="fas fa-sign-in-alt    "></i>
-                Giriş yap
-            </a>
+            <div class="d-flex flex-row justify-content-end w-100">
+                <a href="/register" class="btn dark_btn w-25">
+                    <i class="fas fa-user-plus    "></i>
+                    Kayıt ol
+                </a>             
+                <a href="/login" class="btn dark_btn w-25">
+                    <i class="fas fa-sign-in-alt    "></i>
+                    Giriş yap
+                </a>
+            </div>
         @endguest
         @auth        
         <form action="{{ route('logout') }}" method="post" class="dark_btn2">

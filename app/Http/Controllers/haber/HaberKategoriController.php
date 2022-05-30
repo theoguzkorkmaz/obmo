@@ -31,7 +31,6 @@ class HaberKategoriController extends Controller
 			$formFields = $request->validate([
 				'ad' => 'required',
 				'aciklama' => 'required',
-        'resim_aciklama' => 'required',
         'icon' => 'required',
         'navbar_gorunme' => 'required',
         'footer_gorunme' => 'required',
@@ -49,7 +48,7 @@ class HaberKategoriController extends Controller
         'icerik' => $request->ad." oluşturuldu."
       ]);
 
-      return redirect('/admin/haber/haber_kategoris');
+      return redirect('/admin/haber/haber_kategoris')->with('success', 'Haber kategori başarı ile oluşturuldu!');
 		}
 
     /**
@@ -78,7 +77,6 @@ class HaberKategoriController extends Controller
 			$formFields = $request->validate([
         'ad' => 'required',
 				'aciklama' => 'required',
-        'resim_aciklama' => 'required',
         'icon' => 'required',
         'navbar_gorunme' => 'required',
         'footer_gorunme' => 'required',
@@ -96,7 +94,7 @@ class HaberKategoriController extends Controller
         'icerik' => $request->ad." güncellendi."
       ]);
 
-      return redirect('/admin/haber/haber_kategoris');
+      return redirect('/admin/haber/haber_kategoris')->with('success', 'Haber kategori başarı ile güncellendi!');
     }
 
     /**
@@ -114,7 +112,7 @@ class HaberKategoriController extends Controller
         'icerik' => $haber_kategori->ad." silindi."
       ]);
 
-      return redirect('/admin/haber/haber_kategoris');
+      return redirect('/admin/haber/haber_kategoris')->with('success', 'Haber kategori başarı ile silindi!');
     }
 
 		/**

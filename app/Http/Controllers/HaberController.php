@@ -43,6 +43,7 @@ class HaberController extends Controller
             ->with('kategoris', HaberKategori::all())
             ->with('sayfas', HaberSayfa::all())
             ->with('haber', HaberHaber::select('*', 'haber_habers.created_at as tarih')->leftJoin('haber_kategoris', 'haber_habers.kategori_id', '=', 'haber_kategoris.id')->where('haber_habers.id', '=', $id)->first())
+            ->with('haber2', HaberHaber::where('id', $id)->first())
             ->with('habert', HaberHaber::where('haber_habers.id', '=', $id)->first())
             ->with('yorums', HaberHaber::leftJoin('haber_yorums', 'haber_habers.id', '=', 'haber_yorums.haber_id')->where('haber_habers.id', '=', $id)->orderBy('haber_yorums.created_at', 'desc')->get())
             ->with('kacirmas', HaberHaber::inRandomOrder()->limit(10)->get())
@@ -117,7 +118,7 @@ class HaberController extends Controller
             'icerik' => $mail." bültene eklendi."
           ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Mail adresiniz bültene başarı ile kaydedilmiştir!');
     }
 
     public function haber_yorum(Request $request, $id) {        
@@ -138,18 +139,12 @@ class HaberController extends Controller
             'icerik' => $request->baslik." yorumu sisteme ".auth()->user()->name." tarafından eklendi."
         ]);
 
-        $token = "407538557:5498794643:AAHByItGuGCqmaEn2chW4EVyEC8w0h2z6t0";
-        $user_id = 1055988705;
-        $ad = "Oğuz Korkmaz";
-        $msg = 'Testo importante '.$ad;
-        $request_params = [
-            'chat_id' => $user_id,
-            'text' => $msg    
-        ];
-        $request_url = 'https://api.telegram.org/bot'.$token.'/sendMessage?'.http_build_query($request_params);
-        file_get_contents($request_url);
+        $client = new \GuzzleHttp\Client();        
+        $msg = $request->baslik." yorumu sisteme ".auth()->user()->name." tarafından eklendi.";
+        $request_url = 'https://api.telegram.org/bot5498794643:AAHByItGuGCqmaEn2chW4EVyEC8w0h2z6t0/sendMessage?chat_id=1055988705&text='.$msg;        
+        $res = $client->get($request_url);
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Yorum başarı ile alnımıştır, onaylandıktan sonraa görülebilir!');
     }
 
     public function profil_detay($id)

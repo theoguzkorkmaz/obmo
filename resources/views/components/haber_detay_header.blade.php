@@ -8,14 +8,14 @@
         <li class="breadcrumb-item"><a href="/" title="Anasayfa">Anasayfa</a></li>
         <li class="breadcrumb-item"><a href="/haber/kategori_detay/{{$haber->id}}">{{$haber->ad}}</a></li>
         <li class="breadcrumb-item">
-          {{Str::limit($haber->baslik, 70)}}
+          {!! substr(strip_tags($haber->baslik), 0, 70) !!}
         </li>
       </ol>
     </nav>
 
-    <h1 class="baslik">{{$haber->baslik}}</h1>    
+    <h1 class="baslik">{!! $haber->baslik !!}</h1>    
     
-    <p class="mini-icerik">{{Str::limit($haber->icerik, 120)}}</p>
+    <p class="mini-icerik">{!! substr(strip_tags($haber->icerik), 0, 120) !!}...</p>
 
     <p class="yazar-tarih">
       <a class="ad">

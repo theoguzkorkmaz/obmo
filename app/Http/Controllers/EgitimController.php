@@ -18,18 +18,22 @@ use App\Models\EgitimIcerik;
 use App\Models\EgitimNavbar;
 use Illuminate\Http\Request;
 use App\Models\EgitimKategori;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class EgitimController extends Controller
 {
-    public function egitim_index () {   
+    public function egitim_index () {       
+        $tops = DB::table('users')->orderBy('point', 'desc')->limit(5)->get();
+        
         return view('egitim.index')            
             ->with('navbars', EgitimNavbar::all())            
             ->with('egitims', EgitimEgitim::latest()->paginate(4))
             ->with('kategoris', EgitimKategori::all())
             ->with('megitims', UserEgitim::join('egitim_egitims', 'egitim_egitims.id', '=', 'user_egitims.ders_id')->where('user_egitims.user_id', '=', auth()->user()->id)->paginate(4))
             ->with('eiceriks', EgitimIcerik::all())
-            ->with('esinavs', EgitimSinav::all());
+            ->with('esinavs', EgitimSinav::all())
+            ->with('tops', $tops);         
     }
 
     public function egitim_detay ($id) {              
@@ -82,6 +86,15 @@ class EgitimController extends Controller
             ->with('derss', UserSonra::join('egitim_egitims', 'egitim_egitims.id', '=', 'user_sonras.ders_id')->where('user_sonras.user_id', '=', auth()->user()->id)->paginate(12));            
     }
 
+    public function siralama()
+    {
+        $users = DB::table('users')->orderBy('point', 'desc')->get();
+
+        return view('egitim.siralama')            
+            ->with('navbars', EgitimNavbar::all())
+            ->with('tops', $users);
+    }
+
     public function ara_show()
     {
         return view('egitim.ara')            
@@ -125,7 +138,7 @@ class EgitimController extends Controller
                         'icerik' => $id." dersine ".auth()->user()->name." kişisi kayıt oldu."
                     ]);
                             
-                    return redirect()->back();
+                    return redirect()->back()->with('success', 'Ders kaydı başarı ile tamamlanmıştır!');
                 break;
     
             case 'bookmarks':
@@ -140,7 +153,7 @@ class EgitimController extends Controller
                         'icerik' => $id." dersine ".auth()->user()->name." kişisi daha sonraya eklendi."
                     ]);
                             
-                    return redirect()->back();
+                    return redirect()->back()->with('success', 'Ders daha sonra listesine eklenmiştir!');
                 break;
         }
     }
@@ -165,7 +178,7 @@ class EgitimController extends Controller
             'icerik' => $request->baslik." yorumu sisteme ".auth()->user()->name." tarafından ekledi."
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Ders yorumu başarı ile oluşturulmuştur!');
     }
 
     public function icerigi_tamamla(Request $request, $id)
@@ -200,7 +213,7 @@ class EgitimController extends Controller
             'icerik' => $icerik_id." içeriğini ".auth()->user()->name." tarafından tamamladı."
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'İçerik başarı ile tamamlanmıştır!');
     }
 
     public function sinav_detay($id)
@@ -280,6 +293,6 @@ class EgitimController extends Controller
             'icerik' => $sinav_id." sınavı ".auth()->user()->name." tarafından tamamladı."
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Sınav başarı ile tamamlanmıştır!');
     }
 }

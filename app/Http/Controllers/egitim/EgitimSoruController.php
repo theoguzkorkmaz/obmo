@@ -50,7 +50,7 @@ class EgitimSoruController extends Controller
         'icerik' => $request->soru." oluşturuldu."
       ]);
 
-			return redirect('/admin/egitim/egitim_sorus');
+			return redirect('/admin/egitim/egitim_sorus')->with('success', 'Eğitim soru başarı ile oluşturuldu!');
     }
 
     /**
@@ -96,7 +96,7 @@ class EgitimSoruController extends Controller
         'icerik' => $request->soru." güncellendi."
       ]);
 
-      return redirect('/admin/egitim/egitim_sorus');
+      return redirect('/admin/egitim/egitim_sorus')->with('success', 'Eğitim soru başarı ile güncellendi!');
     }
 
     /**
@@ -114,7 +114,7 @@ class EgitimSoruController extends Controller
         'icerik' => $egitim_soru->soru." silindi."
       ]);
 
-      return redirect('/admin/egitim/egitim_sorus');
+      return redirect('/admin/egitim/egitim_sorus')->with('success', 'Eğitim soru başarı ile silindi!');
     }
 
 		/**

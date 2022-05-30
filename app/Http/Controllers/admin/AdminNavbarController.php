@@ -38,7 +38,7 @@ class AdminNavbarController extends Controller
 
       AdminNavbar::create($formFields);
 
-      return redirect('/admin/admin/admin_navbars');
+      return redirect('/admin/admin/admin_navbars')->with('success', 'Admin navbar başarı ile oluşturulmuştur!');
     }
 
     /**
@@ -75,7 +75,7 @@ class AdminNavbarController extends Controller
 
       $admin_navbar->update($formFields);
 
-      return redirect('/admin/admin/admin_navbars');
+      return redirect('/admin/admin/admin_navbars')->with('success', 'Admin navbar başarı ile güncellenmiştir!');
     }
 
     /**
@@ -87,7 +87,7 @@ class AdminNavbarController extends Controller
     public function destroy(AdminNavbar $admin_navbar)
     {
       $admin_navbar->delete();
-      return redirect('/admin/admin/admin_navbars');
+      return redirect('/admin/admin/admin_navbars')->with('success', 'Admin navbar başarı ile silinmiştir!');
     }
 
     /**

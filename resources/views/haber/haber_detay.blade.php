@@ -13,6 +13,7 @@
    <div class="container p-md-0">
     <div class="row">
       <main class="col-md-8">
+        <img src="{!! $haber2->resim ? asset('storage/'.$haber2->resim) : asset('/images/no-image.png') !!}" alt="{{$haber2->baslik}}" class="w-100 rounded"/>  
         <x-haber_detay_detay :haber="$haber"></x-haber_detay_detay>        
         <x-haber_detay_yorum :yorums="$yorums" :habert="$habert"></x-haber_detay_yorum>
       </main> <!-- /main -->

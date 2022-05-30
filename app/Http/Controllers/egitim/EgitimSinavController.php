@@ -46,7 +46,7 @@ class EgitimSinavController extends Controller
         'icerik' => $request->baslik." oluşturuldu."
       ]);
 
-      return redirect('/admin/egitim/egitim_sinavs');
+      return redirect('/admin/egitim/egitim_sinavs')->with('success', 'Eğitim sınav başarı ile oluşturuldu!');
     }
 
     /**
@@ -88,7 +88,7 @@ class EgitimSinavController extends Controller
         'icerik' => $request->baslik." güncellendi."
       ]);
 
-      return redirect('/admin/egitim/egitim_sinavs');
+      return redirect('/admin/egitim/egitim_sinavs')->with('success', 'Eğitim sınav başarı ile güncellendi!');
     }
 
     /**
@@ -106,7 +106,7 @@ class EgitimSinavController extends Controller
         'icerik' => $egitim_sinav->baslik." silindi."
       ]);
 
-      return redirect('/admin/egitim/egitim_sinavs');
+      return redirect('/admin/egitim/egitim_sinavs')->with('success', 'Eğitim sınav başarı ile silindi!');
     }
 
 		/**

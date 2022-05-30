@@ -15,7 +15,7 @@
               {{$i}}
             </span>
             <a href="/haber/haber_detay/{{$kacirma->id}}">
-              {{Str::limit($kacirma->baslik, 70)}}
+              {!! substr(strip_tags($kacirma->baslik), 0, 70) !!}
             </a>
           </li>
           @php

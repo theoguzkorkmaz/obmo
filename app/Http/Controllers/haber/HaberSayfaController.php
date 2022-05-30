@@ -47,7 +47,7 @@ class HaberSayfaController extends Controller
         'icerik' => $request->ad." oluşturuldu."
       ]);
 
-			return redirect('/admin/haber/haber_sayfas'); 
+			return redirect('/admin/haber/haber_sayfas')->with('success', 'Haber sayfa başarı ile oluşturuldu!'); 
     }
 
     /**
@@ -92,7 +92,7 @@ class HaberSayfaController extends Controller
         'icerik' => $request->ad." güncellendi."
       ]);
 
-      return redirect('/admin/haber/haber_sayfas');
+      return redirect('/admin/haber/haber_sayfas')->with('success', 'Haber sayfa başarı ile güncellendi!');
     }
 
     /**
@@ -110,7 +110,7 @@ class HaberSayfaController extends Controller
         'icerik' => $haber_sayfa->ad." silindi."
       ]);
 
-      return redirect('/admin/haber/haber_sayfas');
+      return redirect('/admin/haber/haber_sayfas')->with('success', 'Haber sayfa başarı ile silindi!');
     }
 
 		/**

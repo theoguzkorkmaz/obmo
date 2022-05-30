@@ -44,7 +44,7 @@ class EgitimNavbarController extends Controller
         'icerik' => $request->ad." oluşturuldu."
       ]);
 
-			return redirect('/admin/egitim/egitim_navbars');
+			return redirect('/admin/egitim/egitim_navbars')->with('success', 'Eğitim navbar başarı ile oluşturuldu!');
     }
 
     /**
@@ -86,7 +86,7 @@ class EgitimNavbarController extends Controller
         'icerik' => $request->ad." güncellendi."
       ]); 
 
-      return redirect('/admin/egitim/egitim_navbars');
+      return redirect('/admin/egitim/egitim_navbars')->with('success', 'Eğitim navbar başarı ile güncellendi!');
     }
 
     /**
@@ -104,7 +104,7 @@ class EgitimNavbarController extends Controller
         'icerik' => $egitim_navbar->ad." silindi."
       ]);
 
-      return redirect('/admin/egitim/egitim_navbars');
+      return redirect('/admin/egitim/egitim_navbars')->with('success', 'Eğitim navbar başarı ile silindi!');
     }
 
 		/**

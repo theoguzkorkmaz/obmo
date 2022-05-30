@@ -18,12 +18,6 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <style>
-        .dark-mode {
-            background-color: $black !important;
-            color: $white2;
-        }
-    </style>
 </head>
 <body>
     <div class="d-flex flex-column justify-content-center" style="">

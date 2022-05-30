@@ -55,9 +55,11 @@
   </div> <!-- center -->
   <div>
     <ul class="list-group list-group-horizontal d-flex gap-2">
-      <li class="list-group-item">
-        <a href="/profil/{{auth()->user()->id}}" title="Profile gitmek için tıklayınız."><i class="fas fa-user"></i> Profil</a>
-      </li>
+      @auth
+        <li class="list-group-item">
+          <a href="/profil/{{auth()->user()->id}}" title="Profile gitmek için tıklayınız."><i class="fas fa-user"></i> Profil</a>
+        </li>
+      @endauth
       @if (count($topbars) != 0)
         @foreach ($topbars as $topbar)
           @if ($topbar->yer == 1)                

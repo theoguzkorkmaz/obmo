@@ -1,6 +1,5 @@
 <x-egitim_layout :navbars="$navbars">
-  <div class="" id="egitim_icerik_detay">
-    <a href="{{ URL::previous() }}" class="btn btn-ozel w-25 mt-2 mb-3">Geri dön</a>
+  <div class="" id="egitim_icerik_detay">    
     <h3 class="baslik">{{$sinav->baslik}}</h3>
     <p class="icerik">{{$sinav->aciklama}}</p>
   </div>  

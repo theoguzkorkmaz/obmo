@@ -31,7 +31,6 @@ class EgitimKategoriController extends Controller
 			$formFields = $request->validate([
 				'baslik' => 'required',
 				'aciklama' => 'required',
-        'resim_aciklama' => 'required',
         'icon' => 'required',
         'admin' => 'required'
 				]);
@@ -47,7 +46,7 @@ class EgitimKategoriController extends Controller
           'icerik' => $request->baslik." oluşturuldu."
         ]);
 
-				return redirect('/admin/egitim/egitim_kategoris');
+				return redirect('/admin/egitim/egitim_kategoris')->with('success', 'Eğitim kategori başarı ile oluşturuldu!');
     }
 
     /**
@@ -76,7 +75,6 @@ class EgitimKategoriController extends Controller
 			$formFields = $request->validate([
         'baslik' => 'required',
 				'aciklama' => 'required',
-        'resim_aciklama' => 'required',
         'icon' => 'required',
         'admin' => 'required'
       ]);
@@ -92,7 +90,7 @@ class EgitimKategoriController extends Controller
         'icerik' => $request->baslik." güncellendi."
       ]); 
 
-      return redirect('/admin/egitim/egitim_kategoris');
+      return redirect('/admin/egitim/egitim_kategoris')->with('success', 'Eğitim kategori başarı ile güncellendi!');
     }
 
     /**
@@ -110,7 +108,7 @@ class EgitimKategoriController extends Controller
         'icerik' => $egitim_kategori->baslik." silindi."
       ]); 
 
-      return redirect('/admin/egitim/egitim_kategoris');
+      return redirect('/admin/egitim/egitim_kategoris')->with('success', 'Eğitim kategori başarı ile silindi!');
     }
 
 		/**

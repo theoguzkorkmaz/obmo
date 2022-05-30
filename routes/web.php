@@ -42,7 +42,9 @@ Route::get('/home', function () {
     return view('home'); 
 });
 
-Route::get('/profil/{user}', [HaberController::class, 'profil_detay']);
+Route::middleware('auth')->group(function () {
+    Route::get('/profil/{user}', [HaberController::class, 'profil_detay']);
+});
 
 Route::get('/haber', [HaberController::class, 'haber_index']);
 Route::get('/haber/haber_detay/{haber}', [HaberController::class, 'haber_show']);
@@ -67,6 +69,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/egitim/kategori_detay/{kategori}', [EgitimController::class,'kategori_detay']);
     Route::get('/egitim/derslerim', [EgitimController::class, 'derslerim']);
     Route::get('/egitim/sonra', [EgitimController::class, 'daha_sonra']);
+    Route::get('/egitim/siralama', [EgitimController::class, 'siralama']);
     Route::get('/egitim/egitim_icerik/{icerik}', [EgitimController::class, 'egitim_icerik']);
 });
 

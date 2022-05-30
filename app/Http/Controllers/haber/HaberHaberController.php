@@ -36,7 +36,6 @@ class HaberHaberController extends Controller
 				'kategori_id' => 'required',
 				'baslik' => 'required',
 				'icerik' => 'required',
-        'resim_aciklama' => 'required',
         'etiket' => 'required',
         'admin' => 'required'
 			]);
@@ -52,7 +51,7 @@ class HaberHaberController extends Controller
         'icerik' => $request->baslik." oluşturuldu."
       ]);
 
-			return redirect('/admin/haber/habers');
+			return redirect('/admin/haber/habers')->with('success', 'Haber başarı ile oluşturuldu!');
     }
 
     /**
@@ -83,7 +82,6 @@ class HaberHaberController extends Controller
         'kategori_id' => 'required',
 				'baslik' => 'required',
 				'icerik' => 'required',
-        'resim_aciklama' => 'required',
         'etiket' => 'required',
         'admin' => 'required'
       ]);
@@ -99,7 +97,7 @@ class HaberHaberController extends Controller
         'icerik' => $request->baslik." güncellendi."
       ]);
 
-      return redirect('/admin/haber/habers');
+      return redirect('/admin/haber/habers')->with('success', 'Haber başarı ile güncellendi!');
     }
 
     /**
@@ -117,7 +115,7 @@ class HaberHaberController extends Controller
         'icerik' => $haber_haber->baslik." silindi."
       ]);
 
-      return redirect('/admin/haber/habers');
+      return redirect('/admin/haber/habers')->with('success', 'Haber başarı ile silindi!');
     }
 
 		/**

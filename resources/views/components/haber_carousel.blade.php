@@ -10,11 +10,11 @@
     </div><!-- /basliks -->
     
     @if ($gundem)
-      <a class="card" href="/haber/haber_detay/{{$gundem->id}}" title="{{$gundem->baslik}}">
+      <a class="card" href="/haber/haber_detay/{{$gundem->id}}" title="{!! substr(strip_tags($gundem->baslik), 0, 70) !!}">
         <img src="{{$gundem->resim ? asset('storage/'.$gundem->resim) : asset('/images/no-image.png')}}" alt="{{$gundem->resim_aciklama}}" title="{{$gundem->resim_aciklama}}" class="card-img-top shadow-sm"/>
         <div class="card-body">
-          <h5 class="card-title">{{Str::limit($gundem->baslik, 70)}}</h5>
-          <p class="card-text">{{Str::limit($gundem->icerik, 50)}}</p>
+          <h5 class="card-title">{!! substr(strip_tags($gundem->baslik), 0, 70) !!}</h5>
+          <p class="card-text">{!! substr(strip_tags($gundem->icerik), 0, 100) !!}...</p>
           <p class="card-text mb-0">
             <small class="text-muted">{{$gundem->created_at->diffForHumans()}}</small>
           </p>
@@ -37,7 +37,7 @@
         <a class="card d-flex flex-row gap-3" href="/haber/haber_detay/{{$gundem_item->id}}" title="{{Str::limit($gundem_item->baslik, 70)}}">
           <img src="{{$gundem_item->resim ? asset('storage/'.$gundem_item->resim) : asset('/images/no-image.png')}}" class="shadow-sm" alt="{{$gundem_item->resim_aciklama}}" title="{{$gundem_item->resim_aciklama}}"">
           <div class="card-body d-flex align-items-center">          
-            <h5 class="card-title">{{Str::limit($gundem_item->baslik, 70)}}</h5>          
+            <h5 class="card-title">{!! substr(strip_tags($gundem_item->baslik), 0, 70) !!}</h5>          
           </div>
         </a>        
         @endforeach
@@ -58,9 +58,9 @@
         @foreach ($basliks as $baslik)
           <a href="/haber/haber_detay/{{$baslik->id}}" class="list-group-item" title="{{Str::limit($baslik->baslik, 70)}}">
             <div class="w-100">
-              <h5 class="text-break">{{Str::limit($baslik->baslik, 70)}}</h5>            
+              <h5 class="text-break">{!! substr(strip_tags($baslik->baslik), 0, 70) !!}</h5>            
             </div>
-            <p>{{Str::limit($baslik->icerik, 50)}}</p>          
+            <p>{!! substr(strip_tags($baslik->icerik), 0, 100) !!}</p>          
           </a>
         @endforeach
       @else

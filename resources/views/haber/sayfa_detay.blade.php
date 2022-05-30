@@ -12,12 +12,12 @@
               <li class="breadcrumb-item"><a href="/">Anasayfa</a></li>
               <li class="breadcrumb-item"><a href="/sayfa_detay">Sayfalar</a></li>
               <li class="breadcrumb-item">
-                {{$sayfa->ad}}
+                {!! substr(strip_tags($sayfa->ad), 0, 70) !!}
               </li>
             </ol>
           </nav>
       
-          <h1 class="baslik">{{$sayfa->ad}}</h1>        
+          <h1 class="baslik">{!! $sayfa->ad !!}</h1>        
       
           <p class="yazar-tarih">
             <a class="ad" href="$">Y A Z A R</a> tarafından | <span class="tarih">{{$sayfa->created_at->diffForHumans()}}</span> paylaşıldı.
@@ -62,7 +62,7 @@
         <div id="detay_haber">
           <img src="{{$sayfa->resim ? asset('storage/'.$sayfa->resim) : asset('/images/no-image.png')}}" class="shadow-sm" alt="{{$sayfa->resim_aciklama}}" title="{{$sayfa->resim_aciklama}}"">
           <p>{{$sayfa->resim_aciklama}}</p>
-          {{$sayfa->icerik}}
+          {!! $sayfa->icerik !!}
         </div><!-- /detay-haber -->        
       </main> <!-- /main -->
       <x-haber_sayfa_detay_link_abone :sayfas="$sayfas"></x-haber_sayfa_detay_link_abone>

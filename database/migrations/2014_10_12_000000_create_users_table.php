@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('gender');
             $table->string('city');
-            $table->string('point')->default(0);
+            $table->integer('point')->default(0);
             $table->string('user_type')->nullable(); 
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

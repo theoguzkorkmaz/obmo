@@ -45,7 +45,7 @@ class HaberTopbarController extends Controller
         'icerik' => $request->ad." oluşturuldu."
       ]);
 
-      return redirect('/admin/haber/haber_topbars');
+      return redirect('/admin/haber/haber_topbars')->with('success', 'Haber topbar başarı ile oluşturuldu!');
     }
 
     /**
@@ -101,7 +101,7 @@ class HaberTopbarController extends Controller
         'icerik' => $request->ad." güncellendi."
       ]);
 
-      return redirect('/admin/haber/haber_topbars');
+      return redirect('/admin/haber/haber_topbars')->with('success', 'Haber topbar başarı ile güncellendi!');
     }
 
     /**
@@ -119,7 +119,7 @@ class HaberTopbarController extends Controller
         'icerik' => $haber_topbar->ad." silindi."
       ]);
 
-      return redirect('/admin/haber/haber_topbars');
+      return redirect('/admin/haber/haber_topbars')->with('success', 'Haber topbar başarı ile silindi!');
     }
 
 		/**

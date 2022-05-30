@@ -14,8 +14,8 @@
           <a class="card" href="#">
             <img src="{{$item->resim ? asset('storage/'.$item->resim) : asset('/images/no-image.png')}}" class="card-img-top shadow-sm" alt="{{Str::limit($item->icerik, 30)}}">
             <div class="card-body">
-              <h5 class="card-title">{{Str::limit($item->baslik, 70)}}</h5>
-              <p class="card-text">{{Str::limit($item->icerik, 120)}}</p>
+              <h5 class="card-title">{!! substr(strip_tags($item->baslik), 0, 70) !!}/h5>
+              <p class="card-text">{!! substr(strip_tags($item->baslik), 0, 120) !!}</p>
               <p class="card-text mb-0">
                 <small class="text-muted">{{$item->created_at->diffForHumans()}}</small>
               </p>
@@ -41,8 +41,8 @@
           <a class="card" href="#">
             <img src="{{$item->resim ? asset('storage/'.$item->resim) : asset('/images/no-image.png')}}" class="card-img-top shadow-sm" alt="{{Str::limit($item->icerik, 30)}}">
             <div class="card-body">
-              <h5 class="card-title">{{Str::limit($item->baslik, 70)}}</h5>
-              <p class="card-text">{{Str::limit($item->icerik, 120)}}</p>
+              <h5 class="card-title">{!! substr(strip_tags($item->baslik), 0, 70) !!}</h5>
+              <p class="card-text">{!! substr(strip_tags($item->icerik), 0, 120) !!}</p>
               <p class="card-text mb-0">
                 <small class="text-muted">{{$item->created_at->diffForHumans()}}</small>
               </p>
