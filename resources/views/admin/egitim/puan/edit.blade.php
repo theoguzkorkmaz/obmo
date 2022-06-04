@@ -27,7 +27,7 @@
                 @endforeach 
               </select>
               @error('sinav_id')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
           
@@ -35,7 +35,7 @@
                 <label class="form-label" for="dogru_sayisi">Doğru sayısı:</label>
                 <input class="form-control" type="text" name="dogru_sayisi" value="{{$puan->dogru_sayisi}}" />
                 @error('dogru_sayisi')
-                  <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                  <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
                 @enderror 
             </div>
           
@@ -43,7 +43,7 @@
               <label class="form-label" for="yanlis_sayisi">Yanlış sayısı:</label>
               <input class="form-control" type="text" name="yanlis_sayisi" value="{{$puan->yanlis_sayisi}}" />
               @error('yanlis_sayisi')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror 
           </div>
           
@@ -51,7 +51,7 @@
               <label class="form-label" for="puan">Puan:</label>
               <input class="form-control" type="text" name="puan" value="{{$puan->puan}}" />
               @error('puan')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
            
@@ -60,7 +60,7 @@
               <input class="form-control" type="text" name="admin" value="{{auth()->user()->id}}" readonly />
               <small>Bu veri <b>{{auth()->user()->name}}</b> tarafından oluşturulacak</small>
               @error('admin')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
 

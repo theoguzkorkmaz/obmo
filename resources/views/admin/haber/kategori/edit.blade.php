@@ -22,7 +22,7 @@
               <label class="form-label" for="ad">Ad:</label>
               <input class="form-control" type="text" name="ad" value="{{$kategori->ad}}" />
               @error('ad')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
           
@@ -33,7 +33,7 @@
                 {{$kategori->aciklama}}
               </textarea>
               @error('aciklama')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
           
@@ -43,7 +43,7 @@
               <br>
               <img src="{{$kategori->resim ? asset('storage/'.$kategori->resim) : asset('/images/no-image.png')}}" alt="" style="width: 320px;height: 320px;"/>    
               @error('resim')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
           
@@ -51,7 +51,7 @@
               <label class="form-label" for="resim_aciklama">Resim açıklama:</label>
               <input class="form-control" type="text" name="resim_aciklama" value="{{$kategori->resim_aciklama}}" />
               @error('resim_aciklama')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
           
@@ -59,7 +59,7 @@
               <label class="form-label" for="icon">Icon:</label>
               <input class="form-control" type="text" name="icon" value="{{$kategori->icon}}" />
               @error('icon')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
             
@@ -71,7 +71,7 @@
                 <option value="1" {{ ($kategori->navbar_gorunme == 1) ? 'selected' : ''}}>Gözüksün</option>                
               </select>
               @error('navbar_gorunme')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
           
@@ -83,7 +83,7 @@
                 <option value="1" {{ ($kategori->footer_gorunme == 1) ? 'selected' : ''}}>Gözüksün</option>                
               </select>
               @error('footer_gorunme')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
           
@@ -92,7 +92,7 @@
               <input class="form-control" type="text" name="admin" value="{{auth()->user()->id}}" readonly />
               <small>Bu veri <b>{{auth()->user()->name}}</b> tarafından oluşturulacak</small>
               @error('admin')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
 

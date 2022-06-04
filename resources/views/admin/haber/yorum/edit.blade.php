@@ -27,7 +27,7 @@
                 @endforeach                  
               </select>
               @error('haber_id')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
           
@@ -40,7 +40,7 @@
                 @endforeach                  
               </select>
               @error('user_id')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
           
@@ -48,7 +48,7 @@
               <label class="form-label" for="baslik">Başlık:</label>
               <input class="form-control" type="text" name="baslik" value="{{$yorum->baslik}}" />
               @error('baslik')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
           
@@ -56,7 +56,7 @@
               <label class="form-label" for="icerik">İçerik:</label>
               <input class="form-control" type="text" name="icerik" value="{{$yorum->icerik}}" />
               @error('icerik')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
           
@@ -68,7 +68,7 @@
                 <option value="1" {{ ($yorum->onay == 1) ? 'selected' : ''}}>Onaylı</option>                
               </select>
               @error('onay')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
           
@@ -77,7 +77,7 @@
               <input class="form-control" type="text" name="admin" value="{{auth()->user()->id}}" readonly />
               <small>Bu veri <b>{{auth()->user()->name}}</b> tarafından oluşturulacak</small>
               @error('admin')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
 

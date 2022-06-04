@@ -27,7 +27,7 @@
                 @endforeach 
               </select>
               @error('soru_id')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div> 
           
@@ -35,7 +35,7 @@
                 <label class="form-label" for="baslik">cevap_no</label>
                 <input class="form-control" type="text" name="cevap_no" value="{{$cevap->cevap_no}}" />
                 @error('cevap_no')
-                  <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                  <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
                 @enderror 
             </div>
           
@@ -46,7 +46,7 @@
                 {!! $cevap->icerik !!}
               </textarea>
               @error('icerik')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
           
@@ -58,7 +58,7 @@
                 <option value="1" {{ ($cevap->dogru == 1) ? 'selected' : ''}}>Doğru cevaptır</option>                
               </select>
               @error('dogru')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
           
@@ -67,7 +67,7 @@
               <input class="form-control" type="text" name="admin" value="{{auth()->user()->id}}" readonly />
               <small>Bu veri <b>{{auth()->user()->name}}</b> tarafından oluşturulacak</small>
               @error('admin')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
 

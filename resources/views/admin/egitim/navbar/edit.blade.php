@@ -22,7 +22,7 @@
               <label class="form-label" for="ad">Ad:</label>
               <input class="form-control" type="text" name="ad" value="{{$navbar->ad}}" />
               @error('ad')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
           
@@ -30,7 +30,7 @@
                 <label class="form-label" for="icon">Icon:</label>
                 <input class="form-control" type="text" name="icon" value="{{$navbar->icon}}" />
                 @error('icon')
-                  <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                  <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
                 @enderror 
             </div>
           
@@ -38,7 +38,7 @@
               <label class="form-label" for="link">Link:</label>
               <input class="form-control" type="text" name="link" value="{{$navbar->link}}" />
               @error('link')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>     
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>     
               @enderror 
           </div>
           
@@ -46,7 +46,7 @@
               <label class="form-label" for="icerik">İçerik:</label>
               <input class="form-control" type="text" name="icerik" value="{{$navbar->icerik}}" />
               @error('icerik')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
           
@@ -58,7 +58,7 @@
                 <option value="1" {{ ($navbar->ismenu == 1) ? 'selected' : ''}}>Menü kısmı</option>                
               </select>
               @error('ismenu')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
            
@@ -67,7 +67,7 @@
               <input class="form-control" type="text" name="admin" value="{{auth()->user()->id}}" readonly />
               <small>Bu veri <b>{{auth()->user()->name}}</b> tarafından oluşturulacak</small>
               @error('admin')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
 

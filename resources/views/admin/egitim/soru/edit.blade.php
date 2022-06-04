@@ -27,7 +27,7 @@
                 @endforeach 
               </select>
               @error('sinav_id')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
           
@@ -35,7 +35,7 @@
                 <label class="form-label" for="soru_no">soru_no</label>
                 <input class="form-control" type="text" name="soru_no" value="{{$soru->soru_no}}" />
                 @error('soru_no')
-                  <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                  <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
                 @enderror 
             </div>
           
@@ -43,7 +43,7 @@
               <label class="form-label" for="baslik">soru</label>
               <input class="form-control" type="text" name="soru" value="{{$soru->soru}}" />
               @error('soru')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
           
@@ -53,7 +53,7 @@
               <br>
               <img src="{{$soru->resim ? asset('storage/'.$soru->resim) : asset('/images/no-image.png')}}" alt="" style="width: 320px;height: 320px;"/>    
               @error('resim')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
           
@@ -61,7 +61,7 @@
               <label class="form-label" for="resim_aciklama">resim_aciklama</label>
               <input class="form-control" type="text" name="resim_aciklama" value="{{$soru->resim_aciklama}}" />
               @error('resim_aciklama')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
           
@@ -70,7 +70,7 @@
               <input class="form-control" type="text" name="admin" value="{{auth()->user()->id}}" readonly />
               <small>Bu veri <b>{{auth()->user()->name}}</b> tarafından oluşturulacak</small>
               @error('admin')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
 

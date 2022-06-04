@@ -27,7 +27,7 @@
                 @endforeach 
               </select>
               @error('egitim_id')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
           
@@ -35,7 +35,7 @@
               <label class="form-label" for="icerik_no">İçerik no:</label>
               <input class="form-control" type="text" name="icerik_no" value="{{$icerik->icerik_no}}" />
               @error('icerik_no')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
           
@@ -43,7 +43,7 @@
                 <label class="form-label" for="baslik">Başlık:</label>
                 <input class="form-control" type="text" name="baslik" value="{{$icerik->baslik}}" />
                 @error('baslik')
-                  <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                  <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
                 @enderror 
             </div>
 
@@ -51,7 +51,7 @@
               <label class="form-label" for="video">Video:</label>
               <input class="form-control" type="text" name="video" value="{{$icerik->video}}" />              
               @error('video')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
 
@@ -59,7 +59,7 @@
               <label class="form-label" for="video_aciklamasi">Video açıklaması:</label>
               <input class="form-control" type="text" name="video_aciklamasi" value="{{$icerik->video_aciklamasi}}" />
               @error('video_aciklamasi')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
 
@@ -70,7 +70,7 @@
                 {!! $icerik->video_yazili !!}
               </textarea>
               @error('video_yazili')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
           
@@ -81,7 +81,7 @@
                 {!! $icerik->aciklama !!}
               </textarea>
               @error('aciklama')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
           
@@ -89,7 +89,7 @@
               <label class="form-label" for="puan">Puan:</label>
               <input class="form-control" type="text" name="puan" value="{{$icerik->puan}}" />
               @error('puan')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
           
@@ -98,7 +98,7 @@
               <input class="form-control" type="text" name="admin" value="{{auth()->user()->id}}" readonly />
               <small>Bu veri <b>{{auth()->user()->name}}</b> tarafından oluşturulacak</small>
               @error('admin')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
 

@@ -22,7 +22,7 @@
               <label class="form-label" for="ad">Ad:</label>
               <input class="form-control" type="text" name="ad" value="{{$topbar->ad}}" />
               @error('ad')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
           
@@ -30,7 +30,7 @@
               <label class="form-label" for="link">Link:</label>
               <input class="form-control" type="text" name="link" value="{{$topbar->link}}" />
               @error('link')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
           
@@ -41,7 +41,7 @@
                 {{$topbar->aciklama}}
               </textarea>
               @error('aciklama')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
           
@@ -53,7 +53,7 @@
                 <option value="1" {{ ($topbar->yer == 1) ? 'selected' : ''}}>Sağ taraf</option>                
               </select>
               @error('yer')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>  
           
@@ -61,7 +61,7 @@
               <label class="form-label" for="icon">Icon:</label>
               <input class="form-control" type="text" name="icon" value="{{$topbar->icon}}" />
               @error('icon')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>  
           
@@ -70,7 +70,7 @@
               <input class="form-control" type="text" name="admin" value="{{auth()->user()->id}}" readonly />
               <small>Bu veri <b>{{auth()->user()->name}}</b> tarafından oluşturulacak</small>
               @error('admin')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz!</p>    
               @enderror
             </div>
 
