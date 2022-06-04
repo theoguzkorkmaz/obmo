@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('egitim_id'); 
             $table->foreignId('kullanici_id');
-            $table->string('baslik');
-            $table->text('icerik');  
+            $table->string('baslik')->nullable();
+            $table->text('icerik')->nullable();  
             $table->foreignId('admin');            
             $table->timestamps();
         });

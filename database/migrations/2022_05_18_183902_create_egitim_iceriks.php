@@ -18,10 +18,10 @@ return new class extends Migration
             $table->foreignId('egitim_id'); 
             $table->string('icerik_no');
             $table->string('baslik');
-            $table->text('aciklama');
+            $table->text('aciklama')->nullable();
             $table->text('video');
-            $table->text('video_aciklamasi');
-            $table->text('video_yazili');
+            $table->text('video_aciklamasi')->nullable();
+            $table->text('video_yazili')->nullable();
             $table->string('puan')->nullable();
             $table->foreignId('admin');
             $table->timestamps(); 

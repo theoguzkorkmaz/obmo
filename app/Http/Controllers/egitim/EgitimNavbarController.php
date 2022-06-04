@@ -30,9 +30,9 @@ class EgitimNavbarController extends Controller
     {
       $formFields = $request->validate([
 				'ad' => 'required',
-        'icon' => 'required',
+        'icon' => '',
         'link' => 'required',
-				'icerik' => 'required',
+				'icerik' => '',
 				'ismenu' => 'required',
         'admin' => 'required'
 			]);
@@ -71,11 +71,11 @@ class EgitimNavbarController extends Controller
     public function update(Request $request, EgitimNavbar $egitim_navbar)
     {
       $formFields = $request->validate([
-				'ad' => 'required',
-        'icon' => 'required',
-        'link' => 'required',
-				'icerik' => 'required',
-				'ismenu' => 'required',
+				'ad' => '',
+        'icon' => '',
+        'link' => '',
+				'icerik' => '',
+				'ismenu' => '',
         'admin' => 'required'
 			]);
 

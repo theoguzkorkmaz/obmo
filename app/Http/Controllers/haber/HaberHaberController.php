@@ -35,9 +35,11 @@ class HaberHaberController extends Controller
 			$formFields = $request->validate([
 				'kategori_id' => 'required',
 				'baslik' => 'required',
-				'icerik' => 'required',
-        'etiket' => 'required',
-        'admin' => 'required'
+				'icerik' => '',
+        'resim' => '',
+        'resim_aciklama' => '',
+        'etiket' => '',
+        'admin' => 'required' 
 			]);
 
 			if($request->hasFile('resim')) {
@@ -79,11 +81,13 @@ class HaberHaberController extends Controller
     public function update(Request $request, HaberHaber $haber_haber) 
     {
 			$formFields = $request->validate([
-        'kategori_id' => 'required',
-				'baslik' => 'required',
-				'icerik' => 'required',
-        'etiket' => 'required',
-        'admin' => 'required'
+        'kategori_id' => '',
+				'baslik' => '',
+				'icerik' => '',
+        'resim' => '',
+        'resim_aciklama' => '',
+        'etiket' => '',
+        'admin' => 'required' 
       ]);
 
       if($request->hasFile('resim')) {

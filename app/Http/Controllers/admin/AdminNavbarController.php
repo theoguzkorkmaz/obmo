@@ -29,9 +29,9 @@ class AdminNavbarController extends Controller
     {
       $formFields = $request->validate([
         'ad' => 'required',
-        'icon' => 'required',
+        'icon' => '', 
         'link' => 'required',
-        'icerik' => 'required',
+        'icerik' => '',
         'ismenu' => 'required',
         'admin' => 'required'
       ]);
@@ -65,11 +65,11 @@ class AdminNavbarController extends Controller
     public function update(Request $request, AdminNavbar $admin_navbar)
     {
       $formFields = $request->validate([
-				'ad' => 'required',
-        'icon' => 'required',
-        'link' => 'required',
-				'icerik' => 'required',
-				'ismenu' => 'required',
+				'ad' => '',
+        'icon' => '',
+        'link' => '',
+				'icerik' => '',
+				'ismenu' => '',
         'admin' => 'required'
 			]);
 

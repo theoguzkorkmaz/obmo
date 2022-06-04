@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('egitim_kategoris', function (Blueprint $table) {
             $table->id();
             $table->string('baslik');
-            $table->text('aciklama');
+            $table->text('aciklama')->nullable();
             $table->string('resim')->nullable();
             $table->string('resim_aciklama')->nullable();
             $table->string('icon')->nullable();

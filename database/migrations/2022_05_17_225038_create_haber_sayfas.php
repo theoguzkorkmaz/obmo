@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('haber_sayfas', function (Blueprint $table) {
             $table->id();
             $table->string('ad');
-            $table->text('icerik');
+            $table->text('icerik')->nullable();
             $table->string('resim')->nullable();
             $table->boolean('navbar_gorunme')->default(1)->nullable();
             $table->boolean('footer_gorunme')->default(1)->nullable(); 

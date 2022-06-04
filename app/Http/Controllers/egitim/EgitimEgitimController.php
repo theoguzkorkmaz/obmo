@@ -11,7 +11,7 @@ use App\Http\Controllers\Controller;
 
 class EgitimEgitimController extends Controller
 {
-    /**
+    /** 
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -34,12 +34,14 @@ class EgitimEgitimController extends Controller
 			$formFields = $request->validate([
 				'kategori_id' => 'required',
 				'baslik' => 'required',
-        'aciklama' => 'required',
-				'icerik' => 'required',
-        'etiket' => 'required',
-        'kitle' => 'required', 
-        'kazanim' => 'required',
-        'dokuman' => 'required',        
+        'aciklama' => '',
+				'icerik' => '',
+        'resim' => '',
+        'resim_aciklama' => '',
+        'etiket' => '',
+        'kitle' => '', 
+        'kazanim' => '',
+        'dokuman' => '',        
         'admin' => 'required'
 			]);
 
@@ -82,14 +84,16 @@ class EgitimEgitimController extends Controller
     public function update(Request $request, EgitimEgitim $egitim_egitim)
     {
 			$formFields = $request->validate([
-        'kategori_id' => 'required',
-				'baslik' => 'required',
-        'aciklama' => 'required',
-				'icerik' => 'required',
-        'etiket' => 'required',
-        'kitle' => 'required',
-        'kazanim' => 'required',
-        'dokuman' => 'required',        
+        'kategori_id' => '',
+				'baslik' => '',
+        'aciklama' => '',
+				'icerik' => '',
+        'resim' => '',
+        'resim_aciklama' => '',
+        'etiket' => '',
+        'kitle' => '', 
+        'kazanim' => '',
+        'dokuman' => '',        
         'admin' => 'required'
       ]);
 

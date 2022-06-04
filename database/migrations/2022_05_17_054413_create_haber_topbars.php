@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('ad');
             $table->string('link');
-            $table->string('aciklama');
+            $table->string('aciklama')->nullable();
             $table->boolean('yer')->default(0);
-            $table->string('icon');
+            $table->string('icon')->nullable();
             $table->foreignId('admin');
             $table->timestamps();
         });

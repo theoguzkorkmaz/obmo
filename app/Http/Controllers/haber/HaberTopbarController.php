@@ -32,9 +32,9 @@ class HaberTopbarController extends Controller
       $formFields = $request->validate([
         'ad' => 'required',
 				'link' => 'required',
-				'aciklama' => 'required',
+				'aciklama' => '',
         'yer' => 'required',
-        'icon' => 'required',
+        'icon' => '',
         'admin' => 'required'
       ]);
 
@@ -86,11 +86,11 @@ class HaberTopbarController extends Controller
     public function update(Request $request, HaberTopbar $haber_topbar)
     {
 			$formFields = $request->validate([
-        'ad' => 'required',
-				'link' => 'required',
-				'aciklama' => 'required',
-        'yer' => 'required',
-        'icon' => 'required',
+        'ad' => '',
+				'link' => '',
+				'aciklama' => '',
+        'yer' => '',
+        'icon' => '',
         'admin' => 'required'
       ]);      
 

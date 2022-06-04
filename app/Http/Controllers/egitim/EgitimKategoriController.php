@@ -30,23 +30,25 @@ class EgitimKategoriController extends Controller
     {
 			$formFields = $request->validate([
 				'baslik' => 'required',
-				'aciklama' => 'required',
-        'icon' => 'required',
-        'admin' => 'required'
-				]);
+				'aciklama' => '',
+        'resim' => '',
+        'resim_aciklama' => '',
+        'icon' => '',
+        'admin' => '' 
+      ]);
 
-        if($request->hasFile('resim')) {
-          $formFields['resim'] = $request->file('resim')->store('images', 'public');
-        }
+      if($request->hasFile('resim')) {
+        $formFields['resim'] = $request->file('resim')->store('images', 'public');
+      }
 
-				EgitimKategori::create($formFields);
+      EgitimKategori::create($formFields);
 
-        LogKayit::create([
-          'user_id' => auth()->user()->id,        
-          'icerik' => $request->baslik." oluşturuldu."
-        ]);
+      LogKayit::create([
+        'user_id' => auth()->user()->id,        
+        'icerik' => $request->baslik." oluşturuldu."
+      ]);
 
-				return redirect('/admin/egitim/egitim_kategoris')->with('success', 'Eğitim kategori başarı ile oluşturuldu!');
+      return redirect('/admin/egitim/egitim_kategoris')->with('success', 'Eğitim kategori başarı ile oluşturuldu!');
     }
 
     /**
@@ -73,10 +75,12 @@ class EgitimKategoriController extends Controller
     public function update(Request $request, EgitimKategori $egitim_kategori)
     {
 			$formFields = $request->validate([
-        'baslik' => 'required',
-				'aciklama' => 'required',
-        'icon' => 'required',
-        'admin' => 'required'
+        'baslik' => '',
+				'aciklama' => '',
+        'resim' => '',
+        'resim_aciklama' => '',
+        'icon' => '',
+        'admin' => '' 
       ]);
 
       if($request->hasFile('resim')) {

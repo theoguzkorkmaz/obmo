@@ -68,10 +68,10 @@ class EgitimPuanController extends Controller
     public function update(Request $request, EgitimPuan $egitim_puan)
     {
 			$formFields = $request->validate([
-				'sinav_id' => 'required',
-        'dogru_sayisi' => 'required',
-        'yanlis_sayisi' => 'required',
-				'puan' => 'required',
+				'sinav_id' => '',
+        'dogru_sayisi' => '',
+        'yanlis_sayisi' => '',
+				'puan' => '',
         'admin' => 'required'
 			]);
 

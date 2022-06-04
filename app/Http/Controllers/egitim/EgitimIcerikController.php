@@ -11,7 +11,7 @@ use App\Http\Controllers\Controller;
 
 class EgitimIcerikController extends Controller
 {
-    /**
+    /** 
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -35,11 +35,11 @@ class EgitimIcerikController extends Controller
         'egitim_id' => 'required',
         'icerik_no' => 'required',
         'baslik' => 'required',
-        'aciklama' => 'required',
+        'aciklama' => '',
         'video' => 'required',
-        'video_aciklamasi' => 'required',
-        'video_yazili' => 'required',
-        'puan' => 'required',
+        'video_aciklamasi' => '',
+        'video_yazili' => '',
+        'puan' => '',
         'admin' => 'required'
       ]);
 
@@ -78,14 +78,14 @@ class EgitimIcerikController extends Controller
     public function update(Request $request, EgitimIcerik $egitim_icerik)
     {
 			$formFields = $request->validate([
-				'egitim_id' => 'required',
-				'icerik_no' => 'required',
-        'baslik' => 'required',
-        'aciklama' => 'required',
-        'video' => 'required',
-        'video_aciklamasi' => 'required',
-        'video_yazili' => 'required',
-				'puan' => 'required',
+				'egitim_id' => '',
+        'icerik_no' => '',
+        'baslik' => '',
+        'aciklama' => '',
+        'video' => '',
+        'video_aciklamasi' => '',
+        'video_yazili' => '',
+        'puan' => '',
         'admin' => 'required'
 			]);
 

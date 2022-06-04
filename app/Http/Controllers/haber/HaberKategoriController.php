@@ -30,8 +30,10 @@ class HaberKategoriController extends Controller
     {
 			$formFields = $request->validate([
 				'ad' => 'required',
-				'aciklama' => 'required',
-        'icon' => 'required',
+				'aciklama' => '',
+        'resim' => '',
+        'resim_aciklama' => '',
+        'icon' => '',
         'navbar_gorunme' => 'required',
         'footer_gorunme' => 'required',
         'admin' => 'required'
@@ -75,11 +77,13 @@ class HaberKategoriController extends Controller
     public function update(Request $request, HaberKategori $haber_kategori)
     {
 			$formFields = $request->validate([
-        'ad' => 'required',
-				'aciklama' => 'required',
-        'icon' => 'required',
-        'navbar_gorunme' => 'required',
-        'footer_gorunme' => 'required',
+        'ad' => '',
+				'aciklama' => '',
+        'resim' => '',
+        'resim_aciklama' => '',
+        'icon' => '',
+        'navbar_gorunme' => '',
+        'footer_gorunme' => '',
         'admin' => 'required'
       ]);
 

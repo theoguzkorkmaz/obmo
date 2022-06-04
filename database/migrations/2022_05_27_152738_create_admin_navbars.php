@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('admin_navbars', function (Blueprint $table) {
             $table->id();            
             $table->string('ad');
-            $table->string('icon');
+            $table->string('icon')->nullable();
             $table->string('link');
-            $table->string('icerik');
+            $table->string('icerik')->nullable();
             $table->boolean('ismenu')->default('0');            
             $table->foreignId('admin');            
             $table->timestamps();

@@ -27,13 +27,22 @@ class EgitimController extends Controller
         $tops = DB::table('users')->orderBy('point', 'desc')->limit(5)->get();
         
         return view('egitim.index')            
-            ->with('navbars', EgitimNavbar::all())            
-            ->with('egitims', EgitimEgitim::latest()->paginate(4))
-            ->with('kategoris', EgitimKategori::all())
-            ->with('megitims', UserEgitim::join('egitim_egitims', 'egitim_egitims.id', '=', 'user_egitims.ders_id')->where('user_egitims.user_id', '=', auth()->user()->id)->paginate(4))
-            ->with('eiceriks', EgitimIcerik::all())
-            ->with('esinavs', EgitimSinav::all())
-            ->with('tops', $tops);         
+            ->with('navbars', 
+                EgitimNavbar::all())            
+            ->with('egitims', 
+                EgitimEgitim::latest()->paginate(4))
+            ->with('kategoris', 
+                EgitimKategori::all())
+            ->with('megitims', 
+                UserEgitim::join('egitim_egitims', 'egitim_egitims.id', '=', 'user_egitims.ders_id')
+                ->where('user_egitims.user_id', '=', auth()->user()->id)
+                ->paginate(4))
+            ->with('eiceriks', 
+                EgitimIcerik::all())
+            ->with('esinavs', 
+                EgitimSinav::all())
+            ->with('tops', 
+                $tops);         
     }
 
     public function egitim_detay ($id) {              

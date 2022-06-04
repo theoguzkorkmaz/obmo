@@ -35,7 +35,8 @@ class EgitimSoruController extends Controller
 				'sinav_id' => 'required',
 				'soru_no' => 'required',
         'soru' => 'required',
-				'resim_aciklama' => 'required',
+        'resim' => '',        
+				'resim_aciklama' => '',
         'admin' => 'required'
 			]);
 
@@ -78,10 +79,11 @@ class EgitimSoruController extends Controller
     public function update(Request $request, EgitimSoru $egitim_soru)
     {
 			$formFields = $request->validate([
-        'sinav_id' => 'required',
-				'soru_no' => 'required',
-        'soru' => 'required',
-				'resim_aciklama' => 'required',
+        'sinav_id' => '',
+				'soru_no' => '',
+        'soru' => '',
+        'resim' => '',        
+				'resim_aciklama' => '',
         'admin' => 'required'
       ]);
 

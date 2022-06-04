@@ -1,16 +1,24 @@
 @extends('admin.layout', ['navbars' => $navbars, 'title' => "Haber", 'title2' => 'index', 'title_link' => '/admin/haber/habers', 'header' => "Haberler"])
 @section('content')
 
-<div class="row d-flex justify-content-end px-2">
-  <a href="/admin/haber/habers/olustur" class="btn btn-danger btn-md mb-4 w-25">
-    Yeni haber ekle
-  </a>
-</div>
-
 <div class="row">
   @if(count($habers) == 0)
-    <p>No data</p>  
+    <div class="card bg-transparent shadow-none w-50 text-center p-4">
+      <div class="d-flex flex-row justify-content-between">
+        <a class="btn btn-secondary" href="/admin" role="button"><i class="fas fa-long-arrow-alt-left mr-3"></i> Geri dön</a>
+        <a class="btn btn-danger" href="/admin/haber/habers/olustur" role="button">Veri ekle <i class="far fa-plus-square ml-3"></i></a>
+      </div>
+      <div class="bg-dark mt-2 p-3 rounded">
+        <h4 class="text-danger"><i class="fas fa-times"></i></h4>
+        <p class="mb-0">Henüz veri girişi yapılmamıştır.</p>
+      </div>
+    </div> 
     @else
+    <div class="col-md-12 col-12 d-flex justify-content-end px-2">
+      <a href="/admin/haber/habers/olustur" class="btn btn-danger btn-md mb-4 w-25">
+        Yeni haber ekle
+      </a>
+    </div>
       @foreach($habers as $haber)  
       <div class="col-md-4">
         <div class="card card-primary collapsed-card">

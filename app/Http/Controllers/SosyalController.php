@@ -29,9 +29,9 @@ class SosyalController extends Controller
     {
 			$formFields = $request->validate([
 				'ad' => 'required',
-				'icon' => 'required',
+				'icon' => '',
 				'link' => 'required',
-				'aciklama' => 'required',
+				'aciklama' => '',
         'aktiflik' => 'required',
         'admin' => 'required'        
 			]);
@@ -70,11 +70,11 @@ class SosyalController extends Controller
     public function update(Request $request, Sosyal $sosyal)
     {
 			$formFields = $request->validate([
-				'ad' => 'required',
-				'icon' => 'required',
-				'link' => 'required',
-				'aciklama' => 'required',
-        'aktiflik' => 'required',
+				'ad' => '',
+				'icon' => '',
+				'link' => '',
+				'aciklama' => '',
+        'aktiflik' => '',
         'admin' => 'required'        
 			]);
 

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('kategori_id'); 
             $table->string('baslik');
-            $table->text('icerik');
+            $table->text('icerik')->nullable();
             $table->string('resim')->nullable();
             $table->string('resim_aciklama')->nullable();
             $table->string('etiket')->nullable();

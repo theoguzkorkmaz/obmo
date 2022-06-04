@@ -16,7 +16,7 @@ class EgitimCevapController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create() 
     {
 			return view('admin.egitim.cevap.create')
         ->with('navbars', AdminNavbar::all())

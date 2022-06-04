@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('sosyals', function (Blueprint $table) {
             $table->id();
             $table->string('ad');
-            $table->string('icon');
+            $table->string('icon')->nullable();
             $table->string('link');
-            $table->string('aciklama');
+            $table->string('aciklama')->nullable();
             $table->boolean('aktiflik')->default(1);
             $table->foreignId('admin');
             $table->timestamps();

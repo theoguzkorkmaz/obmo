@@ -34,7 +34,7 @@ class EgitimSinavController extends Controller
 			$formFields = $request->validate([
 				'icerik_id' => 'required',
         'baslik' => 'required',
-        'aciklama' => 'required',
+        'aciklama' => '',
         'puan' => 'required',
         'admin' => 'required'
       ]);
@@ -74,10 +74,10 @@ class EgitimSinavController extends Controller
     public function update(Request $request, EgitimSinav $egitim_sinav)
     {
 			$formFields = $request->validate([
-				'icerik_id' => 'required',
-        'baslik' => 'required',
-        'aciklama' => 'required',
-        'puan' => 'required',
+				'icerik_id' => '',
+        'baslik' => '',
+        'aciklama' => '',
+        'puan' => '',
         'admin' => 'required'
 			]);
 

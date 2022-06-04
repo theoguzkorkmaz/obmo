@@ -36,8 +36,8 @@ class HaberYorumController extends Controller
 			$formFields = $request->validate([
 				'haber_id' => 'required',
 				'user_id' => 'required',
-				'baslik' => 'required',
-				'icerik' => 'required',
+				'baslik' => '',
+				'icerik' => '',
         'onay' => 'required'    ,
         'admin' => 'required'    
 			]); 
@@ -80,8 +80,8 @@ class HaberYorumController extends Controller
 			$formFields = $request->validate([
         'haber_id' => 'required',
 				'user_id' => 'required',
-				'baslik' => 'required',
-				'icerik' => 'required',
+				'baslik' => '',
+				'icerik' => '',
         'onay' => 'required',
         'admin' => 'required'        
       ]);

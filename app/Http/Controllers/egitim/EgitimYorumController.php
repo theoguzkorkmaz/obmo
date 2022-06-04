@@ -36,8 +36,8 @@ class EgitimYorumController extends Controller
 			$formFields = $request->validate([
 				'egitim_id' => 'required',
 				'kullanici_id' => 'required',
-        'baslik' => 'required',
-        'icerik' => 'required',
+        'baslik' => '',
+        'icerik' => '',
         'admin' => 'required'
 				]);
 
@@ -77,10 +77,10 @@ class EgitimYorumController extends Controller
     public function update(Request $request, EgitimYorum $egitim_yorum)
     {
 			$formFields = $request->validate([
-				'egitim_id' => 'required',
-				'kullanici_id' => 'required',
-        'baslik' => 'required',
-        'icerik' => 'required',
+				'egitim_id' => '',
+				'kullanici_id' => '',
+        'baslik' => '',
+        'icerik' => '',
         'admin' => 'required'
 			]);
 

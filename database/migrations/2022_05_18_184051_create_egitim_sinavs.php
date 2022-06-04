@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('icerik_id');
             $table->string('baslik');
-            $table->text('aciklama');
+            $table->text('aciklama')->nullable();
             $table->string('puan');
             $table->foreignId('admin');
             $table->timestamps(); 

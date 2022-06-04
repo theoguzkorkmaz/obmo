@@ -49,9 +49,11 @@
             <div class="mb-3">
               <label class="form-label" for="ismenu">Menü yeri:</label>
               {{-- <input class="form-control" type="text" name="ismenu" value="{{$navbar->ismenu}}" /> --}}
-              <select class="form-select form-control" name="ismenu" aria-label="Default select example">                                
-                <option value="0" {{ ($navbar->ismenu == 0) ? 'selected' : ''}}>Diğer kısım</option>
-                <option value="1" {{ ($navbar->ismenu == 1) ? 'selected' : ''}}>Menü kısmı</option>                
+              <select class="form-select form-control" name="ismenu">                                                  
+                <option value="0" {{ ($navbar->ismenu == 0) ? 'selected' : ''}}>Haber kısmı</option>
+                <option value="1" {{ ($navbar->ismenu == 1) ? 'selected' : ''}}>Eğitim kısmı</option>
+                <option value="2" {{ ($navbar->ismenu == 2) ? 'selected' : ''}}>Admin kısmı</option>
+                <option value="3" {{ ($navbar->ismenu == 3) ? 'selected' : ''}}>Diğer kısım</option>            
               </select>
               @error('ismenu')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    

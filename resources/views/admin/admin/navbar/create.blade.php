@@ -49,8 +49,10 @@
               <label class="form-label" for="ismenu">Menü yeri:</label>
               {{-- <input class="form-control" type="text" name="ismenu" value="{{old('ismenu')}}" /> --}}
               <select class="form-select form-control" name="ismenu" aria-label="Default select example">                                
-                <option value="0">Diğer kısım</option>
-                <option value="1" selected>Menü kısmı</option>                
+                <option value="0">Haber kısmı</option>
+                <option value="1">Eğitim kısmı</option>
+                <option value="2">Admin kısmı</option>
+                <option value="3">Diğer kısım</option>
               </select>
               @error('ismenu')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>    

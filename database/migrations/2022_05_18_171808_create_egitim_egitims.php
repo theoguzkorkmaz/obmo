@@ -11,20 +11,20 @@ return new class extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up() 
     {
         Schema::create('egitim_egitims', function (Blueprint $table) {
             $table->id();
             $table->foreignId('kategori_id'); 
             $table->string('baslik');
-            $table->text('aciklama');
-            $table->text('icerik');
+            $table->text('aciklama')->nullable();
+            $table->text('icerik')->nullable();
             $table->string('resim')->nullable();
             $table->string('resim_aciklama')->nullable();
             $table->string('etiket')->nullable();
-            $table->text('kitle');
-            $table->text('kazanim');
-            $table->text('dokuman');            
+            $table->text('kitle')->nullable();
+            $table->text('kazanim')->nullable();
+            $table->text('dokuman')->nullable();  
             $table->foreignId('admin');
             $table->timestamps();
         }); 

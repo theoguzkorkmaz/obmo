@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('icerik');
             $table->boolean('dogru')->default('0');       
             $table->foreignId('admin');     
-            $table->timestamps();
+            $table->timestamps(); 
+            
         });
     }
 

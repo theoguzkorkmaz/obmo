@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('haber_id');
             $table->foreignId('user_id');
-            $table->string('baslik');
-            $table->string('icerik');
+            $table->string('baslik')->nullable();
+            $table->string('icerik')->nullable();
             $table->boolean('onay')->default(0);
             $table->foreignId('admin');
             $table->timestamps();

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('yanlis_sayisi');            
             $table->string('puan')->nullable();
             $table->foreignId('admin');
-            $table->timestamps(); 
+            $table->timestamps();             
         });
     }
 

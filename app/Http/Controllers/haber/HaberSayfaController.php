@@ -30,7 +30,8 @@ class HaberSayfaController extends Controller
     {
 			$formFields = $request->validate([				
 				'ad' => 'required',
-				'icerik' => 'required',
+				'icerik' => '',
+        'resim' => '',
         'navbar_gorunme' => 'required',
         'footer_gorunme' => 'required',
         'admin' => 'required'
@@ -74,10 +75,11 @@ class HaberSayfaController extends Controller
     public function update(Request $request, HaberSayfa $haber_sayfa)
     {
 			$formFields = $request->validate([
-        'ad' => 'required',
-				'icerik' => 'required',
-        'navbar_gorunme' => 'required',
-        'footer_gorunme' => 'required',
+        'ad' => '',
+				'icerik' => '',
+        'resim' => '',
+        'navbar_gorunme' => '',
+        'footer_gorunme' => '',
         'admin' => 'required'
       ]);
 
