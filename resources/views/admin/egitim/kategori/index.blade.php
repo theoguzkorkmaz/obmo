@@ -1,12 +1,6 @@
 @extends('admin.layout', ['navbars' => $navbars, 'title' => "Kategori", 'title2' => 'index', 'title_link' => '/admin/egitim/egitim_kategoris', 'header' => "Kategoriler"])
 @section('content')
 
-<div class="row d-flex justify-content-end px-2">
-  <a href="/admin/egitim/egitim_kategoris/olustur" class="btn btn-danger btn-md mb-4 w-25">
-    Yeni kategori ekle
-  </a>
-</div>
-
 <div class="row">
   @if(count($kategoris) == 0)
     <div class="card bg-transparent shadow-none w-50 text-center p-4">

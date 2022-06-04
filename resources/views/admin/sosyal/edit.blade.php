@@ -2,10 +2,14 @@
 @section('content')
   <div class="row">
     <!-- left column -->
-    <div class="col-md-7 col-12">
-      <!-- general form elements -->
+    <div class="col-md-6 offset-md-3 mb-3 col-12 d-flex flex-row justify-content-between">
+      <a class="btn btn-secondary" href="/admin" role="button"><i class="fas fa-long-arrow-alt-left mr-3"></i> Dashboard'a dön</a>
+      <a class="btn btn-primary" href="/admin/sosyals" role="button"><i class="fas fa-long-arrow-alt-left mr-3"></i> Geri dön</a>
+    </div>
+    <div class="col-md-6 offset-md-3 col-12">
       <div class="card card-primary">
         <div class="card-header">
+            <h1 style="font-size: 1.1rem;margin-bottom:0;">Sosyal güncelle</h1>
         </div>
         <!-- /.card-header -->
         <!-- form start -->
@@ -70,13 +74,17 @@
           </div>
           <!-- /.card-body -->
   
-          <div class="card-footer w-100">
-            <button type="submit" class="btn btn-warning">
-              Güncelle
-            </button> 
-            <button type="reset" class="btn btn-danger">
-              Formu temizle
-            </button> 
+          <div class="card-footer">             
+            <div class="w-100 d-flex flex-row justify-content-between">
+              <button type="reset" class="btn btn-danger w-25">              
+                Temizle
+                <i class="fa fa-trash ml-3" aria-hidden="true"></i>
+              </button> 
+              <button type="submit" class="btn btn-primary w-25">
+                <i class="fa fa-plus-square mr-3" aria-hidden="true"></i>
+                Güncelle
+              </button>
+            </div>
           </div>
         </form>
       </div>

@@ -2,10 +2,15 @@
 @section('content')
   <div class="row">
     <!-- left column -->
-    <div class="col-md-7 col-12">
+    <div class="col-md-6 offset-md-3 mb-3 col-12 d-flex flex-row justify-content-between">
+      <a class="btn btn-secondary" href="/admin" role="button"><i class="fas fa-long-arrow-alt-left mr-3"></i> Dashboard'a dön</a>
+      <a class="btn btn-primary" href="/admin/egitim/egitim_sorus" role="button"><i class="fas fa-long-arrow-alt-left mr-3"></i> Geri dön</a>
+    </div>
+    <div class="col-md-6 offset-md-3 col-12">
       <!-- general form elements -->
       <div class="card card-primary">
         <div class="card-header">
+            <h1 style="font-size: 1.1rem;margin-bottom:0;">Soru oluştur</h1>
         </div>
         <!-- /.card-header -->
         <!-- form start -->
@@ -23,7 +28,7 @@
                 @endforeach                   
               </select>
               @error('sinav_id')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>     
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz</p>     
               @enderror
             </div>
           
@@ -31,7 +36,7 @@
                 <label class="form-label" for="soru_no">Soru no:</label>
                 <input class="form-control" type="text" name="soru_no" value="{{old('soru_no')}}" />
                 @error('soru_no')
-                  <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                  <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz</p>    
                 @enderror 
             </div>
           
@@ -39,7 +44,7 @@
               <label class="form-label" for="baslik">Soru:</label>
               <input class="form-control" type="text" name="soru" value="{{old('soru')}}" />
               @error('soru')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz</p>    
               @enderror
             </div>
           
@@ -47,7 +52,7 @@
               <label class="form-label" for="yer">Resim:</label>
               <input class="form-control" type="file" name="resim"/>
               @error('resim')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz</p>    
               @enderror
             </div>
           
@@ -55,7 +60,7 @@
               <label class="form-label" for="resim_aciklama">Resim açıklama:</label>
               <input class="form-control" type="text" name="resim_aciklama" value="{{old('resim_aciklama')}}" />
               @error('resim_aciklama')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz</p>    
               @enderror
             </div>
           
@@ -64,20 +69,24 @@
               <input class="form-control" type="text" name="admin" value="{{auth()->user()->id}}" readonly />
               <small>Bu veri <b>{{auth()->user()->name}}</b> tarafından oluşturulacak</small>
               @error('admin')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>    
+                <p class="mt-1 text-danger font-weight-bold">Lütfen kontrol ediniz</p>    
               @enderror
             </div>
 
           </div>
           <!-- /.card-body -->
   
-          <div class="card-footer w-100">
-            <button type="submit" class="btn btn-primary">
-              Oluştur
-            </button> 
-            <button type="reset" class="btn btn-danger">
-              Formu temizle
-            </button> 
+          <div class="card-footer">             
+            <div class="w-100 d-flex flex-row justify-content-between">
+              <button type="reset" class="btn btn-danger w-25">              
+                Temizle
+                <i class="fa fa-trash ml-3" aria-hidden="true"></i>
+              </button> 
+              <button type="submit" class="btn btn-primary w-25">
+                <i class="fa fa-plus-square mr-3" aria-hidden="true"></i>
+                Oluştur
+              </button>
+            </div>
           </div>
         </form>
       </div>
