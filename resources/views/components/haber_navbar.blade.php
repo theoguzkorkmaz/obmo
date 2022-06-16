@@ -29,7 +29,7 @@
                       <a class="card border" href="/haber/kategori_detay/{{$kategori->id}}" title="{{$kategori->aciklama}}">
                         <div class="card-body">
                           <h5 class="card-title">{{$kategori->ad}}</h5>
-                          <p class="card-text">{{Str::limit($kategori->aciklama, 30)}}</p>
+                          <p class="card-text">{!!  substr(strip_tags($kategori->aciklama), 0, 30) !!} ...</p>
                         </div>
                       </a>
                     </div>
@@ -52,7 +52,7 @@
                       <a class="card border" href="/haber/sayfa_detay/{{$sayfa->id}}" title="{{$sayfa->icerik}}">
                         <div class="card-body">
                           <h5 class="card-title">{{$sayfa->ad}}</h5>
-                          <p class="card-text">{{Str::limit($sayfa->icerik, 30)}}</p>
+                          <p class="card-text"> {!!  substr(strip_tags($sayfa->icerik), 0, 30) !!} ... </p>
                         </div>
                       </a>
                     </div>

@@ -50,7 +50,8 @@ class EgitimIcerikController extends Controller
         'icerik' => $request->baslik." oluşturuldu."
       ]); 
 
-      return redirect('/admin/egitim/egitim_iceriks')->with('success', 'Eğitim içerik başarı ile oluşturuldu!');
+      return redirect('/admin/egitim/egitim_iceriks')
+        ->with('success', 'Eğitim içerik başarı ile oluşturuldu!');
     }
 
     /**
@@ -96,7 +97,8 @@ class EgitimIcerikController extends Controller
         'icerik' => $request->baslik." güncellendi."
       ]);
 
-      return redirect('/admin/egitim/egitim_iceriks')->with('success', 'Eğitim içerik başarı ile güncellendi!');
+      return redirect('/admin/egitim/egitim_iceriks')
+        ->with('success', 'Eğitim içerik başarı ile güncellendi!');
     }
 
     /**
@@ -114,7 +116,8 @@ class EgitimIcerikController extends Controller
         'icerik' => $egitim_icerik->baslik." silindi."
       ]);
 
-      return redirect('/admin/egitim/egitim_iceriks')->with('success', 'Eğitim içerik başarı ile silindi!');
+      return redirect('/admin/egitim/egitim_iceriks')
+        ->with('success', 'Eğitim içerik başarı ile silindi!');
     }
 
 		/**

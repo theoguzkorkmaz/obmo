@@ -49,21 +49,36 @@ class AdminController extends Controller
     public function ara_show()
     {
         return view('admin.ara')             
-            ->with('navbars', AdminNavbar::all())
-            ->with('egitims', EgitimEgitim::latest()->filter(request(['ara']))->paginate(12))
-            ->with('ekategoris', EgitimKategori::latest()->filter(request(['ara']))->paginate(12))
-            ->with('eiceriks', EgitimIcerik::latest()->filter(request(['ara']))->paginate(12))
-            ->with('esinavs', EgitimSinav::latest()->filter(request(['ara']))->paginate(12))
-            ->with('eyorums', EgitimYorum::latest()->filter(request(['ara']))->paginate(12))
-            ->with('esorus', EgitimSoru::latest()->filter(request(['ara']))->paginate(12))
-            ->with('ecevaps', EgitimCevap::latest()->filter(request(['ara']))->paginate(12))
-            ->with('sosyals', Sosyal::latest()->filter(request(['ara']))->paginate(12))
-            ->with('habers', HaberHaber::latest()->filter(request(['ara']))->paginate(12))
-            ->with('hsayfas', HaberSayfa::latest()->filter(request(['ara']))->paginate(12))
-            ->with('hkategoris', HaberKategori::latest()->filter(request(['ara']))->paginate(12))
-            ->with('htopbars', HaberTopbar::latest()->filter(request(['ara']))->paginate(12))
-            ->with('hyorums', HaberYorum::latest()->filter(request(['ara']))->paginate(12))
-            ->with('navbarss', AdminNavbar::latest()->filter(request(['ara']))->paginate(12));
+            ->with('navbars', 
+                AdminNavbar::all())
+            ->with('egitims', 
+                EgitimEgitim::latest()->filter(request(['ara']))->paginate(12))
+            ->with('ekategoris', 
+                EgitimKategori::latest()->filter(request(['ara']))->paginate(12))
+            ->with('eiceriks', 
+                EgitimIcerik::latest()->filter(request(['ara']))->paginate(12))
+            ->with('esinavs', 
+                EgitimSinav::latest()->filter(request(['ara']))->paginate(12))
+            ->with('eyorums', 
+                EgitimYorum::latest()->filter(request(['ara']))->paginate(12))
+            ->with('esorus', 
+                EgitimSoru::latest()->filter(request(['ara']))->paginate(12))
+            ->with('ecevaps', 
+                EgitimCevap::latest()->filter(request(['ara']))->paginate(12))
+            ->with('sosyals', 
+                Sosyal::latest()->filter(request(['ara']))->paginate(12))
+            ->with('habers', 
+                HaberHaber::latest()->filter(request(['ara']))->paginate(12))
+            ->with('hsayfas', 
+                HaberSayfa::latest()->filter(request(['ara']))->paginate(12))
+            ->with('hkategoris', 
+                HaberKategori::latest()->filter(request(['ara']))->paginate(12))
+            ->with('htopbars', 
+                HaberTopbar::latest()->filter(request(['ara']))->paginate(12))
+            ->with('hyorums', 
+                HaberYorum::latest()->filter(request(['ara']))->paginate(12))
+            ->with('navbarss', 
+                AdminNavbar::latest()->filter(request(['ara']))->paginate(12));
     }
 
     public function adminlik()
@@ -91,3 +106,5 @@ class AdminController extends Controller
         return redirect()->back()->with('success', 'Adminlik başarı ile verildi!');
     }
 }
+
+

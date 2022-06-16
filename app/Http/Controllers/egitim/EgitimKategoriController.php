@@ -17,7 +17,8 @@ class EgitimKategoriController extends Controller
      */
     public function create()
     {
-			return view('admin.egitim.kategori.create')->with('navbars', AdminNavbar::all());
+			return view('admin.egitim.kategori.create')
+        ->with('navbars', AdminNavbar::all());
     }
 
     /**
@@ -48,7 +49,8 @@ class EgitimKategoriController extends Controller
         'icerik' => $request->baslik." oluşturuldu."
       ]);
 
-      return redirect('/admin/egitim/egitim_kategoris')->with('success', 'Eğitim kategori başarı ile oluşturuldu!');
+      return redirect('/admin/egitim/egitim_kategoris')
+        ->with('success', 'Eğitim kategori başarı ile oluşturuldu!');
     }
 
     /**
@@ -94,7 +96,8 @@ class EgitimKategoriController extends Controller
         'icerik' => $request->baslik." güncellendi."
       ]); 
 
-      return redirect('/admin/egitim/egitim_kategoris')->with('success', 'Eğitim kategori başarı ile güncellendi!');
+      return redirect('/admin/egitim/egitim_kategoris')
+        ->with('success', 'Eğitim kategori başarı ile güncellendi!');
     }
 
     /**
@@ -112,7 +115,8 @@ class EgitimKategoriController extends Controller
         'icerik' => $egitim_kategori->baslik." silindi."
       ]); 
 
-      return redirect('/admin/egitim/egitim_kategoris')->with('success', 'Eğitim kategori başarı ile silindi!');
+      return redirect('/admin/egitim/egitim_kategoris')
+        ->with('success', 'Eğitim kategori başarı ile silindi!');
     }
 
 		/**

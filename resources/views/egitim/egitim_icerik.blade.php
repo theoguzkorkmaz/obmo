@@ -106,7 +106,7 @@
           <strong>İçerik:</strong>
         </td>
         <td>
-          {{$egitmen->icerik}}
+          {!! $egitmen->icerik !!}
         </td>
       </tr>
       <tr>

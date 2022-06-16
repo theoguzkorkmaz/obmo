@@ -18,7 +18,7 @@
   
   @auth  
     <div id="yorum_login">    
-      <a href="/haber/yorum_kurallari" class="d-inline-block my-2">Genel yorum kuralları</a>
+      <a href="/haber/sayfa_detay/4" class="d-inline-block my-2">Genel yorum kuralları</a>
 
       <form action="/haber/haber_detay/{{$habert->id}}" method="POST" id="yorum_form">
         @csrf

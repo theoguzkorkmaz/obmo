@@ -49,7 +49,8 @@ class HaberYorumController extends Controller
         'icerik' => $request->baslik." oluşturuldu."
       ]);
 
-			return redirect('/admin/haber/haber_yorums')->with('success', 'Haber yorum başarı ile oluşturuldu!');
+			return redirect('/admin/haber/haber_yorums')
+        ->with('success', 'Haber yorum başarı ile oluşturuldu!');
     }
 
     /**
@@ -93,7 +94,8 @@ class HaberYorumController extends Controller
         'icerik' => $request->baslik." güncellendi."
       ]);
 
-      return redirect('/admin/haber/haber_yorums')->with('success', 'Haber yorum başarı ile güncellendi!');
+      return redirect('/admin/haber/haber_yorums')
+        ->with('success', 'Haber yorum başarı ile güncellendi!');
     }
 
     /**
@@ -111,7 +113,8 @@ class HaberYorumController extends Controller
         'icerik' => $haber_yorum->baslik." silindi."
       ]);
 
-      return redirect('/admin/haber/haber_yorums')->with('success', 'Haber yorum başarı ile silindi!');
+      return redirect('/admin/haber/haber_yorums')
+        ->with('success', 'Haber yorum başarı ile silindi!');
     }
 
 		/**

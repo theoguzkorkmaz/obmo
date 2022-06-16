@@ -1,6 +1,6 @@
 {{-- {{$sayfa->id}}
 {{$sayfa->baslik}}
-{{$sayfa->ad}} --}}
+{{$sayfa->ad}} --}} 
 
 <x-haber_layout :topbars="$topbars" :kategoris="$kategoris" :sayfas="$sayfas" :fhabers="$fhabers" :sosyals="$sosyals">
   <div class="container p-md-0">    
@@ -20,43 +20,11 @@
           <h1 class="baslik">{!! $sayfa->ad !!}</h1>        
       
           <p class="yazar-tarih">
-            <a class="ad" href="$">Y A Z A R</a> tarafından | <span class="tarih">{{$sayfa->created_at->diffForHumans()}}</span> paylaşıldı.
+            <span class="tarih">{{$sayfa->created_at->diffForHumans()}}</span> paylaşıldı.
           </p>
       
-          <div class="d-flex flex-row gap-2" id="paylasim">
-            <p>Paylaşın:</p>
-            <ul class="list-group list-group-horizontal">
-              <li class="list-group-item">
-                <a href="#">
-                  <i class="fab fa-github"></i>
-                </a>
-              </li>
-              <li class="list-group-item">
-                <a href="#">
-                  <i class="fab fa-facebook"></i>
-                </a>
-              </li>
-              <li class="list-group-item">
-                <a href="#">
-                  <i class="fab fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-group-item">
-                <a href="#">
-                  <i class="fab fa-linkedin"></i>
-                </a>
-              </li>
-              <li class="list-group-item">
-                <a href="#">
-                  <i class="fab fa-instagram"></i>
-                </a>
-              </li>
-              <li class="list-group-item">
-                <a href="#">
-                  <i class="fab fa-youtube"></i>
-                </a>
-              </li>
-            </ul>
+          <div class="d-flex flex-row gap-2" id="paylasim">            
+            <x-haber_paylas :haber="$sayfa"></x-haber_paylas>            
           </div>
         </div>
         <div id="detay_haber">

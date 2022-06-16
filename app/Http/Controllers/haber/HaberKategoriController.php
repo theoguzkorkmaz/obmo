@@ -17,7 +17,8 @@ class HaberKategoriController extends Controller
      */
     public function create()
     {
-			return view('admin.haber.kategori.create')->with('navbars', AdminNavbar::all());
+			return view('admin.haber.kategori.create')
+        ->with('navbars', AdminNavbar::all());
     }
 
     /**
@@ -50,7 +51,8 @@ class HaberKategoriController extends Controller
         'icerik' => $request->ad." oluşturuldu."
       ]);
 
-      return redirect('/admin/haber/haber_kategoris')->with('success', 'Haber kategori başarı ile oluşturuldu!');
+      return redirect('/admin/haber/haber_kategoris')
+        ->with('success', 'Haber kategori başarı ile oluşturuldu!');
 		}
 
     /**
@@ -98,7 +100,8 @@ class HaberKategoriController extends Controller
         'icerik' => $request->ad." güncellendi."
       ]);
 
-      return redirect('/admin/haber/haber_kategoris')->with('success', 'Haber kategori başarı ile güncellendi!');
+      return redirect('/admin/haber/haber_kategoris')
+        ->with('success', 'Haber kategori başarı ile güncellendi!');
     }
 
     /**
@@ -116,7 +119,8 @@ class HaberKategoriController extends Controller
         'icerik' => $haber_kategori->ad." silindi."
       ]);
 
-      return redirect('/admin/haber/haber_kategoris')->with('success', 'Haber kategori başarı ile silindi!');
+      return redirect('/admin/haber/haber_kategoris')
+        ->with('success', 'Haber kategori başarı ile silindi!');
     }
 
 		/**

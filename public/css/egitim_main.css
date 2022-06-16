@@ -1405,7 +1405,7 @@ h1, h2, h3, h4, h5, h6, p, span {
 }
 
 .dark-mode .list-group-item {
-  background: #111 !important;
+  background: #000 !important;
 }
 
 .dark-mode .card-title {

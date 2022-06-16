@@ -56,7 +56,8 @@ class EgitimEgitimController extends Controller
         'icerik' => $request->baslik." oluşturuldu."
       ]); 
 
-			return redirect('/admin/egitim/egitims')->with('success', 'Eğitim başarı ile oluşturuldu!');
+			return redirect('/admin/egitim/egitims')
+        ->with('success', 'Eğitim başarı ile oluşturuldu!');
     }
 
     /**
@@ -108,7 +109,8 @@ class EgitimEgitimController extends Controller
         'icerik' => $request->baslik." güncellendi."
       ]);
 
-      return redirect('/admin/egitim/egitims')->with('success', 'Eğitim başarı ile güncellendi!');
+      return redirect('/admin/egitim/egitims')
+        ->with('success', 'Eğitim başarı ile güncellendi!');
     }
 
     /**
@@ -126,7 +128,8 @@ class EgitimEgitimController extends Controller
         'icerik' => $egitim_egitim->baslik." silindi."
       ]);
 
-      return redirect('/admin/egitim/egitims')->with('success', 'Eğitim başarı ile silindi!');
+      return redirect('/admin/egitim/egitims')
+        ->with('success', 'Eğitim başarı ile silindi!');
     }
 
 		/**

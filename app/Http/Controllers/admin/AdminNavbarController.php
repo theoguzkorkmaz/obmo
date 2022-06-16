@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Models\EgitimNavbar;
+use App\Models\LogKayit;
+use App\Models\AdminNavbar;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\AdminNavbar;
 
 class AdminNavbarController extends Controller
 {
@@ -16,7 +16,8 @@ class AdminNavbarController extends Controller
      */
     public function create()
     {
-        return view('admin.admin.navbar.create')->with('navbars', AdminNavbar::all());
+        return view('admin.admin.navbar.create')
+          ->with('navbars', AdminNavbar::all());
     }
 
     /**
@@ -38,7 +39,13 @@ class AdminNavbarController extends Controller
 
       AdminNavbar::create($formFields);
 
-      return redirect('/admin/admin/admin_navbars')->with('success', 'Admin navbar başarı ile oluşturulmuştur!');
+      LogKayit::create([
+        'user_id' => auth()->user()->id,        
+        'icerik' => $request->ad." eklendi."
+      ]);
+
+      return redirect('/admin/admin/admin_navbars')
+        ->with('success', 'Admin navbar başarı ile oluşturulmuştur!');
     }
 
     /**
@@ -75,7 +82,13 @@ class AdminNavbarController extends Controller
 
       $admin_navbar->update($formFields);
 
-      return redirect('/admin/admin/admin_navbars')->with('success', 'Admin navbar başarı ile güncellenmiştir!');
+      LogKayit::create([
+        'user_id' => auth()->user()->id,        
+        'icerik' => $admin_navbar->ad." güncellendi."
+      ]);
+
+      return redirect('/admin/admin/admin_navbars')
+        ->with('success', 'Admin navbar başarı ile güncellenmiştir!');
     }
 
     /**
@@ -87,7 +100,14 @@ class AdminNavbarController extends Controller
     public function destroy(AdminNavbar $admin_navbar)
     {
       $admin_navbar->delete();
-      return redirect('/admin/admin/admin_navbars')->with('success', 'Admin navbar başarı ile silinmiştir!');
+
+      LogKayit::create([
+        'user_id' => auth()->user()->id,        
+        'icerik' => $admin_navbar->ad." silindi."
+      ]);
+
+      return redirect('/admin/admin/admin_navbars')
+        ->with('success', 'Admin navbar başarı ile silinmiştir!');
     }
 
     /**

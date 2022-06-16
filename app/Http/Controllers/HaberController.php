@@ -24,7 +24,7 @@ class HaberController extends Controller
             ->with('sayfas', HaberSayfa::all())
             ->with('gundem', HaberHaber::latest()->first())
             ->with('gundems', HaberHaber::latest()->skip(1)->limit(4)->get())
-            ->with('basliks', HaberHaber::latest()->skip(5)->limit(6)->get())
+            ->with('basliks', HaberHaber::latest()->skip(5)->limit(4)->get())
             ->with('habers', HaberHaber::latest()->paginate(12))
             ->with('kacirmas', HaberHaber::inRandomOrder()->limit(12)->get())
             ->with('fhabers', HaberHaber::inRandomOrder()->limit(4)->get())
@@ -42,14 +42,26 @@ class HaberController extends Controller
             ->with('topbars', HaberTopbar::all())
             ->with('kategoris', HaberKategori::all())
             ->with('sayfas', HaberSayfa::all())
-            ->with('haber', HaberHaber::select('*', 'haber_habers.created_at as tarih')->leftJoin('haber_kategoris', 'haber_habers.kategori_id', '=', 'haber_kategoris.id')->where('haber_habers.id', '=', $id)->first())
+            ->with('haber', 
+                HaberHaber::select('*', 'haber_habers.created_at as tarih')
+                ->leftJoin('haber_kategoris', 'haber_habers.kategori_id', '=', 'haber_kategoris.id')
+                ->where('haber_habers.id', '=', $id)
+                ->first())
             ->with('haber2', HaberHaber::where('id', $id)->first())
-            ->with('habert', HaberHaber::where('haber_habers.id', '=', $id)->first())
-            ->with('yorums', HaberHaber::leftJoin('haber_yorums', 'haber_habers.id', '=', 'haber_yorums.haber_id')->where('haber_habers.id', '=', $id)->orderBy('haber_yorums.created_at', 'desc')->get())
+            ->with('habert', HaberHaber::where('haber_habers.id', '=', $id)
+            ->first())
+            ->with('yorums', 
+                HaberHaber::leftJoin('haber_yorums', 'haber_habers.id', '=', 'haber_yorums.haber_id')
+                ->where('haber_habers.id', '=', $id)
+                ->orderBy('haber_yorums.created_at', 'desc')
+                ->get())
             ->with('kacirmas', HaberHaber::inRandomOrder()->limit(10)->get())
             ->with('fhabers', HaberHaber::inRandomOrder()->limit(4)->get())
             ->with('sosyals', Sosyal::all())
-            ->with('yazar', HaberHaber::leftJoin('users', 'haber_habers.admin', '=', 'users.id')->where('haber_habers.id', '=', $id)->first());
+            ->with('yazar', 
+                HaberHaber::leftJoin('users', 'haber_habers.admin', '=', 'users.id')
+                ->where('haber_habers.id', '=', $id)
+                ->first());
     }
 
     public function kategori_show($id)
@@ -58,12 +70,28 @@ class HaberController extends Controller
             ->with('topbars', HaberTopbar::all())
             ->with('kategoris', HaberKategori::all())
             ->with('sayfas', HaberSayfa::all())
-            ->with('kategori', HaberKategori::where('haber_kategoris.id', '=', $id)->first())
-            ->with('gundem', HaberHaber::where('haber_habers.kategori_id', '=', $id)->orderBy('haber_habers.created_at', 'desc')->first())
-            ->with('gundems', HaberHaber::where('haber_habers.kategori_id', '=', $id)->orderBy('haber_habers.created_at', 'desc')->skip(1)->limit(4)->get())
-            ->with('basliks', HaberHaber::where('haber_habers.kategori_id', '=', $id)->orderBy('haber_habers.created_at', 'desc')->skip(5)->limit(6)->get())
-            ->with('habers', HaberHaber::where('haber_habers.kategori_id', '=', $id)->orderBy('haber_habers.created_at', 'desc')->paginate(12))
-            ->with('kacirmas', HaberHaber::where('haber_habers.kategori_id', '=', $id)->inRandomOrder()->limit(12)->get())
+            ->with('kategori', 
+                HaberKategori::where('haber_kategoris.id', '=', $id)
+                ->first())
+            ->with('gundem', 
+                HaberHaber::where('haber_habers.kategori_id', '=', $id)
+                ->orderBy('haber_habers.created_at', 'desc')
+                ->first())
+            ->with('gundems', 
+                HaberHaber::where('haber_habers.kategori_id', '=', $id)
+                ->orderBy('haber_habers.created_at', 'desc')
+                ->skip(1)->limit(4)->get())
+            ->with('basliks', 
+                HaberHaber::where('haber_habers.kategori_id', '=', $id)
+                ->orderBy('haber_habers.created_at', 'desc')
+                ->skip(5)->limit(4)->get())
+            ->with('habers', 
+                HaberHaber::where('haber_habers.kategori_id', '=', $id)
+                ->orderBy('haber_habers.created_at', 'desc')
+                ->paginate(12))
+            ->with('kacirmas', 
+                HaberHaber::where('haber_habers.kategori_id', '=', $id)
+                ->inRandomOrder()->limit(12)->get())
             ->with('fhabers', HaberHaber::inRandomOrder()->limit(4)->get())
             ->with('sosyals', Sosyal::all())
             ->with('kategori1', HaberHaber::where('kategori_id', 1)->get())
@@ -80,7 +108,7 @@ class HaberController extends Controller
             ->with('kacirmas', HaberHaber::inRandomOrder()->limit(12)->get())
             ->with('fhabers', HaberHaber::inRandomOrder()->limit(4)->get())
             ->with('sosyals', Sosyal::all());
-    }
+    } 
 
     public function ara_show()
     {                
@@ -141,7 +169,9 @@ class HaberController extends Controller
 
         $client = new \GuzzleHttp\Client();        
         $msg = $request->baslik." yorumu sisteme ".auth()->user()->name." tarafından eklendi.";
-        $request_url = 'https://api.telegram.org/bot5498794643:AAHByItGuGCqmaEn2chW4EVyEC8w0h2z6t0/sendMessage?chat_id=1055988705&text='.$msg;        
+        $request_url = 'https://api.telegram.org/
+            bot5498794643:AAHByItGuGCqmaEn2chW4EVyEC8w0h2z6t0/
+            sendMessage?chat_id=1055988705&text='.$msg;        
         $res = $client->get($request_url);
 
         return redirect()->back()->with('success', 'Yorum başarı ile alnımıştır, onaylandıktan sonraa görülebilir!');
@@ -151,7 +181,11 @@ class HaberController extends Controller
     {
         return view('profil')
             ->with('user', User::where('id', $id)->first())
-            ->with('egitims', EgitimEgitim::leftJoin('user_egitims', 'egitim_egitims.id', '=', 'user_egitims.ders_id')->where('user_egitims.user_id', '=', $id)->get())
+            ->with('egitims', 
+                EgitimEgitim::leftJoin('user_egitims', 'egitim_egitims.id', '=', 'user_egitims.ders_id')
+                ->where('user_egitims.user_id', '=', $id)
+                ->get())
             ->with('logs', LogKayit::where('user_id', $id)->get());
     }
 }
+

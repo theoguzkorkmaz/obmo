@@ -40,7 +40,8 @@ class EgitimPuanController extends Controller
 
 			EgitimPuan::create($formFields);
 
-			return redirect('/admin/egitim/egitim_puans')->with('success', 'Eğitim puan başarı ile oluşturuldu!');
+			return redirect('/admin/egitim/egitim_puans')
+        ->with('success', 'Eğitim puan başarı ile oluşturuldu!');
     }
 
     /**
@@ -77,7 +78,8 @@ class EgitimPuanController extends Controller
 
       $egitim_puan->update($formFields);
 
-      return redirect('/admin/egitim/egitim_puans')->with('success', 'Eğitim puan başarı ile güncellendi!');
+      return redirect('/admin/egitim/egitim_puans')
+        ->with('success', 'Eğitim puan başarı ile güncellendi!');
     }
 
     /**
@@ -89,7 +91,8 @@ class EgitimPuanController extends Controller
     public function destroy(EgitimPuan $egitim_puan)
     {
 			$egitim_puan->delete();
-      return redirect('/admin/egitim/egitim_puans')->with('success', 'Eğitim puan başarı ile silindi!');
+      return redirect('/admin/egitim/egitim_puans')
+        ->with('success', 'Eğitim puan başarı ile silindi!');
     }
 
 		/**

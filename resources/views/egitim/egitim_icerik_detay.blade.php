@@ -1,7 +1,7 @@
 <x-egitim_layout :navbars="$navbars">    
   <div class="" id="egitim_icerik_detay">    
     <h3 class="baslik">{{$icerik->baslik}}</h3>
-    <p class="icerik my-3">{{$icerik->aciklama}}</p>
+    <p class="icerik my-3">{!! $icerik->aciklama !!}</p>
     <table class="table table-bordered w-25">
       <tr>
         <td class="w-50"><strong>İçerik puanı:</strong></td>
@@ -20,7 +20,7 @@
       @endphp 
       @foreach ($tamamdurumu as $item)
           @if ($item->icerik_id == $icerik->id)
-            @php
+            @php 
               $a = true;   
             @endphp          
             <div class="w-100 d-flex flex-row align-items-center gap-4 my-3">
@@ -54,7 +54,7 @@
       <div class="baslik">
         Eğitim içeriği:
       </div>
-      <p>{{$icerik->video_yazili}}</p>
+      <p>{!! $icerik->video_yazili !!}</p>
 
       <div class="tarih mt-4">        
         <table class="table table-bordered w-50">

@@ -53,7 +53,8 @@ class HaberHaberController extends Controller
         'icerik' => $request->baslik." oluşturuldu."
       ]);
 
-			return redirect('/admin/haber/habers')->with('success', 'Haber başarı ile oluşturuldu!');
+			return redirect('/admin/haber/habers')
+        ->with('success', 'Haber başarı ile oluşturuldu!');
     }
 
     /**
@@ -101,7 +102,8 @@ class HaberHaberController extends Controller
         'icerik' => $request->baslik." güncellendi."
       ]);
 
-      return redirect('/admin/haber/habers')->with('success', 'Haber başarı ile güncellendi!');
+      return redirect('/admin/haber/habers')
+        ->with('success', 'Haber başarı ile güncellendi!');
     }
 
     /**
@@ -119,7 +121,8 @@ class HaberHaberController extends Controller
         'icerik' => $haber_haber->baslik." silindi."
       ]);
 
-      return redirect('/admin/haber/habers')->with('success', 'Haber başarı ile silindi!');
+      return redirect('/admin/haber/habers')
+        ->with('success', 'Haber başarı ile silindi!');
     }
 
 		/**

@@ -2,6 +2,16 @@
   <div class="" id="egitim_icerik_detay">    
     <h3 class="baslik">{{$sinav->baslik}}</h3>
     <p class="icerik">{{$sinav->aciklama}}</p>
+    <table class="table table-bordered w-25 my-2">
+      <tr>
+        <td class="w-50"><strong>İçerik puanı:</strong></td>
+        <td class="w-50">{{$sinav->puan}}</td>
+      </tr>
+      <tr>
+        <td class="w-50"><strong>Sizin puanınız:</strong></td>
+        <td class="w-50">{{auth()->user()->point}}</td>
+      </tr>
+    </table> 
   </div>  
 
   <form action="/egitim/sinav_detay/{{$sinav->id}}" method="post">
@@ -13,14 +23,14 @@
     @endphp
     @foreach ($sorus as $soru)    
       <div class="my-3">
-        <h3>Soru {{$soru->soru_no}}: {{$soru->soru}}</h3>                
+        <h3 class="mb-2 fs-4"><strong>Soru {{$soru->soru_no}}:</strong> {{$soru->soru}}</h3>                
         @foreach ($cevaps as $cevap)                    
         @php                
                 $a = $cevap->soru_id;                              
             @endphp
           @if (($soru->id == $cevap->soru_id))                       
             <input type="radio" value="{{$cevap->dogru}}" name="cevap{{$cevap->soru_id}}" required>
-            Şık {{$cevap->cevap_no}}: {{$cevap->icerik}}</p>                                  
+            Şık {{$cevap->cevap_no}}: {!! $cevap->icerik !!}</p>                                  
             @php
               array_push($ids, $a);
             @endphp 

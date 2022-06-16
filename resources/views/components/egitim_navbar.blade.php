@@ -2,20 +2,14 @@
 
 <nav class="col-md-2 col-12 d-none d-md-flex" id="main_nav">
   <div class="sticky-md-top in">
-    <div class="nav-brand" href="#">
-      <a href="#">
+    <div class="nav-brand">
+      <a href="/egitim">
         O B M O <span><i class="fas fa-spider"></i> Örümcek</span>
       </a>
     </div><!-- navbar-brand -->
     <div class="w-full" id="menu">
       <span>Menü:</span>
       <ul class="list-group">
-        <li class="list-group-item">
-          <a href="/egitim/ara" title="Arama sayfasına gitmek için tıklayınız."><i class="fas fa-search"></i> Ara</a>
-        </li>
-        <li class="list-group-item">
-          <a href="/egitim/dahasonra" title="Daha sonra sayfasına gitmek için tıklayınız."><i class="fas fa-bookmark"></i> Daha sonra</a>
-        </li>
         @if (count($navbars) != 0)
           @foreach ($navbars as $item)
             @if (($item->ismenu) == 1)
@@ -26,8 +20,6 @@
               </li>
             @endif                    
           @endforeach
-        @else
-          <p>Navbar yüklenemedi, lütfen daha sonra tekrar deneyiniz.</p>
         @endif
       </ul>
 
@@ -49,8 +41,6 @@
               </li>
             @endif  
           @endforeach
-        @else
-          <p>Navbar yüklenemedi, lütfen daha sonra tekrar deneyiniz.</p>
         @endif
       </ul>
     </div><!-- /menu -->
@@ -98,8 +88,6 @@
               </li>
             @endif                    
           @endforeach
-        @else
-          <p>Navbar yüklenemedi, lütfen daha sonra tekrar deneyiniz.</p>
         @endif
       </ul>
 
@@ -115,16 +103,19 @@
               </li>
             @endif  
           @endforeach
-        @else
-          <p>Navbar yüklenemedi, lütfen daha sonra tekrar deneyiniz.</p>
         @endif
       </ul>
     </div><!-- /menu -->
+    @auth
     <div class="w-full" id="nav-kimlik">
-      <a href="#">
-        <span>Oğuz Korkmaz</span>
-        <span><i class="fas fa-map-marker"></i> Zonguldak</span>
-      </a>
-    </div><!-- /nav-kimlik -->
+      <form action="{{ route('logout') }}" method="post">
+        @csrf
+        <button type="submit" class="btn d-flex flex-column align-items-center border px-3 py-2 mx-auto rounded">
+          <span>{{auth()->user()->name}}</span>
+          <span><i class="fas fa-sign-out-alt    "></i> Çıkış yap</span>
+        </button>
+      </form>            
+    </div><!-- /nav-kimlik -->    
+    @endauth   
   </div><!-- /offcanvas-body -->
 </div><!-- /mobile-nav -->

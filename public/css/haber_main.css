@@ -234,12 +234,14 @@ h1, h2, h3, h4, h5, h6, p, span {
 
 #carousel #caro-baslik .list-group {
   border-radius: 0;
+  background: transparent;
 }
 
 #carousel #caro-baslik .list-group-item {
   margin-bottom: 0.7rem;
   border: dashed 1px transparent;
   padding: 0;
+  background: transparent;
 }
 
 #carousel #caro-baslik .list-group-item:hover {
@@ -1209,6 +1211,7 @@ footer #copyright p {
   padding: 0;
   border: none;
   margin-bottom: 0.7rem;
+  background: transparent !important;
 }
 
 #genel_sayfa_diger .list-group-item a {
@@ -1218,6 +1221,7 @@ footer #copyright p {
   padding: 0.7rem;
   font-weight: 600;
   color: #111827;
+  background: transparent !important;
 }
 
 #genel_sayfa_diger .list-group-item a:hover {

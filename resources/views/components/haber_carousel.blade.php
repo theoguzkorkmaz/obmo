@@ -58,9 +58,9 @@
         @foreach ($basliks as $baslik)
           <a href="/haber/haber_detay/{{$baslik->id}}" class="list-group-item" title="{{Str::limit($baslik->baslik, 70)}}">
             <div class="w-100">
-              <h5 class="text-break">{!! substr(strip_tags($baslik->baslik), 0, 70) !!}</h5>            
+              <h5 class="text-break">{!! substr(strip_tags($baslik->baslik), 0, 42) !!} ...</h5>            
             </div>
-            <p>{!! substr(strip_tags($baslik->icerik), 0, 100) !!}</p>          
+            <p>{!! substr(strip_tags($baslik->icerik), 0, 100) !!} ...</p>          
           </a>
         @endforeach
       @else

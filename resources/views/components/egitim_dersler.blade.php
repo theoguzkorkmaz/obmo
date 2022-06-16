@@ -14,7 +14,7 @@
                 <img src="{{$item->resim ? asset('storage/'.$item->resim) : asset('/images/no-image.png')}}" class="card-img-top" alt="{{Str::limit($item->baslik, 30)}}" title="{{Str::limit($item->baslik, 30)}}">
                 <div class="card-body">
                   <h5 class="card-title">{{$item->baslik}}</h5>    
-                  <p>Açıklama: <span>{{Str::limit($item->aciklama, 40)}}</span></p>                                      
+                  <p>Açıklama: <span>{!! substr(strip_tags($item->aciklama), 0, 42) !!} ...</span></p>                                      
                   <p class="mt-2"><i class="fas fa-tags    "></i> <span>{{$item->etiket}}</span></p>
                   <p class="mt-2"><i class="fas fa-clock"></i> <span>{{$item->created_at}}</span></p>
                 </div>

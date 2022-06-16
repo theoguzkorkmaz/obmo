@@ -17,7 +17,8 @@ class HaberTopbarController extends Controller
      */
     public function create()
     {			
-			return view('admin.haber.topbar.create')->with('navbars', AdminNavbar::all()); 
+			return view('admin.haber.topbar.create')
+        ->with('navbars', AdminNavbar::all()); 
     }
 
     /**
@@ -45,7 +46,8 @@ class HaberTopbarController extends Controller
         'icerik' => $request->ad." oluşturuldu."
       ]);
 
-      return redirect('/admin/haber/haber_topbars')->with('success', 'Haber topbar başarı ile oluşturuldu!');
+      return redirect('/admin/haber/haber_topbars')
+        ->with('success', 'Haber topbar başarı ile oluşturuldu!');
     }
 
     /**
@@ -101,7 +103,8 @@ class HaberTopbarController extends Controller
         'icerik' => $request->ad." güncellendi."
       ]);
 
-      return redirect('/admin/haber/haber_topbars')->with('success', 'Haber topbar başarı ile güncellendi!');
+      return redirect('/admin/haber/haber_topbars')
+        ->with('success', 'Haber topbar başarı ile güncellendi!');
     }
 
     /**
@@ -119,7 +122,8 @@ class HaberTopbarController extends Controller
         'icerik' => $haber_topbar->ad." silindi."
       ]);
 
-      return redirect('/admin/haber/haber_topbars')->with('success', 'Haber topbar başarı ile silindi!');
+      return redirect('/admin/haber/haber_topbars')
+        ->with('success', 'Haber topbar başarı ile silindi!');
     }
 
 		/**

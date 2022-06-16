@@ -1,6 +1,6 @@
 <nav class="d-flex flex-row items-center d-sm-none navbar" id="mobile_nav">
   <div class="nav-brand" href="#">
-    <a href="#">
+    <a href="/egitim">
       O B M O <span><i class="fas fa-spider"></i> Örümcek</span>
     </a>
     <a class="btn" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">

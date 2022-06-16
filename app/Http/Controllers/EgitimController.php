@@ -48,16 +48,33 @@ class EgitimController extends Controller
     public function egitim_detay ($id) {              
         return view('egitim.egitim_detay')            
             ->with('navbars', EgitimNavbar::all())                        
-            ->with('egitim', EgitimEgitim::where('egitim_egitims.id', '=', $id)->first())
-            ->with('iceriks', EgitimEgitim::leftJoin('egitim_iceriks', 'egitim_egitims.id', '=', 'egitim_iceriks.egitim_id')->where('egitim_egitims.id', '=', $id)->orderBy('egitim_iceriks.icerik_no', 'asc')->get())
-            ->with('iceriksay', EgitimIcerik::where('egitim_iceriks.egitim_id',$id)->get())
-            ->with('kayit', UserEgitim::leftJoin('egitim_egitims', 'user_egitims.ders_id', '=', 'egitim_egitims.id')->where('user_egitims.user_id', '=', auth()->user()->id)->where('egitim_egitims.id', '=', $id)->first())
-            ->with('egitmen', EgitimEgitim::leftJoin('users', 'egitim_egitims.admin', '=', 'users.id')->where('egitim_egitims.id', '=', $id)->first())
-            ->with('yorums', EgitimEgitim::leftJoin('egitim_yorums', 'egitim_egitims.id', '=', 'egitim_yorums.egitim_id')->where('egitim_egitims.id', '=', $id)->orderBy('egitim_yorums.created_at', 'desc')->get())
+            ->with('egitim', 
+                EgitimEgitim::where('egitim_egitims.id', '=', $id)->first())
+            ->with('iceriks', 
+                EgitimEgitim::leftJoin('egitim_iceriks', 'egitim_egitims.id', '=', 'egitim_iceriks.egitim_id')
+                ->where('egitim_egitims.id', '=', $id)
+                ->orderBy('egitim_iceriks.icerik_no', 'asc')->get())
+            ->with('iceriksay', 
+                EgitimIcerik::where('egitim_iceriks.egitim_id',$id)->get())
+            ->with('kayit', 
+                UserEgitim::leftJoin('egitim_egitims', 'user_egitims.ders_id', '=', 'egitim_egitims.id')
+                ->where('user_egitims.user_id', '=', auth()->user()->id)
+                ->where('egitim_egitims.id', '=', $id)->first())
+            ->with('egitmen', 
+                EgitimEgitim::leftJoin('users', 'egitim_egitims.admin', '=', 'users.id')
+                ->where('egitim_egitims.id', '=', $id)->first())
+            ->with('yorums', 
+                EgitimEgitim::leftJoin('egitim_yorums', 'egitim_egitims.id', '=', 'egitim_yorums.egitim_id')
+                ->where('egitim_egitims.id', '=', $id)
+                ->orderBy('egitim_yorums.created_at', 'desc')->get())
             ->with('yorumsay', EgitimYorum::where('egitim_id',$id)->get())
             ->with('sonras', UserSonra::where('ders_id', $id)->get())
-            ->with('useres', UserEgitim::where('user_egitims.ders_id',$id)->where('user_egitims.user_id',auth()->user()->id)->get())
-            ->with('sinavsay', EgitimSinav::leftJoin('egitim_iceriks', 'egitim_sinavs.icerik_id', '=', 'egitim_iceriks.id')->where('egitim_iceriks.egitim_id', '=', $id)->get())
+            ->with('useres', 
+                UserEgitim::where('user_egitims.ders_id',$id)
+                ->where('user_egitims.user_id',auth()->user()->id)->get())
+            ->with('sinavsay', 
+                EgitimSinav::leftJoin('egitim_iceriks', 'egitim_sinavs.icerik_id', '=', 'egitim_iceriks.id')
+                ->where('egitim_iceriks.egitim_id', '=', $id)->get())
             ->with('sonrasay', UserSonra::where('ders_id',$id)->get())
             ->with('usersay', UserEgitim::where('ders_id',$id)->get());
     }
@@ -74,14 +91,17 @@ class EgitimController extends Controller
         return view('egitim.kategori_detay')            
             ->with('navbars', EgitimNavbar::all())
             ->with('kategori', EgitimKategori::where('id', $id)->first())
-            ->with('egitims', EgitimEgitim::latest()->where('kategori_id', $id)->get());
+            ->with('egitims', EgitimEgitim::latest()
+                ->where('kategori_id', $id)->get());
     }
 
     public function derslerim()
     {
         return view('egitim.derslerim')            
             ->with('navbars', EgitimNavbar::all())
-            ->with('derss', UserEgitim::join('egitim_egitims', 'egitim_egitims.id', '=', 'user_egitims.ders_id')->where('user_egitims.user_id', '=', auth()->user()->id)->paginate(12))
+            ->with('derss', 
+                UserEgitim::join('egitim_egitims', 'egitim_egitims.id', '=', 'user_egitims.ders_id')
+                ->where('user_egitims.user_id', '=', auth()->user()->id)->paginate(12))
             ->with('yorums', EgitimYorum::where('kullanici_id', auth()->user()->id)->get())
             ->with('sonras', UserSonra::where('user_id', auth()->user()->id)->get())
             ->with('iceriks', UserIcerik::where('user_id', auth()->user()->id)->get())
@@ -92,7 +112,10 @@ class EgitimController extends Controller
     {
         return view('egitim.sonra')            
             ->with('navbars', EgitimNavbar::all())
-            ->with('derss', UserSonra::join('egitim_egitims', 'egitim_egitims.id', '=', 'user_sonras.ders_id')->where('user_sonras.user_id', '=', auth()->user()->id)->paginate(12));            
+            ->with('derss', 
+            UserSonra::join('egitim_egitims', 'egitim_egitims.id', '=', 'user_sonras.ders_id')
+                ->where('user_sonras.user_id', '=', auth()->user()->id)
+                ->paginate(12));            
     }
 
     public function siralama()
@@ -108,28 +131,56 @@ class EgitimController extends Controller
     {
         return view('egitim.ara')            
             ->with('navbars', EgitimNavbar::all())
-            ->with('egitims', EgitimEgitim::latest()->filter(request(['ara']))->paginate(12))
-            ->with('egitimsd', EgitimEgitim::inRandomOrder()->limit(10)->paginate(12));
+            ->with('egitims', EgitimEgitim::latest()
+                ->filter(request(['ara']))
+                ->paginate(12))
+            ->with('egitimsd', 
+                EgitimEgitim::inRandomOrder()
+                ->limit(10)
+                ->paginate(12));
     }
 
     public function egitim_icerik($id)
     {
         return view('egitim.egitim_icerik')            
             ->with('navbars', EgitimNavbar::all())
-            ->with('egitim', EgitimEgitim::where('id', $id)->first())
-            ->with('egitmen', EgitimEgitim::leftJoin('users', 'egitim_egitims.admin', '=', 'users.id')->where('egitim_egitims.id', '=', $id)->leftJoin('egitim_kategoris', 'egitim_egitims.kategori_id', '=', 'egitim_kategoris.id')->where('egitim_egitims.id', '=', $id)->first())
-            ->with('iceriks', EgitimIcerik::where('egitim_iceriks.egitim_id','=', $id)->orderBy('egitim_iceriks.icerik_no', 'asc')->get())
-            ->with('sinavs',  EgitimIcerik::rightJoin('egitim_sinavs', 'egitim_sinavs.icerik_id', '=', 'egitim_iceriks.id')->where('egitim_iceriks.egitim_id', '=', $id)->get())
-            ->with('yorums', EgitimEgitim::leftJoin('egitim_yorums', 'egitim_egitims.id', '=', 'egitim_yorums.egitim_id')->where('egitim_egitims.id', '=', $id)->orderBy('egitim_yorums.created_at', 'desc')->get())
-            ->with('yorumsay', EgitimYorum::where('egitim_id',$id)->get());
+            ->with('egitim', EgitimEgitim::where('id', $id)
+                ->first())
+            ->with('egitmen', 
+                EgitimEgitim::leftJoin('users', 'egitim_egitims.admin', '=', 'users.id')
+                ->where('egitim_egitims.id', '=', $id)
+                ->leftJoin('egitim_kategoris', 'egitim_egitims.kategori_id', '=', 'egitim_kategoris.id')
+                ->where('egitim_egitims.id', '=', $id)
+                ->first())
+            ->with('iceriks', 
+                EgitimIcerik::where('egitim_iceriks.egitim_id','=', $id)
+                ->orderBy('egitim_iceriks.created_at', 'asc')
+                ->get())
+            ->with('sinavs',  
+                EgitimIcerik::rightJoin('egitim_sinavs', 'egitim_sinavs.icerik_id', '=', 'egitim_iceriks.id')
+                ->where('egitim_iceriks.egitim_id', '=', $id)
+                ->get())
+            ->with('yorums', 
+                EgitimEgitim::leftJoin('egitim_yorums', 'egitim_egitims.id', '=', 'egitim_yorums.egitim_id')
+                ->where('egitim_egitims.id', '=', $id)
+                ->orderBy('egitim_yorums.created_at', 'desc')
+                ->get())
+            ->with('yorumsay', 
+                EgitimYorum::where('egitim_id',$id)
+                ->get());
     }
 
     public function egitim_icerik_detay($id)
     {
         return view('egitim.egitim_icerik_detay')            
             ->with('navbars', EgitimNavbar::all())            
-            ->with('icerik', EgitimIcerik::where('egitim_iceriks.id','=', $id)->orderBy('egitim_iceriks.icerik_no', 'asc')->first())
-            ->with('tamamdurumu', UserIcerik::where('user_id',auth()->user()->id)->get());
+            ->with('icerik', 
+                EgitimIcerik::where('egitim_iceriks.id','=', $id)
+                ->orderBy('egitim_iceriks.icerik_no', 'asc')
+                ->first())
+            ->with('tamamdurumu', 
+                UserIcerik::where('user_id',auth()->user()->id)
+                ->get());
     }
 
     public function ders_kayit(Request $request, $id)
@@ -195,12 +246,9 @@ class EgitimController extends Controller
         $icerik_id = $id;
         $egitim_puan = $request->egitim_puan;
         $user_id = auth()->user()->id;
-        print($icerik_id);
-        // print("<br>");
-        print($user_id);
-        // print("<br>");
-        print($egitim_puan);
-        // print("<br>");
+        print($icerik_id);        
+        print($user_id);        
+        print($egitim_puan);        
         
         $user_point = auth()->user()->point;    
         $gelecek_puan = $user_point + $egitim_puan;
@@ -229,10 +277,22 @@ class EgitimController extends Controller
     {
         return view('egitim.sinav_detay')            
             ->with('navbars', EgitimNavbar::all())            
-            ->with('sinav', EgitimSinav::where('egitim_sinavs.id','=', $id)->orderBy('egitim_sinavs.created_at', 'asc')->first())
-            ->with('sorus', EgitimSoru::where('egitim_sorus.sinav_id','=',$id)->orderBy('egitim_sorus.soru_no', 'asc')->get())
-            ->with('cevaps', EgitimCevap::leftJoin('egitim_sorus', 'egitim_cevaps.soru_id', '=', 'egitim_sorus.id')->where('egitim_sorus.sinav_id', '=', $id)->orderBy('egitim_cevaps.cevap_no', 'asc')->get())
-            ->with('tamamdurumu', UserSinav::where('user_id',auth()->user()->id)->get());
+            ->with('sinav', 
+                EgitimSinav::where('egitim_sinavs.id','=', $id)
+                ->orderBy('egitim_sinavs.created_at', 'asc')
+                ->first())
+            ->with('sorus', 
+                EgitimSoru::where('egitim_sorus.sinav_id','=',$id)
+                ->orderBy('egitim_sorus.soru_no', 'asc')
+                ->get())
+            ->with('cevaps', 
+                EgitimCevap::leftJoin('egitim_sorus', 'egitim_cevaps.soru_id', '=', 'egitim_sorus.id')
+                ->where('egitim_sorus.sinav_id', '=', $id)
+                ->orderBy('egitim_cevaps.cevap_no', 'asc')
+                ->get())
+            ->with('tamamdurumu', 
+                UserSinav::where('user_id',auth()->user()->id)
+                ->get());
     }
 
     public function sinavi_tamamla(Request $request, $id)
@@ -243,32 +303,20 @@ class EgitimController extends Controller
 
         $sinav_puan = $request->sinav_puan;
         $user_id = auth()->user()->id;                
-
-
-        // print_r($myArray);
-        // print('<br>');
         
         $dogru = 0;
         $yanlis = 0;
 
         foreach ($myArray as $key) {
-            $c = "cevap".$key;
-            // print($c);
-            // print("<br>");
+            $c = "cevap".$key;            
             print($request->$c);            
-            if(($request->$c) == 1) {
-                // print("doğru");
+            if(($request->$c) == 1) {                
                 $dogru++;
             }
-            else {
-                // print("yanlış");
+            else {             
                 $yanlis++;
             }            
         }    
-        // print("<br>");
-        // print("Doğru: ".$dogru);
-        // print("<br>");
-        // print("Yanlış: ".$yanlis);
 
         $soru_sayisi = $dogru + $yanlis;
         $soru_basina_puan = $sinav_puan / $soru_sayisi;

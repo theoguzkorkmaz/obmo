@@ -39,7 +39,7 @@
         <i class="fas fa-user-cog text-danger"></i>
       </div>
       <div class="info">
-        <a href="#" class="d-block">
+        <a href="/profil/{{auth()->user()->id}}" class="d-block">
           {{auth()->user()->name}}
         </a>        
       </div>
@@ -128,7 +128,7 @@
         @if (count($navbars) != 0)
           @foreach ($navbars as $item)
           @if (($item->ismenu) == 3)
-            <li class="nav-item bg-danger rounded">
+            <li class="nav-item bg-dark text-secondary rounded">
               <a href="{{$item->link}}" class="nav-link" title="{{$item->icerik}}">
                 <i class="{{$item->icon}} nav-icon"></i>
                 <p>{{$item->ad}}</p>
@@ -141,7 +141,7 @@
         @endif        
         <form action="{{ route('logout') }}" method="post">
           @csrf
-          <li class="nav-item rounded">
+          <li class="nav-item rounded mt-1">
             <button type="submit" class="nav-link btn-danger text-white" title="Çıkış yapmak için tıklayınız!">              
               <span><i class="fas fa-sign-out-alt    "></i> Çıkış yap</span>
             </button>

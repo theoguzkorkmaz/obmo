@@ -70,8 +70,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- To the right -->
     <div class="float-right d-none d-sm-inline">
       <div class="d-flex flex-row align-items-center justify-content-center">
-        <p class="text-white mb-0">{{ date('d-m-Y H:i:s') }}</p>
-        <a href="/admin/iletisim" class="nav-link text-white">İletişim</a>
+        <p class="text-white mb-0">{{ date('d-m-Y H:i:s') }}</p>        
       </div>      
     </div>
     <!-- Default to the left -->

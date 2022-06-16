@@ -4,11 +4,11 @@
   <div class="row">
     <div class="col-md-3 col-sm-6 col-12">
       <div class="info-box shadow-none">
-        <span class="info-box-icon bg-info"><i class="far fa-envelope"></i></span>
+        <span class="info-box-icon bg-danger"><i class="far fa-user"></i></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">Kullanıcı sayısı</span>
-          <span class="info-box-number">{{count($users)}}</span>
+          <span class="info-box-text font-weight-bold">Kullanıcı sayısı</span>
+          <span class="info-box-number" style="font-weight: 400; font-size: 0.8rem">{{count($users)}} adet</span>
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -17,11 +17,11 @@
     <!-- /.col -->
     <div class="col-md-3 col-sm-6 col-12">
       <div class="info-box shadow-sm">
-        <span class="info-box-icon bg-success"><i class="far fa-flag"></i></span>
+        <span class="info-box-icon bg-danger"><i class="fas fa-book"></i></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">Eğitim sayısı</span>
-          <span class="info-box-number">{{count($egitims)}}</span>
+          <span class="info-box-text font-weight-bold">Eğitim sayısı</span>
+          <span class="info-box-number" style="font-weight: 400; font-size: 0.8rem">{{count($egitims)}} adet</span>
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -30,11 +30,11 @@
     <!-- /.col -->
     <div class="col-md-3 col-sm-6 col-12">
       <div class="info-box shadow">
-        <span class="info-box-icon bg-warning"><i class="far fa-copy"></i></span>
+        <span class="info-box-icon bg-danger"><i class="fa fa-newspaper" aria-hidden="true"></i></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">Haber sayısı</span>
-          <span class="info-box-number">{{count($habers)}}</span>
+          <span class="info-box-text font-weight-bold">Haber sayısı</span>
+          <span class="info-box-number" style="font-weight: 400; font-size: 0.8rem">{{count($habers)}} adet</span>
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -46,8 +46,8 @@
         <span class="info-box-icon bg-danger"><i class="far fa-star"></i></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">Sosyal mecra sayısı</span>
-          <span class="info-box-number">{{count($sosyals)}}</span>
+          <span class="info-box-text font-weight-bold">Sosyal mecra sayısı</span>
+          <span class="info-box-number" style="font-weight: 400; font-size: 0.8rem">{{count($sosyals)}} adet</span>
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -60,11 +60,11 @@
   <div class="row">
     <div class="col-md-3 col-sm-6 col-12">
       <div class="info-box shadow-none">
-        <span class="info-box-icon bg-info"><i class="far fa-envelope"></i></span>
+        <span class="info-box-icon bg-danger"><i class="far fa-comment"></i></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">Haber yorum sayısı</span>
-          <span class="info-box-number">{{count($hyorums)}}</span>
+          <span class="info-box-text font-weight-bold">Haber yorum sayısı</span>
+          <span class="info-box-number" style="font-weight: 400; font-size: 0.8rem">{{count($hyorums)}} adet</span>
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -73,11 +73,11 @@
     <!-- /.col -->
     <div class="col-md-3 col-sm-6 col-12">
       <div class="info-box shadow-sm">
-        <span class="info-box-icon bg-success"><i class="far fa-flag"></i></span>
+        <span class="info-box-icon bg-danger"><i class="far fa-comment"></i></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">Eğitim yorum sayısı</span>
-          <span class="info-box-number">{{count($eyorums)}}</span>
+          <span class="info-box-text font-weight-bold">Eğitim yorum sayısı</span>
+          <span class="info-box-number" style="font-weight: 400; font-size: 0.8rem">{{count($eyorums)}} adet</span>
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -86,11 +86,11 @@
     <!-- /.col -->
     <div class="col-md-3 col-sm-6 col-12">
       <div class="info-box shadow">
-        <span class="info-box-icon bg-warning"><i class="far fa-copy"></i></span>
+        <span class="info-box-icon bg-danger"><i class="fa fa-question" aria-hidden="true"></i></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">Eğitim soru sayısı</span>
-          <span class="info-box-number">{{count($esorus)}}</span>
+          <span class="info-box-text font-weight-bold">Eğitim soru sayısı</span>
+          <span class="info-box-number" style="font-weight: 400; font-size: 0.8rem">{{count($esorus)}} adet</span>
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -99,11 +99,11 @@
     <!-- /.col -->
     <div class="col-md-3 col-sm-6 col-12">
       <div class="info-box shadow-lg">
-        <span class="info-box-icon bg-danger"><i class="far fa-star"></i></span>
+        <span class="info-box-icon bg-danger"><i class="fa fa-check" aria-hidden="true"></i></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">Eğitim cevap sayısı</span>
-          <span class="info-box-number">{{count($ecevaps)}}</span>
+          <span class="info-box-text font-weight-bold">Eğitim cevap sayısı</span>
+          <span class="info-box-number" style="font-weight: 400; font-size: 0.8rem">{{count($ecevaps)}} adet</span>
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -115,11 +115,11 @@
   <div class="row">
     <div class="col-md-3 col-sm-6 col-12">
       <div class="info-box shadow-none">
-        <span class="info-box-icon bg-info"><i class="far fa-envelope"></i></span>
+        <span class="info-box-icon bg-danger"><i class="fa fa-file" aria-hidden="true"></i></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">Haber kategori sayısı</span>
-          <span class="info-box-number">{{count($hkategoris)}}</span>
+          <span class="info-box-text font-weight-bold">Haber kategori sayısı</span>
+          <span class="info-box-number" style="font-weight: 400; font-size: 0.8rem">{{count($hkategoris)}} adet</span>
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -128,11 +128,11 @@
     <!-- /.col -->
     <div class="col-md-3 col-sm-6 col-12">
       <div class="info-box shadow-sm">
-        <span class="info-box-icon bg-success"><i class="far fa-flag"></i></span>
+        <span class="info-box-icon bg-danger"><i class="fa fa-file" aria-hidden="true"></i></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">Eğitim kategori sayısı</span>
-          <span class="info-box-number">{{count($ekategoris)}}</span>
+          <span class="info-box-text font-weight-bold">Eğitim kategori sayısı</span>
+          <span class="info-box-number" style="font-weight: 400; font-size: 0.8rem">{{count($ekategoris)}} adet</span>
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -141,11 +141,11 @@
     <!-- /.col -->
     <div class="col-md-3 col-sm-6 col-12">
       <div class="info-box shadow">
-        <span class="info-box-icon bg-warning"><i class="far fa-copy"></i></span>
+        <span class="info-box-icon bg-danger"><i class="fa fa-list" aria-hidden="true"></i></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">Haber topbar sayısı</span>
-          <span class="info-box-number">{{count($htopbars)}}</span>
+          <span class="info-box-text font-weight-bold">Haber topbar sayısı</span>
+          <span class="info-box-number" style="font-weight: 400; font-size: 0.8rem">{{count($htopbars)}} adet</span>
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -154,11 +154,11 @@
     <!-- /.col -->
     <div class="col-md-3 col-sm-6 col-12">
       <div class="info-box shadow-lg">
-        <span class="info-box-icon bg-danger"><i class="far fa-star"></i></span>
+        <span class="info-box-icon bg-danger"><i class="fa fa-list" aria-hidden="true"></i></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">Eğitim navbar sayısı</span>
-          <span class="info-box-number">{{count($enavbars)}}</span>
+          <span class="info-box-text font-weight-bold">Eğitim navbar sayısı</span>
+          <span class="info-box-number" style="font-weight: 400; font-size: 0.8rem">{{count($enavbars)}} adet</span>
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -170,11 +170,11 @@
   <div class="row">
     <div class="col-md-3 col-sm-6 col-12">
       <div class="info-box shadow-none">
-        <span class="info-box-icon bg-info"><i class="far fa-envelope"></i></span>
+        <span class="info-box-icon bg-danger"><i class="fa fa-user-plus" aria-hidden="true"></i></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">Eğitim puanlanma sayısı</span>
-          <span class="info-box-number">{{count($epuans)}}</span>
+          <span class="info-box-text font-weight-bold">Puanlanma sayısı</span>
+          <span class="info-box-number" style="font-weight: 400; font-size: 0.8rem">{{count($epuans)}} adet</span>
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -183,11 +183,11 @@
     <!-- /.col -->
     <div class="col-md-3 col-sm-6 col-12">
       <div class="info-box shadow-sm">
-        <span class="info-box-icon bg-success"><i class="far fa-flag"></i></span>
+        <span class="info-box-icon bg-danger"><i class="fa fa-paint-brush" aria-hidden="true"></i></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">Eğitim içerik sayısı</span>
-          <span class="info-box-number">{{count($eiceriks)}}</span>
+          <span class="info-box-text font-weight-bold">Eğitim içerik sayısı</span>
+          <span class="info-box-number" style="font-weight: 400; font-size: 0.8rem">{{count($eiceriks)}} adet</span>
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -196,11 +196,11 @@
     <!-- /.col -->
     <div class="col-md-3 col-sm-6 col-12">
       <div class="info-box shadow">
-        <span class="info-box-icon bg-warning"><i class="far fa-copy"></i></span>
+        <span class="info-box-icon bg-danger"><i class="fa fa-question" aria-hidden="true"></i></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">Eğitim sınav sayısı</span>
-          <span class="info-box-number">{{count($esinavs)}}</span>
+          <span class="info-box-text font-weight-bold">Eğitim sınav sayısı</span>
+          <span class="info-box-number" style="font-weight: 400; font-size: 0.8rem">{{count($esinavs)}} adet</span>
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -209,11 +209,11 @@
     <!-- /.col -->
     <div class="col-md-3 col-sm-6 col-12">
       <div class="info-box shadow-lg">
-        <span class="info-box-icon bg-danger"><i class="far fa-star"></i></span>
+        <span class="info-box-icon bg-danger"><i class="fa fa-paint-brush" aria-hidden="true"></i></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">Haber sayfa sayısı</span>
-          <span class="info-box-number">{{count($hsayfas)}}</span>
+          <span class="info-box-text font-weight-bold">Haber sayfa sayısı</span>
+          <span class="info-box-number" style="font-weight: 400; font-size: 0.8rem">{{count($hsayfas)}} adet</span>
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -233,7 +233,7 @@
     <a href="/admin/haber/haber_sayfas" class="col-md-3 col-sm-6 col-12">
       <div class="info-box shadow-lg">        
         <div class="info-box-content">
-          <span class="info-box-text text-center">Haber | Sayfalar</span>          
+          <span class="info-box-text font-weight-bold text-center">Haber | Sayfalar</span>          
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -243,7 +243,7 @@
     <a href="/admin/haber/habers" class="col-md-3 col-sm-6 col-12">
       <div class="info-box shadow-lg">        
         <div class="info-box-content">
-          <span class="info-box-text text-center">Haber | Haber</span>          
+          <span class="info-box-text font-weight-bold text-center">Haber | Haber</span>          
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -253,7 +253,7 @@
     <a href="/admin/haber/haber_kategoris" class="col-md-3 col-sm-6 col-12">
       <div class="info-box shadow-lg">        
         <div class="info-box-content">
-          <span class="info-box-text text-center">Haber | Kategori</span>          
+          <span class="info-box-text font-weight-bold text-center">Haber | Kategori</span>          
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -263,7 +263,7 @@
     <a href="/admin/haber/haber_topbars" class="col-md-3 col-sm-6 col-12">
       <div class="info-box shadow-lg">        
         <div class="info-box-content">
-          <span class="info-box-text text-center">Haber | Topbar</span>          
+          <span class="info-box-text font-weight-bold text-center">Haber | Topbar</span>          
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -273,7 +273,7 @@
     <a href="/admin/haber/haber_yorums" class="col-md-3 col-sm-6 col-12">
       <div class="info-box shadow-lg">        
         <div class="info-box-content">
-          <span class="info-box-text text-center">Haber | Yorum</span>          
+          <span class="info-box-text font-weight-bold text-center">Haber | Yorum</span>          
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -283,7 +283,7 @@
     <a href="/admin/egitim/egitim_kategoris" class="col-md-3 col-sm-6 col-12">
       <div class="info-box shadow-lg">        
         <div class="info-box-content">
-          <span class="info-box-text text-center">Eğitim | Kategori</span>          
+          <span class="info-box-text font-weight-bold text-center">Eğitim | Kategori</span>          
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -293,7 +293,7 @@
     <a href="/admin/egitim/egitims" class="col-md-3 col-sm-6 col-12">
       <div class="info-box shadow-lg">        
         <div class="info-box-content">
-          <span class="info-box-text text-center">Eğitim | Eğitimler</span>          
+          <span class="info-box-text font-weight-bold text-center">Eğitim | Eğitimler</span>          
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -303,7 +303,7 @@
     <a href="/admin/egitim/egitim_iceriks" class="col-md-3 col-sm-6 col-12">
       <div class="info-box shadow-lg">        
         <div class="info-box-content">
-          <span class="info-box-text text-center">Eğitim | İçerik</span>          
+          <span class="info-box-text font-weight-bold text-center">Eğitim | İçerik</span>          
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -313,7 +313,7 @@
     <a href="/admin/egitim/egitim_sinavs" class="col-md-3 col-sm-6 col-12">
       <div class="info-box shadow-lg">        
         <div class="info-box-content">
-          <span class="info-box-text text-center">Eğitim | Sınav</span>          
+          <span class="info-box-text font-weight-bold text-center">Eğitim | Sınav</span>          
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -323,7 +323,7 @@
     <a href="/admin/egitim/egitim_yorums" class="col-md-3 col-sm-6 col-12">
       <div class="info-box shadow-lg">        
         <div class="info-box-content">
-          <span class="info-box-text text-center">Eğitim | Yorum</span>          
+          <span class="info-box-text font-weight-bold text-center">Eğitim | Yorum</span>          
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -333,7 +333,7 @@
     <a href="/admin/egitim/egitim_sorus" class="col-md-3 col-sm-6 col-12">
       <div class="info-box shadow-lg">        
         <div class="info-box-content">
-          <span class="info-box-text text-center">Eğitim | Soru</span>          
+          <span class="info-box-text font-weight-bold text-center">Eğitim | Soru</span>          
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -343,7 +343,7 @@
     <a href="/admin/egitim/egitim_cevaps" class="col-md-3 col-sm-6 col-12">
       <div class="info-box shadow-lg">        
         <div class="info-box-content">
-          <span class="info-box-text text-center">Eğitim | Cevap</span>          
+          <span class="info-box-text font-weight-bold text-center">Eğitim | Cevap</span>          
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -353,7 +353,7 @@
     <a href="/admin/egitim/egitim_puans" class="col-md-3 col-sm-6 col-12">
       <div class="info-box shadow-lg">        
         <div class="info-box-content">
-          <span class="info-box-text text-center">Eğitim | Puan</span>          
+          <span class="info-box-text font-weight-bold text-center">Eğitim | Puan</span>          
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -363,7 +363,7 @@
     <a href="/admin/egitim/egitim_navbars" class="col-md-3 col-sm-6 col-12">
       <div class="info-box shadow-lg">        
         <div class="info-box-content">
-          <span class="info-box-text text-center">Eğitim | Navbar</span>          
+          <span class="info-box-text font-weight-bold text-center">Eğitim | Navbar</span>          
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -373,7 +373,7 @@
     <a href="/admin/sosyals" class="col-md-3 col-sm-6 col-12">
       <div class="info-box shadow-lg">        
         <div class="info-box-content">
-          <span class="info-box-text text-center">Admin | Sosyal Medya</span>          
+          <span class="info-box-text font-weight-bold text-center">Admin | Sosyal Medya</span>          
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -383,7 +383,7 @@
     <a href="/admin/admin/admin_navbars" class="col-md-3 col-sm-6 col-12">
       <div class="info-box shadow-lg">        
         <div class="info-box-content">
-          <span class="info-box-text text-center">Admin | Navbar</span>          
+          <span class="info-box-text font-weight-bold text-center">Admin | Navbar</span>          
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -393,7 +393,7 @@
     <a href="/admin/adminlik" class="col-md-3 col-sm-6 col-12">
       <div class="info-box shadow-lg">        
         <div class="info-box-content">
-          <span class="info-box-text text-center">Admin | Adminlik</span>          
+          <span class="info-box-text font-weight-bold text-center">Admin | Adminlik</span>          
         </div>
         <!-- /.info-box-content -->
       </div>

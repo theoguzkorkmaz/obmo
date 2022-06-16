@@ -12,4 +12,4 @@
   <x-haber_carousel :gundem="$gundem" :gundems="$gundems" :basliks="$basliks"></x-haber_carousel>
   <x-haber_index_haberler :habers="$habers"></x-haber_index_haberler>
   <x-haber_bunlari_kacirma_yatay :kacirmas="$kacirmas"></x-haber_bunlari_kacirma_yatay>  
-</x-haber_layout>
+</x-haber_layout> 

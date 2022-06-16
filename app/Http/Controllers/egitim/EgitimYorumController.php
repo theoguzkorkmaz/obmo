@@ -48,7 +48,8 @@ class EgitimYorumController extends Controller
           'icerik' => $request->baslik." oluşturuldu."
         ]);
 
-				return redirect('/admin/egitim/egitim_yorums')->with('success', 'Eğitim yorum başarı ile oluşturuldu!');
+				return redirect('/admin/egitim/egitim_yorums')
+          ->with('success', 'Eğitim yorum başarı ile oluşturuldu!');
     }
 
     /**
@@ -91,7 +92,8 @@ class EgitimYorumController extends Controller
         'icerik' => $request->baslik." güncellendi."
       ]);
 
-      return redirect('/admin/egitim/egitim_yorums')->with('success', 'Eğitim yorum başarı ile güncellendi!');
+      return redirect('/admin/egitim/egitim_yorums')
+        ->with('success', 'Eğitim yorum başarı ile güncellendi!');
     }
 
     /**
@@ -109,7 +111,8 @@ class EgitimYorumController extends Controller
         'icerik' => $egitim_yorum->baslik." silindi."
       ]);
 
-      return redirect('/admin/egitim/egitim_yorums')->with('success', 'Eğitim yorum başarı ile silindi!');
+      return redirect('/admin/egitim/egitim_yorums')
+        ->with('success', 'Eğitim yorum başarı ile silindi!');
     }
 
 		/**

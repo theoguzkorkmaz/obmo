@@ -15,10 +15,10 @@
                     <img src="{{$item->resim ? asset('storage/'.$item->resim) : asset('/images/no-image.png')}}" class="card-img-top" alt="{{Str::limit($item->baslik, 30)}}" title="{{Str::limit($item->baslik, 30)}}">
                     <div class="card-body">
                       <h5 class="card-title">{{$item->baslik}}</h5>                        
-                      <p>Açıklama: <span>{{ Str::limit($item->aciklama, 40) }}</span></p>
+                      <p>Açıklama: <span>{!!  substr(strip_tags($item->aciklama), 0, 65) !!} ...</span></p>
                       <p class="text-center mt-2"><i class="{{$item->icon}}"></i></p>
                     </div>
-                  </a>
+                  </a> 
                 </div>
               @endforeach
             </div><!-- /content -->

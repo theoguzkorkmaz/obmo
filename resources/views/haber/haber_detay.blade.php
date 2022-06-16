@@ -14,6 +14,7 @@
     <div class="row">
       <main class="col-md-8">
         <img src="{!! $haber2->resim ? asset('storage/'.$haber2->resim) : asset('/images/no-image.png') !!}" alt="{{$haber2->baslik}}" class="w-100 rounded"/>  
+        <small class="bg-dark w-full d-block mt-1 rounded py-1 px-2 text-white"><span class="text-warning fw-bold">Resim:</span> {{$haber2->resim_aciklama}}</small>
         <x-haber_detay_detay :haber="$haber"></x-haber_detay_detay>        
         <x-haber_detay_yorum :yorums="$yorums" :habert="$habert"></x-haber_detay_yorum>
       </main> <!-- /main -->

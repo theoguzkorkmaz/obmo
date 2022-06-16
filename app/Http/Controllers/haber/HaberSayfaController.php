@@ -17,7 +17,8 @@ class HaberSayfaController extends Controller
      */
     public function create()
     {
-			return view('admin.haber.sayfa.create')->with('navbars', AdminNavbar::all());
+			return view('admin.haber.sayfa.create')
+        ->with('navbars', AdminNavbar::all());
     }
 
     /**
@@ -48,7 +49,8 @@ class HaberSayfaController extends Controller
         'icerik' => $request->ad." oluşturuldu."
       ]);
 
-			return redirect('/admin/haber/haber_sayfas')->with('success', 'Haber sayfa başarı ile oluşturuldu!'); 
+			return redirect('/admin/haber/haber_sayfas')
+        ->with('success', 'Haber sayfa başarı ile oluşturuldu!'); 
     }
 
     /**
@@ -94,7 +96,8 @@ class HaberSayfaController extends Controller
         'icerik' => $request->ad." güncellendi."
       ]);
 
-      return redirect('/admin/haber/haber_sayfas')->with('success', 'Haber sayfa başarı ile güncellendi!');
+      return redirect('/admin/haber/haber_sayfas')
+        ->with('success', 'Haber sayfa başarı ile güncellendi!');
     }
 
     /**
@@ -112,7 +115,8 @@ class HaberSayfaController extends Controller
         'icerik' => $haber_sayfa->ad." silindi."
       ]);
 
-      return redirect('/admin/haber/haber_sayfas')->with('success', 'Haber sayfa başarı ile silindi!');
+      return redirect('/admin/haber/haber_sayfas')
+        ->with('success', 'Haber sayfa başarı ile silindi!');
     }
 
 		/**

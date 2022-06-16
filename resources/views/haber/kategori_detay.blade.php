@@ -4,7 +4,7 @@
 
 <x-haber_layout :topbars="$topbars" :kategoris="$kategoris" :sayfas="$sayfas" :fhabers="$fhabers" :sosyals="$sosyals">
   <div class="container p-md-0" id="kategori_baslik">    
-    <h2 class="baslik"><i class="{{$kategori->icon}}"></i> {{$kategori->ad}}</h2>
+    <h2 class="baslik text-uppercase"><i class="{{$kategori->icon}} me-3"></i> {{$kategori->ad}}</h2>
   </div><!-- /kategori_nav -->
 
   <x-haber_carousel :gundem="$gundem" :gundems="$gundems" :basliks="$basliks"></x-haber_carousel>

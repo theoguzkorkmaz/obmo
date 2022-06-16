@@ -16,7 +16,8 @@ class SosyalController extends Controller
      */
     public function create()
     {
-      return view('admin.sosyal.create')->with('navbars', AdminNavbar::all());
+      return view('admin.sosyal.create')
+        ->with('navbars', AdminNavbar::all());
     }
 
     /**
@@ -43,7 +44,8 @@ class SosyalController extends Controller
         'icerik' => $request->ad." oluşturuldu."
       ]);
 
-			return redirect('/admin/sosyals')->with('success', 'Sosyal mecra başarı ile oluşturuldu!');
+			return redirect('/admin/sosyals')
+        ->with('success', 'Sosyal mecra başarı ile oluşturuldu!');
     }
 
     /**
@@ -85,7 +87,8 @@ class SosyalController extends Controller
         'icerik' => $request->ad." güncellendi."
       ]);
 
-      return redirect('/admin/sosyals')->with('success', 'Sosyal mecra başarı ile güncellendi!');
+      return redirect('/admin/sosyals')
+        ->with('success', 'Sosyal mecra başarı ile güncellendi!');
     }
 
     /**
@@ -103,7 +106,8 @@ class SosyalController extends Controller
         'icerik' => $sosyal->ad." silindi."
       ]);
 
-      return redirect('/admin/sosyals')->with('success', 'Sosyal mecra başarı ile silindi!');
+      return redirect('/admin/sosyals')
+        ->with('success', 'Sosyal mecra başarı ile silindi!');
     }
 
 		/**

@@ -33,6 +33,7 @@
 
     </div><!-- /anasayfa-derslerim -->    
   @else
-    <p>Kategoriler yüklenemedi, lütfen tekrar deneyiniz.</p>
+    <p>Henüz daha sonra izlemek için bir eğitim eklememişsiniz.</p>
+    <a class="btn btn-warning my-3 w-25 rounded py-2 px-4" href="/egitim" role="button">Anasayfaya dön</a>
   @endif
 </x-egitim_layout>
