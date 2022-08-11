@@ -14,4 +14,4 @@ Proje 3 bölümden oluşmaktadır. Bunun temel nedeni ise başlıca bir "ekosist
 - Yönetim kısmı, tüm ekosistemin yönetildiği kısımdır. Burada istersek haber, haber kategorisi ekleyebilir, istersekte eğitim ekleyebilir, eğitimlere gelen yorumları onaylayabiliriz.
 - Yönetim kısmına kullanıcı girişi yapmadan erişilememektedir ancak bununla sınırlı değil, giriş yapacak olan kullanıcının *user_type*'ı **Administrator** olmalıdır. Bunu da en üst yetkili kişi gerektiği kullanıcılara verebileceği şekilde düzenlenmiştir.
 
-- theoguzkorkmaz.
+theoguzkorkmaz.
