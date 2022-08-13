@@ -169,9 +169,7 @@ class HaberController extends Controller
 
         $client = new \GuzzleHttp\Client();        
         $msg = $request->baslik." yorumu sisteme ".auth()->user()->name." tarafından eklendi.";
-        $request_url = 'https://api.telegram.org/
-            bot5498794643:AAHByItGuGCqmaEn2chW4EVyEC8w0h2z6t0/
-            sendMessage?chat_id=1055988705&text='.$msg;        
+        $request_url = '';     
         $res = $client->get($request_url);
 
         return redirect()->back()->with('success', 'Yorum başarı ile alnımıştır, onaylandıktan sonraa görülebilir!');
